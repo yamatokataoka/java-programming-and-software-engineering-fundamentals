@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=Part2
-comment0.text=\n\ Write\ a\ description\ of\ Part2\ here.\n\ \n\ @author\ Yamato\ \n\ @version\ 2019/9/2\n
-comment1.params=stringa\ stringb
-comment1.target=int\ howMany(java.lang.String,\ java.lang.String)
-comment2.params=
-comment2.target=void\ testHowMany()
-numComments=3

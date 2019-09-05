@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.target=Part2
-comment0.text=\n\ Write\ a\ description\ of\ Part2\ here.\n\ \n\ @author\ Yamato\ Kataoka\ \n\ @version\ 20190905\n
-comment1.params=input
-comment1.target=void\ findAbc(java.lang.String)
-comment2.params=
-comment2.target=void\ test()
-numComments=3
