@@ -1,3 +1,4 @@
 # igonre .class file
 *.class
 .DS_Store
+README.TXT
