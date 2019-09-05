@@ -1,2 +1,3 @@
 # igonre .class file
 *.class
+.DS_Store
