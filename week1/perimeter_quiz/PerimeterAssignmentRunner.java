@@ -31,20 +31,47 @@ public class PerimeterAssignmentRunner {
         }
         return count;
     }
-
+    
+    // Complete writing the method getAverageLength
     public double getAverageLength(Shape s) {
-        // Put code here
-        return 0.0;
+        // This method returns a number of type double that is 
+        // the calculated average of all the sides’ lengths 
+        // in the Shape S.
+        double average = getPerimeter(s) / getNumPoints(s);
+        return average;
     }
-
+    
+    // Complete writing the method getLargestSide
     public double getLargestSide(Shape s) {
-        // Put code here
-        return 0.0;
+        // This method returns a number of type double that is 
+        // the longest side in the Shape S.
+        double largestSide = 0.0;
+        Point prevPt = s.getLastPoint();
+        for (Point currPt : s.getPoints()) {
+            // Find side from prevPt point to currPt 
+            double currSide = prevPt.distance(currPt);
+            if (largestSide < currSide) {
+                largestSide = currSide;
+            }
+            // Update prevPt to be currPt
+            prevPt = currPt;
+        }
+        return largestSide;
     }
-
+    
+    // Complete writing the method getLargestX
     public double getLargestX(Shape s) {
-        // Put code here
-        return 0.0;
+        // This method returns a number of type double that is the 
+        // largest x value over all the points in the Shape s.
+        double largestX = 0.0;
+        for (Point currPt : s.getPoints()) {
+            // Find side from prevPt point to currPt 
+            double currX = currPt.getX();
+            if (largestX < currX) {
+                largestX = currX;
+            }
+        }
+        return largestX;
     }
 
     public double getLargestPerimeterMultipleFiles() {
@@ -68,6 +95,21 @@ public class PerimeterAssignmentRunner {
         // to call getNumPoints and to print the result.
         int numPoints = getNumPoints(s);
         System.out.println("The number of points = " + numPoints);
+        
+        // Add code in the method testPerimeter to call the method 
+        // getAverageLength and to print out the result
+        double average = getAverageLength(s);
+        System.out.println("The average length = " + average);
+        
+        // Add code in the method testPerimeter to call the method 
+        // getLargestSide and to print out the result.
+        double largestSide = getLargestSide(s);
+        System.out.println("The largest side = " + largestSide);
+        
+        // Add code in the method testPerimeter to call the method 
+        // getLargestX and to print out the result. 
+        double largestX = getLargestX(s);
+        System.out.println("The largest X = " + largestX);
     }
     
     public void testPerimeterMultipleFiles() {
