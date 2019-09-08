@@ -38,6 +38,8 @@ public class Part2 {
         return cgRatio;
     }
     
+    // Write a method countCTG that has one String parameter dna, 
+    // and returns the number of times the codon CTG appears in dna.
     private int countCTG(String dna) {
         int count = 0;
         int startIndex = 0;
