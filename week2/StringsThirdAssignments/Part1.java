@@ -167,7 +167,7 @@ public class Part1 {
         System.out.println("Testing printAllGenes on " + dna);
         StorageResource store = getAllGenes(dna);
         for (String g : store.data()) {
-            System.out.println(g);
+
         }
     }
     
