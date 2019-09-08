@@ -14,6 +14,8 @@ public class Part3 {
     // which is a StorageResource of strings. 
     // This method processes all the strings in sr to find out 
     // information about them.
+    // * Modify your processGenes method so that it prints all the 
+    // Strings that are longer than 60 characters
     private void processGenes (StorageResource sr) {
         int Count9C = 0;
         int countCG = 0;
@@ -21,8 +23,8 @@ public class Part3 {
         for (String gene : sr.data()) {
             // print all the Strings in sr that are 
             // longer than 9 characters
-            if (gene.length() > 9) {
-                System.out.println("String that are longer than 9 characters is " 
+            if (gene.length() > 60) {
+                System.out.println("String that are longer than 60 characters is " 
                                     + gene);
                 Count9C++;
             }
@@ -43,7 +45,7 @@ public class Part3 {
         }
         // print the number of Strings in sr that are 
         // longer than 9 characters
-        System.out.println("Number of string that are longer than 9 characters is "
+        System.out.println("Number of string that are longer than 60 characters is "
                             + Count9C);
         
         // print the number of strings in sr whose C-G-ratio is 
@@ -118,6 +120,24 @@ public class Part3 {
         dna = "ATGxxxGGGTAAxxxATGxxxyyyTAG";
         System.out.println("Testing dna is " + dna);
         store = part1.getAllGenes(dna);
+        processGenes(store);
+    }
+    
+    // test testProcessGenes with real DNA
+    // Modify the method testProcessGenes to call processGenes 
+    // with a StorageResource of the genes found in the file 
+    // brca1line.fa.
+    public void testProcessGenesWithFile() {
+        // Call Part1 class
+        Part1 part1 = new Part1();
+        // You can use a FileResource to open the file and the
+        // FileResource method asString to convert the contents of
+        // the file to a single string so that you can use it
+        FileResource fr = new FileResource("brca1line.fa");
+        String dna = fr.asString();
+        dna = dna.toUpperCase();
+        System.out.println("Testing dna is " + dna);
+        StorageResource store = part1.getAllGenes(dna);
         processGenes(store);
     }
 }

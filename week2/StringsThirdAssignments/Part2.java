@@ -10,7 +10,7 @@ public class Part2 {
     // and returns the ratio of C’s and G’s in dna as a fraction of 
     // the entire strand of DNA.
     private double cgRatio(String dna) {
-        double count = 0;
+        int count = 0;
         int startIndex = 0;
         int currentIndex = 0;
         String C = "C";
@@ -34,8 +34,7 @@ public class Part2 {
             count++;
             startIndex = dna.indexOf(G, startIndex) + 1;
         }
-        double cgRatio = count / dna.length();
-        return cgRatio;
+        return ((double) count)/dna.length();
     }
     
     // Write a method countCTG that has one String parameter dna, 
