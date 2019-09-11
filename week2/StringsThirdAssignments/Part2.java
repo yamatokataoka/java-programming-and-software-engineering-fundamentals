@@ -5,6 +5,9 @@
  * @author yamatokataoka
  * @version 09/08/2019
  */
+
+import edu.duke.FileResource;
+
 public class Part2 {
     // Write the method cgRatio that has one String parameter dna, 
     // and returns the ratio of C’s and G’s in dna as a fraction of 
@@ -78,6 +81,21 @@ public class Part2 {
         dna = "ATGxxxCTGxxxyyyzzzCTG";
         System.out.println("Testing dna is " + dna);
         countCTG = countCTG(dna);
+        System.out.println("the number of CTG is " + countCTG);
+    }
+    
+    // String in Java quiz
+    public void testCountCTGWithFile() {
+        // Call Part1 class
+        Part1 part1 = new Part1();
+        // You can use a FileResource to open the file and the
+        // FileResource method asString to convert the contents of
+        // the file to a single string so that you can use it
+        FileResource fr = new FileResource("GRch38dnapart.fa");
+        String dna = fr.asString();
+        dna = dna.toUpperCase();
+        System.out.println("Testing dna is " + dna);
+        int countCTG = countCTG(dna);
         System.out.println("the number of CTG is " + countCTG);
     }
 }

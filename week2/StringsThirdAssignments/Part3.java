@@ -133,7 +133,7 @@ public class Part3 {
         // You can use a FileResource to open the file and the
         // FileResource method asString to convert the contents of
         // the file to a single string so that you can use it
-        FileResource fr = new FileResource("brca1line.fa");
+        FileResource fr = new FileResource("GRch38dnapart.fa");
         String dna = fr.asString();
         dna = dna.toUpperCase();
         System.out.println("Testing dna is " + dna);
