@@ -20,8 +20,13 @@ public class ParsingExportData {
         String country = "Germany";
         System.out.println("Look info for " + country);
         System.out.println("The country info is " + countryInfo(parser, country));
+        
+        // test listExportersTwoProducts
         // reset the parser
         parser = fr.getCSVParser();
+        String exportItem1 = "gold";
+        String exportItem2 = "diamonds";
+        listExportersTwoProducts(parser, exportItem1, exportItem2);
     }
     
     // Write a method named countryInfo that has two parameters, 
@@ -37,5 +42,21 @@ public class ParsingExportData {
             }
         }
         return "NOT FOUND";
+    }
+    
+    // Write a void method named listExportersTwoProducts that has 
+    // three parameters, parser is a CSVParser, exportItem1 is a String 
+    // and exportItem2 is a String.
+    // This method prints the names of all the countries that have 
+    // both exportItem1 and exportItem2 as export items.
+    private void listExportersTwoProducts (CSVParser parser
+                                            , String exportItem1
+                                            , String exportItem2) {
+        for (CSVRecord record : parser) {
+            String exports = record.get("Exports");
+            if (exports.contains(exportItem1) && exports.contains(exportItem2)) {
+                System.out.println(record.get("Country"));
+            }
+        }
     }
 }
