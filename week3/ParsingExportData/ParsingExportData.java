@@ -27,6 +27,13 @@ public class ParsingExportData {
         String exportItem1 = "gold";
         String exportItem2 = "diamonds";
         listExportersTwoProducts(parser, exportItem1, exportItem2);
+        
+        // test numberOfExporters
+        // reset the parser
+        parser = fr.getCSVParser();
+        String exportItem = "gold";
+        System.out.println("The number of exporters of " + exportItem + " is "
+                            + numberOfExporters(parser, exportItem));
     }
     
     // Write a method named countryInfo that has two parameters, 
@@ -58,5 +65,19 @@ public class ParsingExportData {
                 System.out.println(record.get("Country"));
             }
         }
+    }
+    
+    // Write a method named numberOfExporters, which has two parameters, 
+    // parser is a CSVParser, and exportItem is a String. 
+    // This method returns the number of countries that export exportItem.
+    private int numberOfExporters (CSVParser parser, String exportItem) {
+        int count = 0;
+        for (CSVRecord record : parser) {
+            String exports = record.get("Exports");
+            if (exports.contains(exportItem)) {
+                count++;
+            }
+        }
+        return count;
     }
 }
