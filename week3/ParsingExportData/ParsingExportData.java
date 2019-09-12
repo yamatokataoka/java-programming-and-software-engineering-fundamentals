@@ -16,6 +16,10 @@ public class ParsingExportData {
         FileResource fr = new FileResource();
         CSVParser parser = fr.getCSVParser();
         
+        // test countryInfo method
+        String country = "Germany";
+        System.out.println("Look info for " + country);
+        System.out.println("The country info is " + countryInfo(parser, country));
         // reset the parser
         parser = fr.getCSVParser();
     }
@@ -24,7 +28,14 @@ public class ParsingExportData {
     // parser is a CSVParser and country is a String.
     // This method returns a string
     private String countryInfo (CSVParser parser, String country) {
-        
-        return "";
+        // for each row in CSV file
+        for (CSVRecord record : parser) {
+            String countryOfRow = record.get("Country");
+            if (countryOfRow.equals(country)) {
+                return countryOfRow + ": " + record.get("Exports")
+                       + ": " + record.get("Value (dollars)");
+            }
+        }
+        return "NOT FOUND";
     }
 }
