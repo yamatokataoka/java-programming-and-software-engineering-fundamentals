@@ -34,6 +34,13 @@ public class ParsingExportData {
         String exportItem = "gold";
         System.out.println("The number of exporters of " + exportItem + " is "
                             + numberOfExporters(parser, exportItem));
+        
+        // test bigExporters
+        // reset the parser
+        parser = fr.getCSVParser();
+        String amount = "$999,999,999";
+        System.out.println("amout is " + amount);
+        bigExporters(parser, amount);
     }
     
     // Write a method named countryInfo that has two parameters, 
@@ -79,5 +86,20 @@ public class ParsingExportData {
             }
         }
         return count;
+    }
+    
+    // Write a void method named bigExporters that has two parameters, 
+    // parser is a CSVParser, and amount is a String
+    // This method prints the names of countries and their Value amount for 
+    // all countries whose Value (dollars) string is longer than 
+    // the amount string.
+    private void bigExporters (CSVParser parser, String amount) {
+        for (CSVRecord record : parser) {
+            String value = record.get("Value (dollars)");
+            if (value.length() > amount.length()) {
+                System.out.println(record.get("Country") + " " 
+                                        + value);
+            }
+        }
     }
 }
