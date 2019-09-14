@@ -17,15 +17,17 @@ public class ParsingExportData {
         CSVParser parser = fr.getCSVParser();
         
         // test countryInfo method
-        String country = "Germany";
+        String country = "Nauru";
         System.out.println("Look info for " + country);
         System.out.println("The country info is " + countryInfo(parser, country));
         
         // test listExportersTwoProducts
         // reset the parser
         parser = fr.getCSVParser();
-        String exportItem1 = "gold";
-        String exportItem2 = "diamonds";
+        String exportItem1 = "fish";
+        String exportItem2 = "nuts";
+        System.out.println("Exports items are " + exportItem1 +" and "
+                            + exportItem2);
         listExportersTwoProducts(parser, exportItem1, exportItem2);
         
         // test numberOfExporters
@@ -38,7 +40,7 @@ public class ParsingExportData {
         // test bigExporters
         // reset the parser
         parser = fr.getCSVParser();
-        String amount = "$999,999,999";
+        String amount = "$999,999,999,999";
         System.out.println("amout is " + amount);
         bigExporters(parser, amount);
     }
