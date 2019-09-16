@@ -81,6 +81,32 @@ public class ParsingWeatherData {
         return lowestHumidityRecord;
     }
 
+    // Write the method lowestHumidityInManyFiles that has no parameters. This method returns
+    // a CSVRecord that has the lowest humidity over all the files.
+    private CSVRecord lowestHumidityInManyFiles () {
+        DirectoryResource dr = new DirectoryResource();
+        CSVRecord lowestHumidityRecord = null;
+        String coldestDay = "";
+        for (File f : dr.selectedFiles()) {
+            FileResource fr = new FileResource(f);
+            CSVRecord currentRecord = lowestHumidityInFile(fr.getCSVParser());
+            if (currentRecord.get("Humidity") != "N/A") {
+                if (lowestHumidityRecord == null) {
+                    lowestHumidityRecord = currentRecord;
+                }
+                else {
+                    double lowest = Double.parseDouble(lowestHumidityRecord.get("Humidity"));
+                    double current = Double.parseDouble(currentRecord.get("Humidity"));
+
+                    if (lowest > current) {
+                        lowestHumidityRecord = currentRecord;
+                    }
+                }
+            }
+        }
+        return lowestHumidityRecord;
+    }
+
     // You should also write a void method named testColdestHourInFile() to 
     // test this method and print out information
     public void testColdestHourInFile () {
@@ -98,7 +124,7 @@ public class ParsingWeatherData {
     }
 
     // You should also write a void method named testFileWithColdestTemperature() 
-    // to test this method.
+    // to test coldestHourInFile method.
     public void testFileWithColdestTemperature () {
         String coldestDay = fileWithColdestTemperature();
         System.out.println("Coldest day was in file " + coldestDay);
@@ -119,5 +145,13 @@ public class ParsingWeatherData {
         CSVRecord lowestHumidityRecord = lowestHumidityInFile(parser);
         System.out.println("Lowest Humidity was " + lowestHumidityRecord.get("Humidity") +
                             " at " + lowestHumidityRecord.get("DateUTC"));
+    }
+
+    // You should also write a void method named testLowestHumidityInManyFiles() 
+    // to test lowestHumidityInManyFiles method
+    public void testLowestHumidityInManyFiles () {
+        CSVRecord lowestHumidityDay = lowestHumidityInManyFiles();
+        System.out.println("Lowest Humidity was " + lowestHumidityDay.get("Humidity") +
+                            " at " + lowestHumidityDay.get("DateUTC"));
     }
 }
