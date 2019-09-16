@@ -107,6 +107,24 @@ public class ParsingWeatherData {
         return lowestHumidityRecord;
     }
 
+    // Write the method averageTemperatureInFile that has one parameter, 
+    // a CSVParser named parser.
+    // This method returns a double that represents the average temperature in the file. 
+    private double averageTemperatureInFile (CSVParser parser) {
+        double averageTemperature = 0.0;
+        double totalTemp = 0.0;
+        int totalNum = 0;
+        for (CSVRecord currentRecord : parser) {
+            double currentTemp = Double.parseDouble(currentRecord.get("TemperatureF"));
+
+            if (currentTemp != -9999) {
+                totalTemp += currentTemp;
+                totalNum++;
+            }
+        }
+        return totalTemp / totalNum;
+    }
+
     // You should also write a void method named testColdestHourInFile() to 
     // test this method and print out information
     public void testColdestHourInFile () {
@@ -153,5 +171,14 @@ public class ParsingWeatherData {
         CSVRecord lowestHumidityDay = lowestHumidityInManyFiles();
         System.out.println("Lowest Humidity was " + lowestHumidityDay.get("Humidity") +
                             " at " + lowestHumidityDay.get("DateUTC"));
+    }
+
+    // You should also write a void method named testAverageTemperatureInFile() 
+    // to test averageTemperatureInFile method.
+    public void testAverageTemperatureInFile () {
+        FileResource fr = new FileResource();
+        CSVParser parser = fr.getCSVParser();
+        double averageTemperature = averageTemperatureInFile(parser);
+        System.out.println("Average temperature in file is " + averageTemperature);
     }
 }
