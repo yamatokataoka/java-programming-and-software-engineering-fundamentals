@@ -24,8 +24,8 @@ public class ParsingExportData {
         // test listExportersTwoProducts
         // reset the parser
         parser = fr.getCSVParser();
-        String exportItem1 = "fish";
-        String exportItem2 = "nuts";
+        String exportItem1 = "cotton";
+        String exportItem2 = "flowers";
         System.out.println("Exports items are " + exportItem1 +" and "
                             + exportItem2);
         listExportersTwoProducts(parser, exportItem1, exportItem2);
@@ -33,7 +33,7 @@ public class ParsingExportData {
         // test numberOfExporters
         // reset the parser
         parser = fr.getCSVParser();
-        String exportItem = "gold";
+        String exportItem = "cocoa";
         System.out.println("The number of exporters of " + exportItem + " is "
                             + numberOfExporters(parser, exportItem));
         

@@ -44,6 +44,7 @@ public class ParsingWeatherData {
             CSVRecord currentRow = coldestHourInFile(fr.getCSVParser());
             if (coldestSoFar == null) {
                 coldestSoFar = currentRow;
+                coldestDay = f.toString();
             }
             else {
                 double coldestTemp = Double.parseDouble(coldestSoFar.get("TemperatureF"));
@@ -64,7 +65,7 @@ public class ParsingWeatherData {
     private CSVRecord lowestHumidityInFile (CSVParser parser) {
         CSVRecord lowestHumidityRecord = null;
         for (CSVRecord currentRecord : parser) {
-            if (currentRecord.get("Humidity") != "N/A") {
+            if (!currentRecord.get("Humidity").equals("N/A")) {
                 if (lowestHumidityRecord == null) {
                     lowestHumidityRecord = currentRecord;
                 }
