@@ -17,18 +17,26 @@ public class ParsingWeatherData {
     private CSVRecord coldestHourInFile (CSVParser parser) {
         CSVRecord coldestSoFar = null;
         for (CSVRecord currentRow : parser) {
-            if (coldestSoFar == null) {
+            coldestSoFar = getSmallestOfTwo(currentRow, coldestSoFar, "TemperatureF");
+        }
+        return coldestSoFar;
+    }
+    
+    // refactoring coldestHourInFile
+    private CSVRecord getSmallestOfTwo (CSVRecord currentRow
+                                        , CSVRecord coldestSoFar
+                                        , String RowName) {
+        if (coldestSoFar == null) {
                 coldestSoFar = currentRow;
             }
             else {
-                double coldestTemp = Double.parseDouble(coldestSoFar.get("TemperatureF"));
-                double currentTemp = Double.parseDouble(currentRow.get("TemperatureF"));
+                double coldestTemp = Double.parseDouble(coldestSoFar.get(RowName));
+                double currentTemp = Double.parseDouble(currentRow.get(RowName));
 
                 if (coldestTemp > currentTemp && currentTemp != -9999) {
                     coldestSoFar = currentRow;
                 }
             }
-        }
         return coldestSoFar;
     }
 
