@@ -43,8 +43,42 @@ public class BabyBirths {
         System.out.println("total girls names = " + totalGirlsNames);
     }
     
+    // Write the method named getRank that has three parameters: an integer 
+    // named year, a string named name, and a string named gender 
+    // (F for female and M for male).
+    // This method returns the rank of the name in the file for the given gender,
+    // where rank 1 is the name with the largest number of births.
+    private int getRank (String year, String name, String gender) {
+        FileResource fr = new FileResource("us_babynames/us_babynames_by_year/yob" 
+                                            + year + ".csv");
+        int rankInGender = 0;
+        for (CSVRecord rec : fr.getCSVParser(false)) {
+            int numBorn = Integer.parseInt(rec.get(2));
+            // check gender with given gender
+            if (rec.get(1).equals(gender)) {
+                rankInGender++;
+                if (rec.get(0).equals(name)) {
+                    return rankInGender;
+                }
+            }
+        }
+        return -1;
+    }
+    
+    // test totalBirths
     public void testTotalBirths () {
-        FileResource fr = new FileResource("testing/yob2014short.csv");
+        FileResource fr = new FileResource("us_babynames/us_babynames_test/yob2014short.csv");
         totalBirths(fr);
+    }
+    
+    // test getRank
+    public void testGetRank () {
+        String year = "2014";
+        String name = "Avalon";
+        String gender = "F";
+        int rank = getRank(year, name, gender);
+        System.out.println("Search with " + name + ", gender is " + gender
+                            + " in " + year);
+        System.out.println("rank = " + rank);
     }
 }
