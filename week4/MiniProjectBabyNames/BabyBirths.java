@@ -49,8 +49,8 @@ public class BabyBirths {
     // This method returns the rank of the name in the file for the given gender,
     // where rank 1 is the name with the largest number of births.
     private int getRank (String year, String name, String gender) {
-        FileResource fr = new FileResource("us_babynames/us_babynames_by_year/yob" 
-                                            + year + ".csv");
+        FileResource fr = new FileResource("us_babynames/us_babynames_test/yob" 
+                                            + year + "short.csv");
         int rankInGender = 0;
         for (CSVRecord rec : fr.getCSVParser(false)) {
             // check gender with given gender
@@ -70,9 +70,9 @@ public class BabyBirths {
     // This method returns the name of the person in the file at this rank, 
     // for the given gender
     // If the rank does not exist in the file, then “NO NAME” is returned.
-    private String getName (int year, int rank, String gender) {
-        FileResource fr = new FileResource("us_babynames/us_babynames_by_year/yob" 
-                                            + year + ".csv");
+    private String getName (String year, int rank, String gender) {
+        FileResource fr = new FileResource("us_babynames/us_babynames_test/yob" 
+                                            + year + "short.csv");
         int rankInGender = 0;
         for (CSVRecord rec : fr.getCSVParser(false)) {
             int numBorn = Integer.parseInt(rec.get(2));
@@ -86,6 +86,19 @@ public class BabyBirths {
             }
         }
         return "NO NAME";
+    }
+    
+    // Write the void method named whatIsNameInYear that has four parameters: 
+    // a string name, an integer named year representing the year that 
+    // name was born, an integer named newYear and a string named gender
+    // This method determines what name would have been named if they were 
+    // born in a different year, based on the same popularity.
+    private String whatIsNameInYear (String name, String year, String newYear
+                                    , String gender) {
+        int newRank = getRank(year, name, gender);
+        String newName = getName (newYear, newRank, gender);
+        
+        return newName;
     }
     
     // test totalBirths
@@ -107,12 +120,23 @@ public class BabyBirths {
     
     // test getName
     public void testGetName () {
-         int year = 2012;
+        String year = "2012";
         int rank = 160;
         String gender = "F";
         String name = getName(year, rank, gender);
         System.out.println("Search at " + rank + " rank, gender is " + gender
                             + " in " + year);
         System.out.println("name = " + name);
+    }
+    
+    // test whatIsNameInYear
+    public void testWhatIsNameInYear () {
+        String name = "Isabella";
+        String year = "2012";
+        String newYear = "2014";
+        String gender = "F";
+        String newName = whatIsNameInYear(name ,year, newYear, gender);
+        System.out.println(name + " born in " + year + " would be " + newName
+                            + " if she was born in " + newYear);
     }
 }
