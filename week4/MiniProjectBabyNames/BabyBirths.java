@@ -53,7 +53,6 @@ public class BabyBirths {
                                             + year + ".csv");
         int rankInGender = 0;
         for (CSVRecord rec : fr.getCSVParser(false)) {
-            int numBorn = Integer.parseInt(rec.get(2));
             // check gender with given gender
             if (rec.get(1).equals(gender)) {
                 rankInGender++;
@@ -63,6 +62,30 @@ public class BabyBirths {
             }
         }
         return -1;
+    }
+    
+    // Write the method named getName that has three parameters: an integer 
+    // named year, an integer named rank, and a string named gender 
+    // (F for female and M for male).
+    // This method returns the name of the person in the file at this rank, 
+    // for the given gender
+    // If the rank does not exist in the file, then “NO NAME” is returned.
+    private String getName (int year, int rank, String gender) {
+        FileResource fr = new FileResource("us_babynames/us_babynames_by_year/yob" 
+                                            + year + ".csv");
+        int rankInGender = 0;
+        for (CSVRecord rec : fr.getCSVParser(false)) {
+            int numBorn = Integer.parseInt(rec.get(2));
+            
+            // check gender with given gender
+            if (rec.get(1).equals(gender)) {
+                rankInGender++;
+                if (rankInGender == rank) {
+                    return rec.get(0);
+                }
+            }
+        }
+        return "NO NAME";
     }
     
     // test totalBirths
@@ -80,5 +103,16 @@ public class BabyBirths {
         System.out.println("Search with " + name + ", gender is " + gender
                             + " in " + year);
         System.out.println("rank = " + rank);
+    }
+    
+    // test getName
+    public void testGetName () {
+         int year = 2012;
+        int rank = 160;
+        String gender = "F";
+        String name = getName(year, rank, gender);
+        System.out.println("Search at " + rank + " rank, gender is " + gender
+                            + " in " + year);
+        System.out.println("name = " + name);
     }
 }
