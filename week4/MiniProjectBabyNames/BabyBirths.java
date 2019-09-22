@@ -8,6 +8,7 @@
 
 import edu.duke.*;
 import org.apache.commons.csv.*;
+import java.io.*;
 
 // You will write a program with several methods and tester methods to test 
 // each method you write.
@@ -96,9 +97,35 @@ public class BabyBirths {
     private String whatIsNameInYear (String name, String year, String newYear
                                     , String gender) {
         int newRank = getRank(year, name, gender);
-        String newName = getName (newYear, newRank, gender);
-        
+        String newName = getName(newYear, newRank, gender);
         return newName;
+    }
+    
+    // Write the method yearOfHighestRank that has two parameters: a string name,
+    // and a string named gender
+    // This method selects a range of files to process and returns an integer, 
+    // the year with the highest rank for the name and gender.
+    // If the name and gender are not in any of the selected files,
+    // it should return -1. 
+    private int yearOfHighestRank (String name, String gender) {
+        int highestRank = 0;
+        int yearOfHighestRank = 0;
+        DirectoryResource dr = new DirectoryResource();
+        for (File f : dr.selectedFiles()) {
+            String filename = f.getName();
+            String year = filename.substring(3,7);
+            int currentRank = getRank(year, name, gender);
+            if ((highestRank > currentRank || highestRank == 0) 
+                                          && (currentRank != -1)) {
+                highestRank = currentRank;
+                yearOfHighestRank = Integer.parseInt(year);
+            }
+        }
+
+        if (highestRank == 0) {
+            return -1;
+        }
+        return yearOfHighestRank;
     }
     
     // test totalBirths
@@ -138,5 +165,23 @@ public class BabyBirths {
         String newName = whatIsNameInYear(name ,year, newYear, gender);
         System.out.println(name + " born in " + year + " would be " + newName
                             + " if she was born in " + newYear);
+    }
+    
+    // test yearOfHighestRank
+    public void testYearOfHighestRank () {
+        String name = "Olivia";
+        String gender = "F";
+        int yearOfHighestRank = yearOfHighestRank(name, gender);
+        System.out.println("name is " + name);
+        System.out.println("gender is " + gender);
+        System.out.println("year of highest ranking is " + yearOfHighestRank);
+        
+        // the case there is no name
+        name = "noName";
+        gender = "F";
+        yearOfHighestRank = yearOfHighestRank(name, gender);
+        System.out.println("name is " + name);
+        System.out.println("gender is " + gender);
+        System.out.println("year of highest ranking is " + yearOfHighestRank);
     }
 }
