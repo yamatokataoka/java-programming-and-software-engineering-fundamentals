@@ -16,7 +16,7 @@ public class BabyBirths {
     // Modify the method totalBirths (shown in the video for this project) to 
     // also print the number of girls names , the number of boys names and the 
     // total names in the file.
-    private void totalBirths (FileResource fr) {
+    public void totalBirths (FileResource fr) {
         int totalBirths = 0;
         int totalBoys = 0;
         int totalGirls = 0;
@@ -49,7 +49,7 @@ public class BabyBirths {
     // (F for female and M for male).
     // This method returns the rank of the name in the file for the given gender,
     // where rank 1 is the name with the largest number of births.
-    private int getRank (String year, String name, String gender) {
+    public int getRank (String year, String name, String gender) {
         FileResource fr = new FileResource("us_babynames/us_babynames_test/yob" 
                                             + year + "short.csv");
         int rankInGender = 0;
@@ -71,7 +71,7 @@ public class BabyBirths {
     // This method returns the name of the person in the file at this rank, 
     // for the given gender
     // If the rank does not exist in the file, then “NO NAME” is returned.
-    private String getName (String year, int rank, String gender) {
+    public String getName (String year, int rank, String gender) {
         FileResource fr = new FileResource("us_babynames/us_babynames_test/yob" 
                                             + year + "short.csv");
         int rankInGender = 0;
@@ -94,7 +94,7 @@ public class BabyBirths {
     // name was born, an integer named newYear and a string named gender
     // This method determines what name would have been named if they were 
     // born in a different year, based on the same popularity.
-    private String whatIsNameInYear (String name, String year, String newYear
+    public String whatIsNameInYear (String name, String year, String newYear
                                     , String gender) {
         int newRank = getRank(year, name, gender);
         String newName = getName(newYear, newRank, gender);
@@ -107,7 +107,7 @@ public class BabyBirths {
     // the year with the highest rank for the name and gender.
     // If the name and gender are not in any of the selected files,
     // it should return -1. 
-    private int yearOfHighestRank (String name, String gender) {
+    public int yearOfHighestRank (String name, String gender) {
         int highestRank = 0;
         int yearOfHighestRank = 0;
         DirectoryResource dr = new DirectoryResource();
@@ -126,6 +126,31 @@ public class BabyBirths {
             return -1;
         }
         return yearOfHighestRank;
+    }
+    
+    // Write the method getAverageRank that has two parameters: a string name,
+    // and a string named gender
+    // This method selects a range of files to process and returns a double
+    // representing the average rank of the name and gender over the selected
+    // files. It should return -1.0 if the name is not ranked
+    // in any of the selected files.
+    public double getAverageRank (String name, String gender) {
+        double totalFiles = 0.0;
+        int totalRank = 0;
+        DirectoryResource dr = new DirectoryResource();
+        for (File f : dr.selectedFiles()) {
+            String filename = f.getName();
+            String year = filename.substring(3,7);
+            int currentRank = getRank(year, name, gender);
+            totalFiles++;
+            if (currentRank != -1) {
+                totalRank += currentRank;
+            }
+        }
+        if (totalRank == 0.0) {
+            return -1.0;
+        }
+        return totalRank / totalFiles;
     }
     
     // test totalBirths
@@ -183,5 +208,31 @@ public class BabyBirths {
         System.out.println("name is " + name);
         System.out.println("gender is " + gender);
         System.out.println("year of highest ranking is " + yearOfHighestRank);
+    }
+    
+    // test getAverageRank
+    public void testGetAverageRank () {
+        String name = "Mason";
+        String gender = "M";
+        double averageRank = getAverageRank(name, gender);
+        System.out.println("name is " + name);
+        System.out.println("gender is " + gender);
+        System.out.println("average ranking is " + averageRank);
+        
+        // another test case
+        name = "Jacob";
+        gender = "M";
+        averageRank = getAverageRank(name, gender);
+        System.out.println("name is " + name);
+        System.out.println("gender is " + gender);
+        System.out.println("average ranking is " + averageRank);
+        
+        // noName test
+        name = "noName";
+        gender = "M";
+        averageRank = getAverageRank(name, gender);
+        System.out.println("name is " + name);
+        System.out.println("gender is " + gender);
+        System.out.println("average ranking is " + averageRank);
     }
 }
