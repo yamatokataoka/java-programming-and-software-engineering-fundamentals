@@ -76,8 +76,6 @@ public class BabyBirths {
                                             + year + "short.csv");
         int rankInGender = 0;
         for (CSVRecord rec : fr.getCSVParser(false)) {
-            int numBorn = Integer.parseInt(rec.get(2));
-            
             // check gender with given gender
             if (rec.get(1).equals(gender)) {
                 rankInGender++;
@@ -151,6 +149,26 @@ public class BabyBirths {
             return -1.0;
         }
         return totalRank / totalFiles;
+    }
+    
+    // Write the method getTotalBirthsRankedHigher that has three parameters: 
+    // an integer named year, a string named name, and a string named gender
+    // This method returns an integer, the total number of births of those 
+    // names with the same gender and same year who are ranked higher than name.
+    public int getTotalBirthsRankedHigher(String year, String name, String gender) {
+        FileResource fr = new FileResource("us_babynames/us_babynames_test/yob" 
+                                            + year + "short.csv");
+        int totalBirthsRankedHigher = 0;
+        for (CSVRecord rec : fr.getCSVParser(false)) {
+            // check gender with given gender
+            if (rec.get(1).equals(gender)) {
+                if (rec.get(0).equals(name)) {
+                    return totalBirthsRankedHigher;
+                }
+                totalBirthsRankedHigher += Integer.parseInt(rec.get(2));
+            }
+        }
+        return -1;
     }
     
     // test totalBirths
@@ -234,5 +252,37 @@ public class BabyBirths {
         System.out.println("name is " + name);
         System.out.println("gender is " + gender);
         System.out.println("average ranking is " + averageRank);
+    }
+    
+    // test getTotalBirthsRankedHigher
+    public void testGetTotalBirthsRankedHigher () {
+        String year = "2012";
+        String name = "Ethan";
+        String gender = "M";
+        int totalBirthsRankedHigher = getTotalBirthsRankedHigher(year, name, gender);
+        System.out.println("year is " + year);
+        System.out.println("name is " + name);
+        System.out.println("gender is " + gender);
+        System.out.println("total births ranked higher = " + totalBirthsRankedHigher);
+        
+        // there is no name
+        year = "2012";
+        name = "NoName";
+        gender = "M";
+        totalBirthsRankedHigher = getTotalBirthsRankedHigher(year, name, gender);
+        System.out.println("year is " + year);
+        System.out.println("name is " + name);
+        System.out.println("gender is " + gender);
+        System.out.println("total births ranked higher = " + totalBirthsRankedHigher);
+        
+        // on top of rank
+        year = "2012";
+        name = "Jacob";
+        gender = "M";
+        totalBirthsRankedHigher = getTotalBirthsRankedHigher(year, name, gender);
+        System.out.println("year is " + year);
+        System.out.println("name is " + name);
+        System.out.println("gender is " + gender);
+        System.out.println("total births ranked higher = " + totalBirthsRankedHigher);
     }
 }
