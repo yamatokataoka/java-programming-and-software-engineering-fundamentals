@@ -16,7 +16,8 @@ public class BabyBirths {
     // Modify the method totalBirths (shown in the video for this project) to 
     // also print the number of girls names , the number of boys names and the 
     // total names in the file.
-    public void totalBirths (FileResource fr) {
+    public void totalBirths () {
+        FileResource fr = new FileResource();
         int totalBirths = 0;
         int totalBoys = 0;
         int totalGirls = 0;
@@ -50,8 +51,8 @@ public class BabyBirths {
     // This method returns the rank of the name in the file for the given gender,
     // where rank 1 is the name with the largest number of births.
     public int getRank (String year, String name, String gender) {
-        FileResource fr = new FileResource("us_babynames/us_babynames_test/yob" 
-                                            + year + "short.csv");
+        FileResource fr = new FileResource("us_babynames/us_babynames_by_year/yob" 
+                                            + year + ".csv");
         int rankInGender = 0;
         for (CSVRecord rec : fr.getCSVParser(false)) {
             // check gender with given gender
@@ -72,8 +73,8 @@ public class BabyBirths {
     // for the given gender
     // If the rank does not exist in the file, then “NO NAME” is returned.
     public String getName (String year, int rank, String gender) {
-        FileResource fr = new FileResource("us_babynames/us_babynames_test/yob" 
-                                            + year + "short.csv");
+        FileResource fr = new FileResource("us_babynames/us_babynames_by_year/yob" 
+                                            + year + ".csv");
         int rankInGender = 0;
         for (CSVRecord rec : fr.getCSVParser(false)) {
             // check gender with given gender
@@ -156,8 +157,8 @@ public class BabyBirths {
     // This method returns an integer, the total number of births of those 
     // names with the same gender and same year who are ranked higher than name.
     public int getTotalBirthsRankedHigher(String year, String name, String gender) {
-        FileResource fr = new FileResource("us_babynames/us_babynames_test/yob" 
-                                            + year + "short.csv");
+        FileResource fr = new FileResource("us_babynames/us_babynames_by_year/yob" 
+                                            + year + ".csv");
         int totalBirthsRankedHigher = 0;
         for (CSVRecord rec : fr.getCSVParser(false)) {
             // check gender with given gender
@@ -173,8 +174,7 @@ public class BabyBirths {
     
     // test totalBirths
     public void testTotalBirths () {
-        FileResource fr = new FileResource("us_babynames/us_babynames_test/yob2014short.csv");
-        totalBirths(fr);
+        totalBirths();
     }
     
     // test getRank
