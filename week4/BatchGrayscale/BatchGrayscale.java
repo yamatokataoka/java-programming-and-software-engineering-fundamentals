@@ -29,10 +29,24 @@ public class BatchGrayscale {
     }
     
     // Your program should let the user select multiple image files
+    public void selectAndConvert () {
+        DirectoryResource dr = new DirectoryResource();
+
+        for (File f : dr.selectedFiles()) {
+            ImageResource inImage = new ImageResource(f);
+            ImageResource outImage = makeGray(inImage);
+            String fileName = outImage.getFileName();
+            String newFileName = "gray-" + fileName;
+            outImage.setFileName(newFileName);
+            outImage.draw();
+            outImage.save();
+        }
+    }
     
     // For each image, save the grayscale image in a new file with the same
     // filename as the original image, but with the word “gray-” in
     // front of the filename.
+    
     
     // write testing method for makeGray
     public void testMakeGray () {
