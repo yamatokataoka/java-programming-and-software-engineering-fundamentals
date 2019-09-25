@@ -7,8 +7,11 @@
  */
 
 import edu.duke.*;
+import java.io.File;
 
 public class BatchGrayscale {
+    // For each image, create a new image that is a grayscale version
+    // of the original image
     public ImageResource makeGray (ImageResource inImage) {
         // create blank image
         ImageResource outImage = new ImageResource(inImage.getWidth()
@@ -25,5 +28,16 @@ public class BatchGrayscale {
         return outImage;
     }
     
+    // Your program should let the user select multiple image files
+    
+    // For each image, save the grayscale image in a new file with the same
+    // filename as the original image, but with the word “gray-” in
+    // front of the filename.
+    
     // write testing method for makeGray
+    public void testMakeGray () {
+        ImageResource inImage = new ImageResource();
+        ImageResource outImage = makeGray(inImage);
+        outImage.draw();
+    }
 }
