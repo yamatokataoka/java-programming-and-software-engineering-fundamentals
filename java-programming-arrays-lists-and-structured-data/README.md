@@ -1,5 +1,5 @@
 # Java Programming: Arrays, Lists, and Structured Data
-This course is offered by Duke University on [Coursera](https://www.coursera.org) and is part of the [Java Programming and Software Engineering Fundamentals](https://www.coursera.org/specializations/java-programming).
+This course is the second course on [Java Programming and Software Engineering Fundamentals](https://www.coursera.org/specializations/java-programming) offered by Duke University on [Coursera](https://www.coursera.org).
 
 # What I learned from this course
 1. Read and write data from/to files;
