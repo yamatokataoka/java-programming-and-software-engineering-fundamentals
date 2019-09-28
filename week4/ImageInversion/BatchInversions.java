@@ -26,4 +26,9 @@ public class BatchInversions {
     }
     
     // test makeInversion
+    public void testMakeInversion () {
+        ImageResource inImage = new ImageResource();
+        ImageResource outImage = makeInversion(inImage);
+        outImage.draw();
+    }
 }
