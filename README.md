@@ -1,3 +1,4 @@
+__*You can check my certificate [here](https://www.coursera.org/account/accomplishments/verify/J5TZAL5TFUYP)*__
 # Java Programming Solving Problems with Software  
 This course is offered by Duke University on [Coursera](https://www.coursera.org) and is part of the [Java Programming and Software Engineering Fundamentals](https://www.coursera.org/specializations/java-programming).
 
