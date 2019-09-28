@@ -7,6 +7,7 @@
  */
 
 import edu.duke.*;
+import java.io.File;
 
 public class BatchInversions {
     // how to create a new image that is the inverse of another image.
@@ -23,6 +24,21 @@ public class BatchInversions {
             pixel.setBlue(newB);
         }
         return outImage;
+    }
+    
+    // add another method called selectAndConvert to handle the batch 
+    // processing of files. This method allows the user to select several 
+    // files and display the images.
+    public void selectAndConvert () {
+        DirectoryResource dr = new DirectoryResource();
+        for (File f : dr.selectedFiles()) {
+            ImageResource inImage = new ImageResource(f);
+            ImageResource outImage = makeInversion(inImage);
+            String newFileName = "inverted-" + inImage.getFileName();
+            outImage.setFileName(newFileName);
+            outImage.save();
+            outImage.draw();
+        }
     }
     
     // test makeInversion
