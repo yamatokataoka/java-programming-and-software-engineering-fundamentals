@@ -19,6 +19,21 @@ public class WordPlay {
         return false;
     }
     
+    // Write a method replaceVowels that has two parameters, a String named 
+    // phrase and a Char named ch. 
+    // This method should return a String that is the string phrase with 
+    // all the vowels (uppercase or lowercase) replaced by ch
+    public String replaceVowels (String phrase, char ch) {
+        StringBuilder replacedPhrase = new StringBuilder(phrase);
+        for (int i = 0; i < phrase.length(); i++) {
+            char pheaseCh = replacedPhrase.charAt(i);
+            if (isVowel(pheaseCh)) {
+                replacedPhrase.setCharAt(i, ch); 
+            }
+        }
+        return replacedPhrase.toString();
+    }
+    
     // test isVowel
     public void testIsVowel () {
         char ch = 'F';
@@ -36,5 +51,20 @@ public class WordPlay {
         ch = ' ';
         System.out.println("one char is " + ch);
         System.out.println("result is " + isVowel(ch));
+    }
+    
+    // test replaceVowels
+    public void testReplaceVowels () {
+        String phrase = "Hello World";
+        char ch = '#';
+        System.out.println("input phrase is " + phrase);
+        System.out.println("vowels replaced by " + ch);
+        System.out.println("replaced phrase is " + replaceVowels(phrase, ch));
+        
+        phrase = "HELLO WORLD!";
+        ch = '#';
+        System.out.println("input phrase is " + phrase);
+        System.out.println("vowels replaced by " + ch);
+        System.out.println("replaced phrase is " + replaceVowels(phrase, ch));
     }
 }
