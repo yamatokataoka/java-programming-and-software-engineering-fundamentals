@@ -13,15 +13,24 @@ public class CaesarCipher {
     // and an int named key. This method returns a String that has been encrypted 
     // using the Caesar Cipher algorithm explained in the videos. 
     // Assume that all the alphabetic characters are uppercase letters.
+    // Modify the encrypt method to be able to handle both uppercase and
+    // lowercase letters.
     public String encrypt (String input, int key) {
         StringBuilder encrypted = new StringBuilder(input);
         String alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String shiftedAlphabets = alphabets.substring(key)
                                 + alphabets.substring(0, key);
         for (int i = 0; i < input.length(); i++) {
-            int index = alphabets.indexOf(encrypted.charAt(i));
+            char currentChar = encrypted.charAt(i);
+            int index = alphabets.indexOf(Character.toUpperCase(currentChar));
             if (index != -1) {
-                encrypted.setCharAt(i, shiftedAlphabets.charAt(index));
+                if (Character.isUpperCase(currentChar)) {
+                    encrypted.setCharAt(i, shiftedAlphabets.charAt(index));
+                }
+                else {
+                    encrypted.setCharAt(i, shiftedAlphabets.toLowerCase()
+                                            .charAt(index));
+                }
             }
         }
         return encrypted.toString();
@@ -39,11 +48,20 @@ public class CaesarCipher {
     }
     
     public void testEncrypt () {
+        // uppercase only
         String input = "FIRST LEGION ATTACK EAST FLANK!";
         int key = 23;
         System.out.println("input is " + input);
         System.out.println(key + " is shifted");
         System.out.println("encryption is " + encrypt(input, key));
         System.out.println("answer is     CFOPQ IBDFLK XQQXZH BXPQ CIXKH!");
+        
+        // lowercase and uppercase only
+        input = "First Legion";
+        key = 23;
+        System.out.println("input is " + input);
+        System.out.println(key + " is shifted");
+        System.out.println("encryption is " + encrypt(input, key));
+        System.out.println("answer is     Cfopq Ibdflk");
     }
 }
