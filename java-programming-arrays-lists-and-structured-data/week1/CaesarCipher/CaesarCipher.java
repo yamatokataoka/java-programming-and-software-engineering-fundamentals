@@ -36,6 +36,29 @@ public class CaesarCipher {
         return encrypted.toString();
     }
     
+    // Write the method encryptTwoKeys that has three parameters, a String
+    // named input, and two integers named key1 and key2. This method
+    // returns a String that has been encrypted using the following algorithm.
+    // Parameter key1 is used to encrypt every other character with the
+    // Caesar Cipher algorithm, starting with the first character, and
+    // key2 is used to encrypt every other character, starting with the 
+    // second character.
+    public String encryptTwoKeys (String input, int key1, int key2) {
+        StringBuilder encryptedTwoKeys = new StringBuilder(input);
+        for (int i = 0; i < input.length(); i++) {
+            String inputString = Character.toString(encryptedTwoKeys.charAt(i));
+            if (i % 2 == 0) {
+                char encryptedCKey1Char = encrypt(inputString, key1).charAt(0);
+                encryptedTwoKeys.setCharAt(i, encryptedCKey1Char); 
+            }
+            else {
+                char encryptedCKey2Char = encrypt(inputString, key2).charAt(0);
+                encryptedTwoKeys.setCharAt(i, encryptedCKey2Char); 
+            }
+        }
+        return encryptedTwoKeys.toString();
+    }
+    
     // Write the void method testCaesar that has no parameters. This method
     // should read a file and encrypt the complete file using the Caesar Cipher
     // algorithm, printing the encrypted message.
@@ -47,6 +70,7 @@ public class CaesarCipher {
         System.out.println("key is " + key + "\n" + encrypted);
     }
     
+    // test encrypt method
     public void testEncrypt () {
         // uppercase only
         String input = "FIRST LEGION ATTACK EAST FLANK!";
@@ -63,5 +87,17 @@ public class CaesarCipher {
         System.out.println(key + " is shifted");
         System.out.println("encryption is " + encrypt(input, key));
         System.out.println("answer is     Cfopq Ibdflk");
+    }
+    
+    // test encryptTwoKeys method
+    public void testEncryptTwoKeys () {
+        String input = "First Legion";
+        int key1 = 23;
+        int key2 = 17;
+        System.out.println("input is " + input);
+        System.out.println("key1 is " + key1);
+        System.out.println("key2 is " + key2);
+        System.out.println("encryption is " + encryptTwoKeys(input, key1, key2));
+        System.out.println("answer is     Czojq Ivdzle");
     }
 }
