@@ -87,6 +87,13 @@ public class CaesarCipher {
         System.out.println(key + " is shifted");
         System.out.println("encryption is " + encrypt(input, key));
         System.out.println("answer is     Cfopq Ibdflk");
+        
+        // quiz
+        input = "At noon be in the conference room with your hat on for a surprise party. YELL LOUD!";
+        key = 15;
+        System.out.println("input is " + input);
+        System.out.println(key + " is shifted");
+        System.out.println("encryption is " + encrypt(input, key));
     }
     
     // test encryptTwoKeys method
@@ -99,5 +106,14 @@ public class CaesarCipher {
         System.out.println("key2 is " + key2);
         System.out.println("encryption is " + encryptTwoKeys(input, key1, key2));
         System.out.println("answer is     Czojq Ivdzle");
+        
+        // quiz
+        input = "At noon be in the conference room with your hat on for a surprise party. YELL LOUD!";
+        key1 = 8;
+        key2 = 21;
+        System.out.println("input is " + input);
+        System.out.println("key1 is " + key1);
+        System.out.println("key2 is " + key2);
+        System.out.println("encryption is " + encryptTwoKeys(input, key1, key2));
     }
 }
