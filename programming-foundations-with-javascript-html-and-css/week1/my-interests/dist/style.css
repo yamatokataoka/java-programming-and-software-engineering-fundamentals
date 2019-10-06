@@ -1,0 +1,68 @@
+/*
+*   Global
+*/
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+/*
+*   Header
+*/
+.site-header {
+  width: 100%;
+	text-align: center;
+}
+
+/*
+*   Profile
+*/
+.profile {
+  text-align: center;
+  display: flex;
+  padding: 1em 1em;
+  background-color: #f4f2f0;
+}
+
+.profile-content {
+  text-align: left;
+  
+}
+
+.profile-img img {
+  width: 6em;
+  height: 6em;
+}
+
+.profile-name {
+  font-weight: 500;
+}
+
+.profile-name h1 {
+  margin: 0;
+}
+
+.profile-info {
+  padding: 0.5em;
+}
+
+.profile-info p {
+  margin: 0;
+}
+
+.about {
+  padding: 0em 1em;
+}
+
+.work-experience {
+  padding: 0em 1em;
+}
+
+.skills {
+  padding: 0em 1em;
+}
+
+.tables {
+  padding: 0em 1em;
+}
