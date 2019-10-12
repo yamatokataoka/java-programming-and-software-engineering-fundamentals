@@ -32,11 +32,18 @@ public class WordLengths {
                 counts[length] += 1;
             }
         }
+        for (int k = 0; k < counts.length; k++) {
+            System.out.println(counts[k] + " words of length " + k);
+        }
     }
     
+    // Write a void method testCountWordLengths that creates a FileResource
+    // so you can select a file, and creates a counts integer array of size 31.
+    // This method should call countWordLengths with a file and then print
+    // the number of words of each length.
     public void testCountWordLengths () {
-        FileResource resource = new FileResource("ProgrammingBreakingCaesarData/smallHamlet.txt");
-        int[] counts = new int[10];
+        FileResource resource = new FileResource();
+        int[] counts = new int[31];
         countWordLengths(resource, counts);
     }
 }
