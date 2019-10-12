@@ -135,5 +135,11 @@ public class CaesarBreaker {
         FileResource fr = new FileResource();
         String s = fr.asString();
         System.out.println("decryption is " + decryptTwoKeys(s));
+        
+        s = "Top ncmy qkff vi vguv vbg ycpx";
+        System.out.println("decryption is " + decryptTwoKeys(s));
+        
+        s = "Akag tjw Xibhr awoa aoee xakex znxag xwko";
+        System.out.println("decryption is " + decryptTwoKeys(s));
     }
 }
