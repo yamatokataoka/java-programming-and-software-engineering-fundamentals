@@ -53,17 +53,11 @@ public class CaesarBreaker {
     // named start. This method should return a new String that is every
     // other character from message starting with the start position.
     public String halfOfString (String message, int start) {
-        StringBuilder sbMessage = new StringBuilder(message);
-        StringBuilder halfOfString = new StringBuilder();
-        for (int k = 0; k < sbMessage.length(); k++) {
-            if (start == 0 && k % 2 == start) {
-                halfOfString.append(sbMessage.charAt(k));
-            }
-            else if (start == 1 && k % 2 == start) {
-                halfOfString.append(sbMessage.charAt(k));
-            }
+        String answer = "";
+        for (int k = start; k< message.length() ; k+= 2) {
+            answer = answer + message.charAt(k);    	
         }
-        return halfOfString.toString();
+        return answer;
     }
     
     // Write the method getKey in the CaesarBreaker class that has one
