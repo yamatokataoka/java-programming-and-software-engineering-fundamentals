@@ -18,20 +18,25 @@ public class WordLengths {
         for (String word: resource.words()) {
             StringBuilder sb = new StringBuilder(word);
             int length = sb.length();
-            if (!Character.isLetter(word.charAt(0))) {
+            if (!Character.isLetter(sb.charAt(0))) {
                 sb.deleteCharAt(0);
             }
-            else if (!Character.isLetter(word.charAt(length - 1))) {
+            else if (!Character.isLetter(sb.charAt(length - 1))) {
                 sb.deleteCharAt(length - 1);
             }
-            System.out.println(sb);
-            counts[length] += 1;
+            length = sb.length();
+            if (length >= counts.length) {
+                counts[counts.length - 1] += 1;
+            }
+            else {
+                counts[length] += 1;
+            }
         }
     }
     
     public void testCountWordLengths () {
         FileResource resource = new FileResource("ProgrammingBreakingCaesarData/smallHamlet.txt");
-        int[] counts = new int[12];
+        int[] counts = new int[10];
         countWordLengths(resource, counts);
     }
 }
