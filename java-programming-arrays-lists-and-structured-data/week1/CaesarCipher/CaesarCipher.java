@@ -45,15 +45,16 @@ public class CaesarCipher {
     // second character.
     public String encryptTwoKeys (String input, int key1, int key2) {
         StringBuilder encryptedTwoKeys = new StringBuilder(input);
+        String encryptedKey1 = encrypt(encryptedTwoKeys.toString(), key1);
+        String encryptedKey2 = encrypt(encryptedTwoKeys.toString(), key2);
         for (int i = 0; i < input.length(); i++) {
-            String inputString = Character.toString(encryptedTwoKeys.charAt(i));
             if (i % 2 == 0) {
-                char encryptedCKey1Char = encrypt(inputString, key1).charAt(0);
-                encryptedTwoKeys.setCharAt(i, encryptedCKey1Char); 
+                char encryptedKey1Char = encryptedKey1.charAt(i);
+                encryptedTwoKeys.setCharAt(i, encryptedKey1Char); 
             }
             else {
-                char encryptedCKey2Char = encrypt(inputString, key2).charAt(0);
-                encryptedTwoKeys.setCharAt(i, encryptedCKey2Char); 
+                char encryptedKey2Char = encryptedKey2.charAt(i);
+                encryptedTwoKeys.setCharAt(i, encryptedKey2Char); 
             }
         }
         return encryptedTwoKeys.toString();
