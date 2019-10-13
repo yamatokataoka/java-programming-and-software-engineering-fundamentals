@@ -5,6 +5,8 @@
  * @author yamatokataoka
  * @version October 13th, 2019
  */
+
+// Create the CaesarCipher class
 public class CaesarCipher {
     // Private fields for the alphabet and shiftedAlphabet
     private String alphabet;
