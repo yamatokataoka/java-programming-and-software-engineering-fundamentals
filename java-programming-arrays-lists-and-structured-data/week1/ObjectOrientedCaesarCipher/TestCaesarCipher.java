@@ -37,6 +37,20 @@ public class TestCaesarCipher {
         return maxIndex;
     }
     
+    // Write the method breakCaesarCipher that has one String parameter named input.
+    // This method should figure out which key was used to encrypt this message,
+    // then create a CaesarCipher object with that key and decrypt the message.
+    public String breakCaesarCipher (String input) {
+        int[] freqs = countLetters(input);
+        int maxDex = maxIndex (freqs);
+        int dkey = maxDex - 4;
+        if (maxDex < 4) {
+            dkey = 26 - (4 - maxDex);
+        }
+        CaesarCipher cc = new CaesarCipher(26 - dkey);
+        return cc.encrypt(input);
+    }
+    
     // Write the void method simpleTests that has no parameters.
     public void simpleTests () {
         // read in a file as a String
@@ -57,19 +71,5 @@ public class TestCaesarCipher {
         decryption = breakCaesarCipher(encryption);
         System.out.println("the decrypted with breakCaesarCipher String is "
             + decryption);
-    }
-    
-    // Write the method breakCaesarCipher that has one String parameter named input.
-    // This method should figure out which key was used to encrypt this message,
-    // then create a CaesarCipher object with that key and decrypt the message.
-    public String breakCaesarCipher (String input) {
-        int[] freqs = countLetters(input);
-        int maxDex = maxIndex (freqs);
-        int dkey = maxDex - 4;
-        if (maxDex < 4) {
-            dkey = 26 - (4 - maxDex);
-        }
-        CaesarCipher cc = new CaesarCipher(26 - dkey);
-        return cc.encrypt(input);
     }
 }
