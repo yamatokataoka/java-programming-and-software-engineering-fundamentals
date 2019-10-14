@@ -57,7 +57,7 @@ public class TestCaesarCipher {
         FileResource fr = new FileResource();
         String message = fr.asString();
         // create a CaesarCipher object with key 18
-        CaesarCipher cc = new CaesarCipher(18);
+        CaesarCipher cc = new CaesarCipher(15);
         // encrypt the String read in using the CaesarCipher object
         String encryption = cc.encrypt(message);
         // print the encrypted String
@@ -71,5 +71,12 @@ public class TestCaesarCipher {
         decryption = breakCaesarCipher(encryption);
         System.out.println("the decrypted with breakCaesarCipher String is "
             + decryption);
+        
+        // review quiz 1
+        message = "Can you imagine life WITHOUT the internet AND computers in your pocket?";
+        CaesarCipher cc2 = new CaesarCipher(15);
+        encryption = cc2.encrypt(message);
+        // print the encrypted String
+        System.out.println("the encrypted String is " + encryption);
     }
 }

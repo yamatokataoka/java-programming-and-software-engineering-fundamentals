@@ -32,7 +32,7 @@ public class TestCaesarCipherTwo {
         return counts;
     }
     
-    public int getKey (String s) {
+    private int getKey (String s) {
         int[] freqs = countLetters(s);
         int maxDex = maxIndex (freqs);
         int dkey = maxDex - 4;
@@ -92,6 +92,26 @@ public class TestCaesarCipherTwo {
         // automatically by determining the keys
         decrypted = breakCaesarCipher(encrypted);
         // print the decrypted String.
+        System.out.println(decrypted);
+        cct = new CaesarCipherTwo(8, 7);
+        encrypted = cct.encrypt(decrypted);
+        System.out.println(encrypted);
+        
+        // review quiz 2
+        input = "Can you imagine life WITHOUT the internet AND computers in your pocket?";
+        cct = new CaesarCipherTwo(21, 8);
+        encrypted = cct.encrypt(input);
+        System.out.println(encrypted);
+        
+        // review quiz 6
+        encrypted = "Hfs cpwewloj loks cd Hoto kyg Cyy.";
+        cct = new CaesarCipherTwo(14, 24);
+        decrypted = cct.decrypt(encrypted);
+        System.out.println(decrypted);
+        
+        // review quiz 7
+        encrypted = "Aal uttx hm aal Qtct Fhljha pl Wbdl. Pvxvxlx!";
+        decrypted = breakCaesarCipher(encrypted);
         System.out.println(decrypted);
     }
 }
