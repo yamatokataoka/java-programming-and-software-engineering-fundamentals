@@ -67,7 +67,7 @@ public class TestCaesarCipherTwo {
         // create a CaesarCipherTwo object with that key
         CaesarCipherTwo cct = new CaesarCipherTwo(firstDKey, secondDKey);
         // decrypt the message
-        String decrypted = cct.encrypt(input);
+        String decrypted = cct.decrypt(input);
         return decrypted;
     }
     
