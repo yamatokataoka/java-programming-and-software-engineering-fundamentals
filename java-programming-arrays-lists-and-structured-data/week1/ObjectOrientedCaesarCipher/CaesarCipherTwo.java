@@ -5,6 +5,9 @@
  * @author yamatokataoka
  * @version October 13th, 2019
  */
+
+import edu.duke.*;
+
 // Create the CaesarCipherTwo class
 public class CaesarCipherTwo {
     // Include private fields for the alphabet, shiftedAlphabet1, and shiftedAlphabet2.
@@ -22,8 +25,8 @@ public class CaesarCipherTwo {
     // This method returns a String that is the input encrypted using the two shifted alphabets.
     public String encrypt (String input) {
         StringBuilder encryptedTwoKeys = new StringBuilder(input);
-        String encryptedKey1 = cc1.encrypt(encryptedTwoKeys.toString());
-        String encryptedKey2 = cc2.encrypt(encryptedTwoKeys.toString());
+        String encryptedKey1 = cc1.encrypt(input);
+        String encryptedKey2 = cc2.encrypt(input);
         for (int i = 0; i < input.length(); i++) {
             if (i % 2 == 0) {
                 char encryptedKey1Char = encryptedKey1.charAt(i);
@@ -41,6 +44,19 @@ public class CaesarCipherTwo {
     // This method returns a String that is the encrypted String decrypted using
     // the key1 and key2 associated with this CaesarCipherTwo object. 
     public String decrypt (String input) {
-        
+        StringBuilder decryptedTwoKeys = new StringBuilder(input);
+        String decryptedKey1 = cc1.decrypt(input);
+        String decryptedKey2 = cc2.decrypt(input);
+        for (int i = 0; i < input.length(); i++) {
+            if (i % 2 == 0) {
+                char decryptedKey1Char = decryptedKey1.charAt(i);
+                decryptedTwoKeys.setCharAt(i, decryptedKey1Char); 
+            }
+            else {
+                char decryptedKey2Char = decryptedKey2.charAt(i);
+                decryptedTwoKeys.setCharAt(i, decryptedKey2Char); 
+            }
+        }
+        return decryptedTwoKeys.toString();
     }
 }
