@@ -52,6 +52,21 @@ public class WordFrequencies {
         }
     }
     
+    // Write the method findIndexOfMax that has no parameters.
+    // This method returns an int that is the index location of the largest
+    // value in myFreqs. If there is a tie, then return the first such value.
+    public int findIndexOfMax () {
+        int largestValue = 0;
+        int indexOfMax = 0;
+        for (int value : myFreqs) {
+            if (largestValue < value) {
+                largestValue = value;
+            }
+        }
+        indexOfMax = myFreqs.indexOf(largestValue);
+        return indexOfMax;
+    }
+    
     // Write a void tester method that has no parameters.
     public void tester () {
         // call findUnique.
@@ -63,5 +78,12 @@ public class WordFrequencies {
         for (int k=0; k<myWords.size(); k++) {
             System.out.println(myFreqs.get(k) + " " + myWords.get(k));
         }
+        // Add code to the tester method to determine and print the word
+        // that occurs the most often in a selected file and how many times
+        // it occurs.
+        int indexOfMax = findIndexOfMax();
+        System.out.println("The word that occurs most often and its count are: "
+                        + myWords.get(indexOfMax) + " "
+                        + myFreqs.get(indexOfMax));
     }
 }
