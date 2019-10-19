@@ -46,8 +46,8 @@ public class WordFrequencies {
                 myFreqs.add(1);
             }
             else {
-                int occurFreq = myFreqs.get(index);
-                myFreqs.set(index, occurFreq++);
+                int currentFreq = myFreqs.get(index);
+                myFreqs.set(index, currentFreq+1);
             }
         }
     }
@@ -61,7 +61,7 @@ public class WordFrequencies {
         System.out.println("Number of unique words: " + numUniqueWord);
         // for each unique word, print the frequency of each word and the word
         for (int k=0; k<myWords.size(); k++) {
-            System.out.println(myFreqs.get(k) + "¥t" + myWords.get(k));
+            System.out.println(myFreqs.get(k) + " " + myWords.get(k));
         }
     }
 }

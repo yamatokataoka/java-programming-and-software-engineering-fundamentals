@@ -1,3 +1,33 @@
 #BlueJ package file
-#Thu Oct 17 14:50:39 JST 2019
+editor.fx.0.height=800
+editor.fx.0.width=780
+editor.fx.0.x=0
+editor.fx.0.y=0
+objectbench.height=78
+objectbench.width=476
+package.divider.horizontal=0.6
+package.divider.vertical=0.6863468634686347
+package.editor.height=179
+package.editor.width=374
+package.editor.x=780
+package.editor.y=471
+package.frame.height=329
+package.frame.width=500
+package.numDependencies=0
+package.numTargets=1
+package.showExtends=true
+package.showUses=true
 project.charset=UTF-8
+readme.height=58
+readme.name=@README
+readme.width=47
+readme.x=10
+readme.y=10
+target1.height=50
+target1.name=WordFrequencies
+target1.showInterface=false
+target1.type=ClassTarget
+target1.typeParameters=
+target1.width=140
+target1.x=70
+target1.y=10
