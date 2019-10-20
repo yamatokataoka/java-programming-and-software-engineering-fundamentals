@@ -55,8 +55,7 @@ public class CharactersInPlay {
             // extract the possible name of the speaking part
             int indexOfPeriod = line.indexOf(".");
             if (indexOfPeriod != -1) {
-                System.out.println(line);
-                String name = line.substring(0, indexOfPeriod);
+                String name = line.substring(0, indexOfPeriod).trim();
                 update(name);
             }
         }
@@ -72,8 +71,10 @@ public class CharactersInPlay {
         // A main character is one who has more speaking parts than most people.
         // You’ll have to estimate what that number should be.
         for (int k=0; k < namesOfCharacters.size(); k++) {
-            System.out.println(namesOfCharacters.get(k) + " "
+            if (countsOfCharacter.get(k) > 1) {
+                System.out.println(namesOfCharacters.get(k) + " "
                             + countsOfCharacter.get(k));
+            }
         }
     }
 }
