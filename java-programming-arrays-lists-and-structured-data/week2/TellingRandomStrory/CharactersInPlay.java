@@ -94,6 +94,6 @@ public class CharactersInPlay {
         }
         
         // Add code in tester to test charactersWithNumParts out
-        charactersWithNumParts(1, 3);
+        charactersWithNumParts(10, 15);
     }
 }
