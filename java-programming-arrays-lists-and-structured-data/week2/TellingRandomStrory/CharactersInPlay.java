@@ -61,6 +61,22 @@ public class CharactersInPlay {
         }
     }
     
+    // Write a void method called charactersWithNumParts that has two int
+    // parameters named num1 and num2, where you can assume num1 should be
+    // less than or equal to num2
+    public void charactersWithNumParts (int num1, int num2) {
+        // print out the names of all those characters that have exactly
+        // number speaking parts, where number is greater than or equal
+        // to num1 and less than or equal to num2
+        for (int k=0; k < namesOfCharacters.size(); k++) {
+            if (num1 <= countsOfCharacter.get(k) 
+                && countsOfCharacter.get(k) <= num2) {
+                System.out.println(namesOfCharacters.get(k) + " "
+                            + countsOfCharacter.get(k));
+            }
+        }
+    }
+    
     // Write a void method called tester that has no parameters.
     public void tester () {
         // call findAllCharacters
@@ -76,5 +92,8 @@ public class CharactersInPlay {
                             + countsOfCharacter.get(k));
             }
         }
+        
+        // Add code in tester to test charactersWithNumParts out
+        charactersWithNumParts(1, 3);
     }
 }
