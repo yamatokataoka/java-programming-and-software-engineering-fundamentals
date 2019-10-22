@@ -74,4 +74,18 @@ public class WordsInFiles {
         }
         return maxNumber;
     }
+    
+    // Write the method wordsInNumFiles that has one integer parameter
+    // called number.
+    // This method returns an ArrayList of words that appear in exactly
+    // number files.
+    private ArrayList<String> wordsInNumFiles (int number) {
+        ArrayList<String> wordsInNumFiles = new ArrayList<String>();
+        for (String s : wordsInFilesMap.keySet()) {
+            if (wordsInFilesMap.get(s).size() == number) {
+                wordsInNumFiles.add(s);
+            }
+        }
+        return wordsInNumFiles;
+    }
 }
