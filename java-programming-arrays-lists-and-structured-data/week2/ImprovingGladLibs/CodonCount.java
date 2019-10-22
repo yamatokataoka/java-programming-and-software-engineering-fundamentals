@@ -33,4 +33,18 @@ public class CodonCount {
             }
         }
     }
+    
+    // Write a method named getMostCommonCodon that has no parameters.
+    // This method returns a String, the codon in a reading frame that has the largest count.
+    public String getMostCommonCodon () {
+        int largest = 0;
+        String largetKey = "";
+        for (String s : dnaCodonCount.keySet()) {
+            if (largest < dnaCodonCount.get(s)) {
+                largest = dnaCodonCount.get(s);
+                largetKey = s;
+            }
+        }
+        return largetKey;
+    }
 }
