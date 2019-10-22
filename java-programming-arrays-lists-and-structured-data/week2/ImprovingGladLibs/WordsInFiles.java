@@ -45,4 +45,20 @@ public class WordsInFiles {
             }
         }
     }
+    
+    // Write a void method named buildWordFileMap that has no parameters.
+    private void buildWordFileMap () {
+        // first clears the map
+        wordsInFilesMap.clear();
+        
+        // then uses a DirectoryResource to select a group of files.
+        DirectoryResource dr = new DirectoryResource();
+        
+        // For each file,
+        for (File f : dr.selectedFiles()) {
+            // it puts all of its words into the map by calling the method
+            // addWordsFromFile.
+            addWordsFromFile(f);
+        }
+    }
 }
