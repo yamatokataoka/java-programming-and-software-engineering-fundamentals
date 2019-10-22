@@ -35,7 +35,8 @@ public class CodonCount {
     }
     
     // Write a method named getMostCommonCodon that has no parameters.
-    // This method returns a String, the codon in a reading frame that has the largest count.
+    // This method returns a String, the codon in a reading frame that
+    // has the largest count.
     public String getMostCommonCodon () {
         int largest = 0;
         String largetKey = "";
@@ -46,5 +47,17 @@ public class CodonCount {
             }
         }
         return largetKey;
+    }
+    
+    // Write a void method named printCodonCounts that has two int parameters,
+    // start and end.
+    public void printCodonCounts (int start, int end) {
+        // prints all the codons in the HashMap along with their counts
+        // if their count is between start and end, inclusive.
+        for (String s : dnaCodonCount.keySet()) {
+            if (start < dnaCodonCount.get(s) && dnaCodonCount.get(s) <= end) {
+                System.out.println(s + "\t" + dnaCodonCount.get(s));
+            }
+        }
     }
 }
