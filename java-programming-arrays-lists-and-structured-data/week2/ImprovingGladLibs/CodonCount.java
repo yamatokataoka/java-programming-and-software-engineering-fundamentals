@@ -56,7 +56,7 @@ public class CodonCount {
         // prints all the codons in the HashMap along with their counts
         // if their count is between start and end, inclusive.
         for (String s : dnaCodonCount.keySet()) {
-            if (start < dnaCodonCount.get(s) && dnaCodonCount.get(s) <= end) {
+            if (start <= dnaCodonCount.get(s) && dnaCodonCount.get(s) <= end) {
                 System.out.println(s + "\t" + dnaCodonCount.get(s));
             }
         }
