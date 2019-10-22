@@ -73,7 +73,7 @@ public class CodonCount {
         for (String s : fr.lines()) {
             String dna = s.toUpperCase().trim();
             // for each of the three possible reading frames, 
-            for (int k=0; k>3; k++) {
+            for (int k=0; k<3; k++) {
                 // builds a HashMap of codons to their number of occurrences
                 // in the DNA strand
                 buildCodonMap(k, dna);
@@ -96,6 +96,7 @@ public class CodonCount {
                                     + start + " and "
                                     + end + " inclusive are:");
                 printCodonCounts(start, end);
+                System.out.println("\n");
             }
         }
     }
