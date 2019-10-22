@@ -61,4 +61,17 @@ public class WordsInFiles {
             addWordsFromFile(f);
         }
     }
+    
+    // Write the method maxNumber that has no parameters.
+    // This method returns the maximum number of files any word appears in,
+    // considering all words from a group of files.
+    private int maxNumber () {
+        int maxNumber = 0;
+        for (ArrayList<String> als : wordsInFilesMap.values()) {
+            if (als.size() > maxNumber) {
+                maxNumber = als.size();
+            }
+        }
+        return maxNumber;
+    }
 }
