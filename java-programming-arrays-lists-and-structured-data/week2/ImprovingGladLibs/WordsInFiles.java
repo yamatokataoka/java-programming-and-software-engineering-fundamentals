@@ -26,22 +26,22 @@ public class WordsInFiles {
     // This method should add all the words from f into the map.
     private void addWordsFromFile (File f) {
         FileResource fr = new FileResource(f);
-        for (String s : fr.words()) {
+        for (String word : fr.words()) {
             // If a word is already in the map,
-            if (wordsInFilesMap.containsKey(s)) {
+            if (wordsInFilesMap.containsKey(word)) {
                 // then add the current filename to its ArrayList
-                int index = wordsInFilesMap.get(s).indexOf(f.getName());
                 // unless the filename is already in the ArrayList.
-                if (index != -1) {
-                    wordsInFilesMap.get(s).add(f.getName());
+                int index = wordsInFilesMap.get(word).indexOf(f.getName());
+                if (index == -1) {
+                    wordsInFilesMap.get(word).add(f.getName());
                 }
             }
             // If a word is not in the map, then you must create a
             // new ArrayList of type String with this word
             // and have the word map to this ArrayList.
             else {
-                wordsInFilesMap.put(s, new ArrayList<String>());
-                wordsInFilesMap.get(s).add(f.getName());
+                wordsInFilesMap.put(word, new ArrayList<String>());
+                wordsInFilesMap.get(word).add(f.getName());
             }
         }
     }
