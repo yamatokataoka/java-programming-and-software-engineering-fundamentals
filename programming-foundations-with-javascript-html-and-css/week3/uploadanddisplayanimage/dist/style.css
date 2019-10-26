@@ -1,0 +1,15 @@
+body {
+  font-family: arial;
+}
+
+h1 {
+  color: dimgray; 
+}
+
+#canvas {
+  border: 1px solid lightgray; 
+}
+
+.canvas {
+  padding: 2px; 
+}
