@@ -2,16 +2,11 @@ import edu.duke.*;
 import java.util.*;
 
 public class GladLibMap {
-    private ArrayList<String> adjectiveList;
-    private ArrayList<String> nounList;
-    private ArrayList<String> colorList;
-    private ArrayList<String> countryList;
-    private ArrayList<String> nameList;
-    private ArrayList<String> animalList;
-    private ArrayList<String> timeList;
-    // Add private ArrayLists, one for verbs and one for fruits.
-    private ArrayList<String> verbList;
-    private ArrayList<String> fruitList;
+    // Replace the ArrayLists for adjectiveList, nounList, colorList,
+    // countryList, nameList, animalList, timeList, verbList, and fruitList
+    // with one HashMap myMap that maps a String representing a category
+    // to an ArrayList of words in that category.
+    private HashMap<String, ArrayList<String>> myMap;
     
     // declare an additional private ArrayList to keep track of
     // words that have been seen.
@@ -22,27 +17,33 @@ public class GladLibMap {
     private static String dataSourceURL = "http://dukelearntoprogram.com/course3/data";
     private static String dataSourceDirectory = "data";
     
+    // Create the new HashMap in the constructors.
     public GladLibMap(){
+        myMap = new HashMap<String, ArrayList<String>>();
         initializeFromSource(dataSourceDirectory);
         myRandom = new Random();
     }
     
     public GladLibMap(String source){
+        myMap = new HashMap<String, ArrayList<String>>();
         initializeFromSource(source);
         myRandom = new Random();
     }
     
     private void initializeFromSource(String source) {
-        adjectiveList= readIt(source+"/adjective.txt"); 
-        nounList = readIt(source+"/noun.txt");
-        colorList = readIt(source+"/color.txt");
-        countryList = readIt(source+"/country.txt");
-        nameList = readIt(source+"/name.txt");      
-        animalList = readIt(source+"/animal.txt");
-        timeList = readIt(source+"/timeframe.txt");
-        // read the data from these verb.txt and fruit.txt.
-        verbList = readIt(source+"/verb.txt");
-        fruitList = readIt(source+"/fruit.txt");
+        // Modify the method initializeFromSource to create an Array of
+        // categories and then iterate over this Array.
+        String[] labels = {"country", "noun", "animal", "adjective",
+                            "name", "color", "timeframe", "verb", "fruit"};
+        // For each category
+        for (String s : labels) {
+            ArrayList <String> list = readIt(source + "/" + s + ".txt");
+            myMap.put(s, list);
+        }
+        // read in the words from the associated file,
+        // create an ArrayList of the words (using the method readIt),
+        // and put the category and ArrayList into the HashMap.
+        
         // initialize usedWordList
         usedWordList = new ArrayList<String>();
     }
@@ -53,38 +54,15 @@ public class GladLibMap {
     }
     
     private String getSubstitute(String label) {
-        if (label.equals("country")) {
-            return randomFrom(countryList);
-        }
-        if (label.equals("color")){
-            return randomFrom(colorList);
-        }
-        if (label.equals("noun")){
-            return randomFrom(nounList);
-        }
-        if (label.equals("name")){
-            return randomFrom(nameList);
-        }
-        if (label.equals("adjective")){
-            return randomFrom(adjectiveList);
-        }
-        if (label.equals("animal")){
-            return randomFrom(animalList);
-        }
-        if (label.equals("timeframe")){
-            return randomFrom(timeList);
-        }
+        // Modify the method getSubstitute to replace all the if statements
+        // that use category labels with one call to randomFrom that passes
+        // the appropriate ArrayList from myMap.
         if (label.equals("number")){
             return ""+myRandom.nextInt(50)+5;
         }
-        // add condition for the replacements of <verb> and <fruit>
-        if (label.equals("verb")){
-            return randomFrom(verbList);
+        else {
+            return randomFrom(myMap.get(label));
         }
-        if (label.equals("fruit")){
-            return randomFrom(fruitList);
-        }
-        return "**UNKNOWN**";
     }
     
     private String processWord(String w){
