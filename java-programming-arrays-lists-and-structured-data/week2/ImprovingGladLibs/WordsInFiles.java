@@ -103,4 +103,43 @@ public class WordsInFiles {
             }
         }
     }
+    
+    // Write the void method tester that has no parameters. 
+    public void tester () {
+        // call buildWordFileMap to select a group of files and build a
+        // HashMap of words
+        buildWordFileMap();
+        
+        // determine the maximum number of files any word is in
+        int maxNumber = maxNumber();
+        System.out.println("The greatest number of files a word appears in is "
+                            + maxNumber);
+        // determine all the words that are in the maximum number of files
+        // and for each such word
+        ArrayList<String> wordsInNumFiles = wordsInNumFiles(maxNumber);
+        System.out.print("and there are "
+                            + wordsInNumFiles.size()
+                            + " such words: ");
+        for (String s : wordsInNumFiles) {
+            System.out.print(" \"" + s + "\" ");
+        }
+        System.out.print("\n");
+        // print the filenames of the files it is in
+        for (String s : wordsInNumFiles) {
+            System.out.println(" \"" + s + "\" " + " appears in the files: ");
+            printFilesIn(s);
+            System.out.print("\n");
+        }
+        
+        // (optional) print out the complete map, all the keys, and for
+        // each key its ArrayList
+        for (String s : wordsInFilesMap.keySet()) {
+            System.out.println("Key: " + "\"" + s + "\" ");
+            System.out.print("File Names: ");
+            for (String fileName : wordsInFilesMap.get(s)) {
+                System.out.print(" \"" + fileName + "\" ");
+            }
+            System.out.print("\n\n");
+        } 
+    }
 }
