@@ -88,4 +88,19 @@ public class WordsInFiles {
         }
         return wordsInNumFiles;
     }
+    
+    // Write the void method printFilesIn that has one String parameter
+    // named word.
+    // This method prints the names of the files this word appears in,
+    // one filename per line.
+    private void printFilesIn (String word) {
+        for (String s : wordsInFilesMap.keySet()) {
+            ArrayList<String> fileNamesOfWord = wordsInFilesMap.get(s);
+            if (s.equals(word)) {
+                for (String fileName : fileNamesOfWord) {
+                    System.out.println(fileName);
+                }
+            }
+        }
+    }
 }
