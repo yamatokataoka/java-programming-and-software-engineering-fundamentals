@@ -133,6 +133,7 @@ public class WordsInFiles {
         
         // (optional) print out the complete map, all the keys, and for
         // each key its ArrayList
+        /* comment outed
         for (String s : wordsInFilesMap.keySet()) {
             System.out.println("Key: " + "\"" + s + "\" ");
             System.out.print("File Names: ");
@@ -141,5 +142,6 @@ public class WordsInFiles {
             }
             System.out.print("\n\n");
         } 
+        */
     }
 }
