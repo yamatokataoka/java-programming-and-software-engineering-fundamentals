@@ -6,10 +6,11 @@ h1 {
   color: dimgray; 
 }
 
-#canvas {
-  border: 1px solid lightgray; 
+canvas {
+  border: 1px solid lightgray;
+  width: 300px;
 }
 
-.canvas {
+.main {
   padding: 2px; 
 }

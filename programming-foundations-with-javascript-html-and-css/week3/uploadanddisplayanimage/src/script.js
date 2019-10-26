@@ -1,5 +1,6 @@
 function upload () {
   var fileinput = document.getElementById("fileinput");
-  var filename = fileinput.value;
-  alert("You will upload " + filename);
+  var image = new SimpleImage(fileinput);
+  var canvas = document.getElementById("canvas");
+  image.drawTo(canvas);
 }
