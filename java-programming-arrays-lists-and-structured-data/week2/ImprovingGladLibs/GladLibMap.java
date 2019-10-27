@@ -129,6 +129,17 @@ public class GladLibMap {
         return list;
     }
     
+    // Write a new method named totalWordsInMap with no parameters.
+    // This method returns the total number of words in all the ArrayLists
+    // in the HashMap.
+    private int totalWordsInMap () {
+        int totalWordsInMap = 0;
+        for (ArrayList<String> arrayList : myMap.values()) {
+            totalWordsInMap += arrayList.size();
+        }
+        return totalWordsInMap;
+    }
+    
     public void makeStory(){
         // clear out this new ArrayList
         usedWordList.clear();
@@ -138,7 +149,11 @@ public class GladLibMap {
         printOut(story, 60);
         // print out the total number of words that were replaced right after
         // the story is printed.
-        System.out.println("\ntotal number of words that were replaced: "
+        System.out.println("\n\ntotal number of words that were replaced: "
                 + usedWordList.size());
+        // After printing the GladLib, call totalWordsInMap method and print
+        // out the total number of words that were possible to pick from.
+        System.out.println("the total number of words in the HashMap: "
+                + totalWordsInMap());
     }
 }
