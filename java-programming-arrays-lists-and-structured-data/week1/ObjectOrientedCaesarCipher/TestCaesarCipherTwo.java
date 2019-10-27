@@ -94,8 +94,10 @@ public class TestCaesarCipherTwo {
         // print the decrypted String.
         System.out.println(decrypted);
         cct = new CaesarCipherTwo(8, 7);
-        encrypted = cct.encrypt(decrypted);
-        System.out.println(encrypted);
+        
+        System.out.println("\n\n\n");
+        decrypted = breakCaesarCipher(input);
+        System.out.println(decrypted);
         
         // review quiz 2
         input = "Can you imagine life WITHOUT the internet AND computers in your pocket?";
