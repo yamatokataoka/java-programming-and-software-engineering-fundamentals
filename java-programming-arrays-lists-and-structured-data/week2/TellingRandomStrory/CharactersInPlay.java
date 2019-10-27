@@ -94,6 +94,7 @@ public class CharactersInPlay {
         }
         
         // Add code in tester to test charactersWithNumParts out
+        System.out.println("\n");
         charactersWithNumParts(10, 15);
     }
 }
