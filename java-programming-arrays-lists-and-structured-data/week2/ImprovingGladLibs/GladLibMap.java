@@ -12,6 +12,8 @@ public class GladLibMap {
     // words that have been seen.
     private ArrayList<String> usedWordList;
     
+    private ArrayList<String> usedCategoryList;
+    
     private Random myRandom;
     
     private static String dataSourceURL = "http://dukelearntoprogram.com/course3/data";
@@ -46,6 +48,7 @@ public class GladLibMap {
         
         // initialize usedWordList
         usedWordList = new ArrayList<String>();
+        usedCategoryList = new ArrayList<String>();
     }
     
     private String randomFrom(ArrayList<String> source){
@@ -61,6 +64,9 @@ public class GladLibMap {
             return ""+myRandom.nextInt(50)+5;
         }
         else {
+            if (usedCategoryList.indexOf(label) == -1) {
+                usedCategoryList.add(label);
+            }
             return randomFrom(myMap.get(label));
         }
     }
@@ -74,7 +80,7 @@ public class GladLibMap {
         String prefix = w.substring(0,first);
         String suffix = w.substring(last+1);
         String sub = "";
-        // // Once it finds a word to use, check to see if that word has been used
+        // Once it finds a word to use, check to see if that word has been used
         // before or not.
         do {
             sub = getSubstitute(w.substring(first+1,last));
@@ -140,6 +146,17 @@ public class GladLibMap {
         return totalWordsInMap;
     }
     
+    // Write a new method named totalWordsConsidered with no parameters.
+    // This method returns the total number of words in the ArrayLists of
+    // the categories that were used for a particular GladLib
+    private int totalWordsConsidered () {
+        int totalWordsConsidered = 0;
+        for (String s : usedCategoryList) {
+            totalWordsConsidered += myMap.get(s).size();
+        }
+        return totalWordsConsidered;
+    }
+    
     public void makeStory(){
         // clear out this new ArrayList
         usedWordList.clear();
@@ -153,7 +170,9 @@ public class GladLibMap {
                 + usedWordList.size());
         // After printing the GladLib, call totalWordsInMap method and print
         // out the total number of words that were possible to pick from.
-        System.out.println("the total number of words in the HashMap: "
+        System.out.println("total number of words in the HashMap: "
                 + totalWordsInMap());
+        System.out.println("total number of words in the ArrayLists of the categories that were used: "
+                + totalWordsConsidered());
     }
 }
