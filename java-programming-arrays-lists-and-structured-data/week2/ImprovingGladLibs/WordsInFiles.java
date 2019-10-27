@@ -124,11 +124,33 @@ public class WordsInFiles {
             System.out.print(" \"" + s + "\" ");
         }
         System.out.print("\n");
+        /* comment outed
         // print the filenames of the files it is in
         for (String s : wordsInNumFiles) {
             System.out.println(" \"" + s + "\" " + " appears in the files: ");
             printFilesIn(s);
             System.out.print("\n");
+        }
+        */
+       
+        // How many words are there that each appear in four of the five files?
+        // wordsInNumFiles = wordsInNumFiles(4);
+        wordsInNumFiles = wordsInNumFiles(3);
+        System.out.print("and there are "
+                            + wordsInNumFiles.size()
+                            + " such words: ");
+        for (String s : wordsInNumFiles) {
+            System.out.print(" \"" + s + "\" ");
+        }
+        System.out.print("\n");
+        // print the filenames of the files it is in
+        for (String s : wordsInNumFiles) {
+            // if (s.equals("sad")) {
+            if (s.equals("red")) {
+                System.out.println(" \"" + s + "\" " + " appears in the files: ");
+                printFilesIn(s);
+                System.out.print("\n");
+            }
         }
         
         // (optional) print out the complete map, all the keys, and for
