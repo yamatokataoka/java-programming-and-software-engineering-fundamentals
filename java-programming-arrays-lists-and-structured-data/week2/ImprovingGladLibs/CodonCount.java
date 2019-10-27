@@ -67,8 +67,9 @@ public class CodonCount {
         // prompts the user for a file that contains a DNA strand.
         FileResource fr = new FileResource();
         
-        int start = 1;
-        int end = 5;
+        int start = 5;
+        // int end = 5;
+        int end = 7;
         
         for (String s : fr.lines()) {
             String dna = s.toUpperCase().trim();
