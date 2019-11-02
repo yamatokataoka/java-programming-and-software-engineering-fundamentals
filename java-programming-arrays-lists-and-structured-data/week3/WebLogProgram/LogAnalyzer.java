@@ -2,8 +2,8 @@
 /**
  * Write a description of class LogAnalyzer here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author yamatokataoka
+ * @version October 30th, 2019
  */
 
 import java.util.*;
@@ -14,11 +14,9 @@ public class LogAnalyzer
      private ArrayList<LogEntry> records;
      
      public LogAnalyzer() {
-         // complete constructor
      }
         
      public void readFile(String filename) {
-         // complete method
      }
         
      public void printAll() {
