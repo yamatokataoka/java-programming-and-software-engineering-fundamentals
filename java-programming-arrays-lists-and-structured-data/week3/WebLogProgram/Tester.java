@@ -25,4 +25,14 @@ public class Tester
         // calls printAll to print all the web logs.
         la.printAll();
     }
+    
+    // write the void method testUniqueIP that has no parameters.
+    public void testUniqueIP () {
+        // create a LogAnalyzer
+        LogAnalyzer la = new LogAnalyzer();
+        // read from the file short-test_log
+        la.readFile("short-test_log");
+        // test the method countUniqueIPs.
+        System.out.println("There is " + la.countUniqueIPs() + " IPs");
+    }
 }
