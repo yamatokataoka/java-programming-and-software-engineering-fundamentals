@@ -35,4 +35,14 @@ public class Tester
         // test the method countUniqueIPs.
         System.out.println("There is " + la.countUniqueIPs() + " IPs");
     }
+    
+    // test for printAllHigherThanNum
+    public void testPrintAllHigherThanNum () {
+        // create a LogAnalyzer
+        LogAnalyzer la = new LogAnalyzer();
+        // read from the file short-test_log
+        la.readFile("short-test_log");
+        // test the method printAllHigherThanNum.
+        la.printAllHigherThanNum(200);
+    }
 }
