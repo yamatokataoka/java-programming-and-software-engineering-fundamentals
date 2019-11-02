@@ -18,6 +18,11 @@ public class Tester
     }
     
     public void testLogAnalyzer() {
-        // complete method
+        // creates a LogAnalyzer object
+        LogAnalyzer la = new LogAnalyzer();
+        // calls readFile on the data file short-test_log
+        la.readFile("short-test_log");
+        // calls printAll to print all the web logs.
+        la.printAll();
     }
 }
