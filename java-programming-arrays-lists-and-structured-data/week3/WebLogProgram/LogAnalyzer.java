@@ -49,4 +49,17 @@ public class LogAnalyzer
          }
          return uniqueIPs.size();
      }
+     
+     // write the void method printAllHigherThanNum that has
+     // one integer parameter num.
+     public void printAllHigherThanNum (int num) {
+         // examine all the web log entries in records
+         // print those LogEntrys that have a status code greater than num.
+         for (LogEntry le: records) {
+             int status = le.getStatusCode();
+             if (status > num) {
+                 System.out.println(le);
+             }
+         }
+     }
 }
