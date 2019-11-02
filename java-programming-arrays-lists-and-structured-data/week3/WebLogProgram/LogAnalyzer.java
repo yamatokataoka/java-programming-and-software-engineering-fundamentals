@@ -35,4 +35,18 @@ public class LogAnalyzer
              System.out.println(le);
          }
      }
+     
+     // write the method countUniqueIPs that has no parameters.
+     // This method should return an integer representing the number of
+     // unique IP addresses.
+     public int countUniqueIPs () {
+         ArrayList<String> uniqueIPs = new ArrayList<String>();
+         for (LogEntry le: records) {
+             String ipAddress = le.getIpAddress();
+             if (!uniqueIPs.contains(ipAddress)) {
+                 uniqueIPs.add(ipAddress);
+             }
+         }
+         return uniqueIPs.size();
+     }
 }
