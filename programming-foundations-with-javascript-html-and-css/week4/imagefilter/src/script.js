@@ -9,6 +9,40 @@ function loadImage () {
   image.drawTo(canvasElement);
 }
 
+function backtoOriginal () {
+  image.drawTo(canvasElement);
+}
+
+function doGrayscale() {
+  if (image == null || !image.complete()) {
+    alert("No image loaded yet");
+  }
+  else {
+    grayscale();
+    filteredImage.drawTo(canvasElement);
+  }
+}
+
+function doRed() {
+  if (image == null || !image.complete()) {
+    alert("No image loaded yet");
+  }
+  else {
+    red();
+    filteredImage.drawTo(canvasElement);
+  }
+}
+
+function doFrance() {
+  if (image == null || !image.complete()) {
+    alert("No image loaded yet");
+  }
+  else {
+    france();
+    filteredImage.drawTo(canvasElement);
+  }
+}
+
 function grayscale () {
   filteredImage = new SimpleImage(image.getWidth(), image.getHeight());
   for (var pixel of image.values()) {
@@ -20,7 +54,6 @@ function grayscale () {
     filteredPixel.setGreen(average);
     filteredPixel.setBlue(average);
   }
-  filteredImage.drawTo(canvasElement);
 }
 
 function red () {
@@ -65,9 +98,4 @@ function france () {
       Math.max(minNum, Math.min(maxNum, filteredPixel.setBlue(blue + 53)));
     }
   }
-  filteredImage.drawTo(canvasElement);
-}
-
-function backtoOriginal () {
-  image.drawTo(canvasElement);
 }
