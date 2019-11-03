@@ -41,9 +41,12 @@ public class Tester
         // create a LogAnalyzer
         LogAnalyzer la = new LogAnalyzer();
         // read from the file short-test_log
-        la.readFile("short-test_log");
+        // la.readFile("short-test_log");
         // test the method printAllHigherThanNum.
-        la.printAllHigherThanNum(200);
+        // la.printAllHigherThanNum(200);
+        // Q2: Run the method printAllHigherThanNum(400) on the file weblog1_log.
+        la.readFile("weblog1_log");
+        la.printAllHigherThanNum(400);
     }
     
     // test for uniqueIPVisitsOnDay
@@ -51,20 +54,26 @@ public class Tester
         // create a LogAnalyzer
         LogAnalyzer la = new LogAnalyzer();
         // read from the file short-test_log
-        la.readFile("weblog-short_log");
+        // la.readFile("weblog-short_log");
         String date = "Sep 30";
-        System.out.println("Date is " + date);
+        // System.out.println("Date is " + date);
         ArrayList<String> list = la.uniqueIPVisitsOnDay(date);
         for (String s : list) {
-            System.out.println(s);
+            // System.out.println(s);
         }
-        System.out.println("\n");
+        // System.out.println("\n");
         date = "Sep 14";
-        System.out.println("Date is " + date);
+        // System.out.println("Date is " + date);
         list = la.uniqueIPVisitsOnDay(date);
         for (String s : list) {
-            System.out.println(s);
+            // System.out.println(s);
         }
+        
+        // Q3: Run the method uniqueIPVisitsOnDay(“Mar 17”) on the file weblog1_log.
+        la.readFile("weblog1_log");
+        date = "Mar 24";
+        list = la.uniqueIPVisitsOnDay(date);
+        System.out.println(list.size());
     }
     
     // test for countUniqueIPsInRange
@@ -72,11 +81,17 @@ public class Tester
         // create a LogAnalyzer
         LogAnalyzer la = new LogAnalyzer();
         // read from the file short-test_log
-        la.readFile("short-test_log");
+        // la.readFile("short-test_log");
         int low = 200;
         int high = 299;
-        System.out.println("There is " + la.countUniqueIPsInRange(low, high)
-                            + " IPs");
+        // System.out.println("There is " + la.countUniqueIPsInRange(low, high)
+        //                     + " IPs");
+        low = 300;
+        high = 399;
+        // System.out.println("There is " + la.countUniqueIPsInRange(low, high)
+        //                     + " IPs");
+        // Run the method countUniqueIPsInRange(300,399) on the file weblog1_log.
+        la.readFile("weblog1_log");
         low = 300;
         high = 399;
         System.out.println("There is " + la.countUniqueIPsInRange(low, high)
