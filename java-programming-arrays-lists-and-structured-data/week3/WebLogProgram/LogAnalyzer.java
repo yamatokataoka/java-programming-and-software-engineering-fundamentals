@@ -93,4 +93,20 @@ public class LogAnalyzer
         }
         return uniqueIPsInRange.size();
     }
+    
+    // write the method countVisitsPerIP, which has no parameters.
+    // This method returns a HashMap<String, Integer>
+    public HashMap<String, Integer> countVisitsPerIP () {
+        HashMap<String, Integer> countVisitsPerIP = new HashMap<String, Integer>();
+        for (LogEntry le: records) {
+            String ip = le.getIpAddress();
+            if (!countVisitsPerIP.containsKey(ip)) {
+                countVisitsPerIP.put(ip, 1);
+            }
+            else {
+                countVisitsPerIP.put(ip, countVisitsPerIP.get(ip) + 1);
+            }
+        }
+        return countVisitsPerIP;
+    }
 }

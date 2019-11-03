@@ -97,4 +97,13 @@ public class Tester
         System.out.println("There is " + la.countUniqueIPsInRange(low, high)
                             + " IPs");
     }
+    
+    // test for countVisitsPerIP
+    public void testCountVisitsPerIP () {
+        // create a LogAnalyzer
+        LogAnalyzer la = new LogAnalyzer();
+        // read from the file short-test_log
+        la.readFile("short-test_log");
+        System.out.println(la.countVisitsPerIP());
+    }
 }
