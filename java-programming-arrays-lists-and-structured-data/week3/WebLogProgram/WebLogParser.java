@@ -32,5 +32,4 @@ public class WebLogParser {
         ParsePosition pp = new ParsePosition(0);
         return  dateFormat.parse(dateStr, pp);
     }
-
 }
