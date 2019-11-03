@@ -66,4 +66,20 @@ public class Tester
             System.out.println(s);
         }
     }
+    
+    // test for countUniqueIPsInRange
+    public void testCountUniqueIPsInRange () {
+        // create a LogAnalyzer
+        LogAnalyzer la = new LogAnalyzer();
+        // read from the file short-test_log
+        la.readFile("short-test_log");
+        int low = 200;
+        int high = 299;
+        System.out.println("There is " + la.countUniqueIPsInRange(low, high)
+                            + " IPs");
+        low = 300;
+        high = 399;
+        System.out.println("There is " + la.countUniqueIPsInRange(low, high)
+                            + " IPs");
+    }
 }

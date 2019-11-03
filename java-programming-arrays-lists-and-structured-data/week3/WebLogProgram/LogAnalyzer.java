@@ -78,4 +78,19 @@ public class LogAnalyzer
         }
         return uniqueIPVisitsOnDay;
     }
+    
+    // In the LogAnalyzer class, write the method countUniqueIPsInRange that
+    // has two integer parameters named low and high.
+    // This method returns the number of unique IP addresses
+    public int countUniqueIPsInRange (int low, int high) {
+        ArrayList<String> uniqueIPsInRange = new ArrayList<String>();
+        for (LogEntry le: records) {
+            int status = le.getStatusCode();
+            String ipAddress = le.getIpAddress();
+            if (status >= low && status <= high && !uniqueIPsInRange.contains(ipAddress)) {
+                uniqueIPsInRange.add(ipAddress);
+            }
+        }
+        return uniqueIPsInRange.size();
+    }
 }
