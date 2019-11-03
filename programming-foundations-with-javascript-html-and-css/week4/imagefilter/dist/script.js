@@ -43,6 +43,16 @@ function doFrance() {
   }
 }
 
+function doBlur () {
+  if (image == null || !image.complete()) {
+    alert("No image loaded yet");
+  }
+  else {
+    blur();
+    filteredImage.drawTo(canvasElement);
+  }
+}
+
 function grayscale () {
   filteredImage = new SimpleImage(image.getWidth(), image.getHeight());
   for (var pixel of image.values()) {
@@ -75,7 +85,7 @@ function france () {
   for (var pixel of image.values()) {
     var x = pixel.getX();
     var y = pixel.getY();
-    filteredPixel = filteredImage.getPixel(x,y)
+    filteredPixel = filteredImage.getPixel(x,y);
     
     var red = pixel.getRed();
     var green = pixel.getGreen();
@@ -97,5 +107,43 @@ function france () {
       Math.max(minNum, Math.min(maxNum, filteredPixel.setGreen(green + 65)));
       Math.max(minNum, Math.min(maxNum, filteredPixel.setBlue(blue + 53)));
     }
+  }
+}
+
+function blur () {
+  filteredImage = new SimpleImage(image.getWidth(), image.getHeight());
+  for (var pixel of image.values()) {
+    var x = pixel.getX();
+    var y = pixel.getY();
+    if (0.5 < Math.random()) {
+      filteredImage.setPixel(x,y,pixel);
+    }
+    else {
+      do {
+        randomX = x+getRandomInt(10);
+        randomY = y+getRandomInt(10);
+      } while (!isValid(randomX, image.getWidth()) || !isValid(randomY, image.getHeight()));
+      console.log(!isValid(randomX, image.getWidth()) + ", " + randomX + ", " + randomY);
+      randomPixel = image.getPixel(randomX, randomY);
+      filteredImage.setPixel(x,y,randomPixel);
+    }
+  }
+}
+
+function getRandomInt(num) {
+  if (0.5 < Math.random()) {
+    return Math.floor(Math.random() * num);
+  }
+  else {
+    return -Math.floor(Math.random() * num); 
+  }
+}
+
+function isValid (num, max) {
+  if (0 <= num && num < max) {
+    return true;
+  }
+  else {
+    return false;
   }
 }
