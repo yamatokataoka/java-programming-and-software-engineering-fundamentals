@@ -62,4 +62,20 @@ public class LogAnalyzer
             }
         }
     }
+     
+    // write the method uniqueIPVisitsOnDay that has one String parameter
+    // named someday
+    // it returns an ArrayList of Strings of unique IP addresses that had access
+    // on the given day. 
+    public ArrayList<String> uniqueIPVisitsOnDay (String someday) {
+        ArrayList<String> uniqueIPVisitsOnDay = new ArrayList<String>();
+        for (LogEntry le: records) {
+            String date = le.getAccessTime().toString();
+            String ipAddress = le.getIpAddress();
+            if (date.contains(someday) && !uniqueIPVisitsOnDay.contains(ipAddress)) {
+                uniqueIPVisitsOnDay.add(ipAddress);
+            }
+        }
+        return uniqueIPVisitsOnDay;
+    }
 }

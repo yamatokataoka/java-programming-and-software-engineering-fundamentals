@@ -46,4 +46,24 @@ public class Tester
         la.printAllHigherThanNum(200);
     }
     
+    // test for uniqueIPVisitsOnDay
+    public void testUniqueIPVisitsOnDay () {
+        // create a LogAnalyzer
+        LogAnalyzer la = new LogAnalyzer();
+        // read from the file short-test_log
+        la.readFile("weblog-short_log");
+        String date = "Sep 30";
+        System.out.println("Date is " + date);
+        ArrayList<String> list = la.uniqueIPVisitsOnDay(date);
+        for (String s : list) {
+            System.out.println(s);
+        }
+        System.out.println("\n");
+        date = "Sep 14";
+        System.out.println("Date is " + date);
+        list = la.uniqueIPVisitsOnDay(date);
+        for (String s : list) {
+            System.out.println(s);
+        }
+    }
 }
