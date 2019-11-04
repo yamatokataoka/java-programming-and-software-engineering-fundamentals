@@ -146,4 +146,14 @@ public class Tester
         HashMap<String, ArrayList<String>> iPsForDays = la.iPsForDays();
         System.out.println(la.dayWithMostIPVisits(iPsForDays));
     }
+    
+    // test for iPsWithMostVisitsOnDay
+    public void testIPsWithMostVisitsOnDay () {
+        // create a LogAnalyzer
+        LogAnalyzer la = new LogAnalyzer();
+        // read from the file short-test_log
+        la.readFile("weblog3-short_log");
+        HashMap<String, ArrayList<String>> iPsForDays = la.iPsForDays();
+        System.out.println(la.iPsWithMostVisitsOnDay(iPsForDays, "Sep 30"));
+    }
 }

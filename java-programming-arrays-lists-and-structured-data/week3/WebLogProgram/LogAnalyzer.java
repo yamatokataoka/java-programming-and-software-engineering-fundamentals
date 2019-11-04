@@ -175,4 +175,24 @@ public class LogAnalyzer
         // This method returns the day that has the most IP address visits.
         return dayWithMostIPVisits;
     }
+    
+    // the method iPsWithMostVisitsOnDay, which has two parameters—the first one
+    // is a HashMap<String, ArrayList<String>>
+    // and the second parameter is a String representing a day in the format “MMM DD”
+    // This method returns an ArrayList<String> of IP addresses that had the most accesses on the given day
+    public ArrayList<String> iPsWithMostVisitsOnDay (
+            HashMap<String, ArrayList<String>> iPsForDays,
+            String givenDate) {
+        ArrayList<String> iPsForGivenDate= iPsForDays.get(givenDate);
+        HashMap<String, Integer> countVisitsPerIP = new HashMap<String, Integer>();
+        for (String ip: iPsForGivenDate) {
+            if (!countVisitsPerIP.containsKey(ip)) {
+                countVisitsPerIP.put(ip, 1);
+            }
+            else {
+                countVisitsPerIP.put(ip, countVisitsPerIP.get(ip) + 1);
+            }
+        }
+        return iPsMostVisits(countVisitsPerIP);
+    }
 }
