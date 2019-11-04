@@ -127,4 +127,13 @@ public class Tester
         HashMap<String, Integer> countVisitsPerIP = la.countVisitsPerIP();
         System.out.println(la.iPsMostVisits(countVisitsPerIP));
     }
+    
+    // test for iPsForDays
+    public void testIPsForDays () {
+        // create a LogAnalyzer
+        LogAnalyzer la = new LogAnalyzer();
+        // read from the file short-test_log
+        la.readFile("weblog3-short_log");
+        System.out.println(la.iPsForDays());
+    }
 }

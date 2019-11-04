@@ -137,4 +137,25 @@ public class LogAnalyzer
         }
         return iPsMostVisits;
     }
+    
+    // write the method iPsForDays, which has no parameters.
+    // This method returns a HashMap<String, ArrayList<String>>
+    // uses records and maps days from web logs to an ArrayList of IP addresses that occurred on that day (including repeated IP addresses).
+    public HashMap<String, ArrayList<String>> iPsForDays () {
+        HashMap<String, ArrayList<String>> iPsForDays = new HashMap<String, ArrayList<String>>();
+        for (LogEntry le: records) {
+            String date = le.getAccessTime().toString().substring(4,10);
+            String ipAddress = le.getIpAddress();
+            if (!iPsForDays.containsKey(date)) {
+                ArrayList<String> iPsMostVisits = new ArrayList<String>();
+                iPsMostVisits.add(ipAddress);
+                iPsForDays.put(date, iPsMostVisits);
+            }
+            else {
+                iPsForDays.get(date).add(ipAddress);
+                iPsForDays.put(date, iPsForDays.get(date));
+            }
+        }
+        return iPsForDays;
+    }
 }
