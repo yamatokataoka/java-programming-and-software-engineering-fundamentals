@@ -31,7 +31,9 @@ public class Tester
         // create a LogAnalyzer
         LogAnalyzer la = new LogAnalyzer();
         // read from the file short-test_log
-        la.readFile("short-test_log");
+        // la.readFile("short-test_log");
+        // Q4: Run the method countUniqueIPs on the file weblog2_log.
+        la.readFile("weblog2_log");
         // test the method countUniqueIPs.
         System.out.println("There is " + la.countUniqueIPs() + " IPs");
     }
@@ -62,16 +64,22 @@ public class Tester
             // System.out.println(s);
         }
         // System.out.println("\n");
-        date = "Sep 14";
+        // date = "Sep 14";
         // System.out.println("Date is " + date);
-        list = la.uniqueIPVisitsOnDay(date);
+        // list = la.uniqueIPVisitsOnDay(date);
         for (String s : list) {
             // System.out.println(s);
         }
         
         // Q3: Run the method uniqueIPVisitsOnDay(“Mar 17”) on the file weblog1_log.
-        la.readFile("weblog1_log");
-        date = "Mar 24";
+        // la.readFile("weblog1_log");
+        // date = "Mar 24";
+        // list = la.uniqueIPVisitsOnDay(date);
+        // System.out.println(list.size());
+        
+        // Q5: Run the method uniqueIPVisitsOnDay(“Sep 27”) on the file weblog2_log.
+        la.readFile("weblog2_log");
+        date = "Sep 27";
         list = la.uniqueIPVisitsOnDay(date);
         System.out.println(list.size());
     }
@@ -86,14 +94,20 @@ public class Tester
         int high = 299;
         // System.out.println("There is " + la.countUniqueIPsInRange(low, high)
         //                     + " IPs");
-        low = 300;
-        high = 399;
+        // low = 300;
+        // high = 399;
         // System.out.println("There is " + la.countUniqueIPsInRange(low, high)
         //                     + " IPs");
         // Run the method countUniqueIPsInRange(300,399) on the file weblog1_log.
-        la.readFile("weblog1_log");
-        low = 300;
-        high = 399;
+        // la.readFile("weblog1_log");
+        // low = 300;
+        // high = 399;
+        // System.out.println("There is " + la.countUniqueIPsInRange(low, high)
+        //                     + " IPs");
+        // Q6: Run the method countUniqueIPsInRange(400,499) on the file weblog2_log.
+        la.readFile("weblog2_log");
+        low = 400;
+        high = 499;
         System.out.println("There is " + la.countUniqueIPsInRange(low, high)
                             + " IPs");
     }
@@ -112,7 +126,14 @@ public class Tester
         // create a LogAnalyzer
         LogAnalyzer la = new LogAnalyzer();
         // read from the file short-test_log
-        la.readFile("weblog3-short_log");
+        // la.readFile("weblog3-short_log");
+        // Q1: Run the method mostNumberVisitsByIP after a HashMap has been created from the method countVisitsPerIP on the file weblog1_log.
+        // la.readFile("weblog1_log");
+        // HashMap<String, Integer> countVisitsPerIP = la.countVisitsPerIP();
+        // System.out.println("mostNumberVisitsByIP: "
+        //                 + la.mostNumberVisitsByIP(countVisitsPerIP));
+        // Q7: Run the method mostNumberVisitsByIP after a HashMap has been created from the method countVisitsPerIP on the file weblog2_log.
+        la.readFile("weblog2_log");
         HashMap<String, Integer> countVisitsPerIP = la.countVisitsPerIP();
         System.out.println("mostNumberVisitsByIP: "
                         + la.mostNumberVisitsByIP(countVisitsPerIP));
@@ -123,7 +144,13 @@ public class Tester
         // create a LogAnalyzer
         LogAnalyzer la = new LogAnalyzer();
         // read from the file short-test_log
-        la.readFile("weblog3-short_log");
+        // la.readFile("weblog3-short_log");
+        // Q2: Run the method iPsMostVisits after a HashMap has been created from the method countVisitsPerIP on the file weblog1_log.
+        // la.readFile("weblog1_log");
+        // HashMap<String, Integer> countVisitsPerIP = la.countVisitsPerIP();
+        // System.out.println(la.iPsMostVisits(countVisitsPerIP));
+        // Q8: Run the method iPsMostVisits after a HashMap has been created from the method countVisitsPerIP on the file weblog2_log.
+        la.readFile("weblog2_log");
         HashMap<String, Integer> countVisitsPerIP = la.countVisitsPerIP();
         System.out.println(la.iPsMostVisits(countVisitsPerIP));
     }
@@ -142,7 +169,13 @@ public class Tester
         // create a LogAnalyzer
         LogAnalyzer la = new LogAnalyzer();
         // read from the file short-test_log
-        la.readFile("weblog3-short_log");
+        // la.readFile("weblog3-short_log");
+        // Q3: Run the method dayWithMostIPVisits with a HashMap has been created from the method iPsForDays on the file weblog1_log.
+        // la.readFile("weblog1_log");
+        // HashMap<String, ArrayList<String>> iPsForDays = la.iPsForDays();
+        // System.out.println(la.dayWithMostIPVisits(iPsForDays));
+        // Q9: Run the method dayWithMostIPVisits with a HashMap has been created from the method iPsForDays on the file weblog2_log.
+        la.readFile("weblog2_log");
         HashMap<String, ArrayList<String>> iPsForDays = la.iPsForDays();
         System.out.println(la.dayWithMostIPVisits(iPsForDays));
     }
@@ -152,7 +185,14 @@ public class Tester
         // create a LogAnalyzer
         LogAnalyzer la = new LogAnalyzer();
         // read from the file short-test_log
-        la.readFile("weblog3-short_log");
+        // la.readFile("weblog3-short_log");
+        // Q4: Run the method iPsWithMostVisitsOnDay with two parameters—one, a HashMap that has been created from the method iPsForDays on the file weblog1_log and two, the day “Mar 17”.
+        // la.readFile("weblog1_log");
+        // HashMap<String, ArrayList<String>> iPsForDays = la.iPsForDays();
+        // System.out.println(la.iPsWithMostVisitsOnDay(iPsForDays, "Sep 30"));
+        // System.out.println(la.iPsWithMostVisitsOnDay(iPsForDays, "Mar 17"));
+        // Q10: Run the method iPsWithMostVisitsOnDay with two parameters—one, a HashMap that has been created from the method iPsForDays on the file weblog2_log and two, the day “Sep 30”.
+        la.readFile("weblog2_log");
         HashMap<String, ArrayList<String>> iPsForDays = la.iPsForDays();
         System.out.println(la.iPsWithMostVisitsOnDay(iPsForDays, "Sep 30"));
     }
