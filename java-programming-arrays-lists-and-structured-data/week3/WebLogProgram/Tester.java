@@ -117,4 +117,14 @@ public class Tester
         System.out.println("mostNumberVisitsByIP: "
                         + la.mostNumberVisitsByIP(countVisitsPerIP));
     }
+    
+    // test for iPsMostVisits
+    public void testIPsMostVisits () {
+        // create a LogAnalyzer
+        LogAnalyzer la = new LogAnalyzer();
+        // read from the file short-test_log
+        la.readFile("weblog3-short_log");
+        HashMap<String, Integer> countVisitsPerIP = la.countVisitsPerIP();
+        System.out.println(la.iPsMostVisits(countVisitsPerIP));
+    }
 }

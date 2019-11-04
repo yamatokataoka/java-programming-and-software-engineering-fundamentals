@@ -123,4 +123,18 @@ public class LogAnalyzer
         }
         return mostNumberVisitsByIP;
     }
+    
+    // write the method iPsMostVisits, which has one parameter,
+    // a HashMap<String, Integer>
+    // This method returns an ArrayList of Strings of IP addresses that all
+    // have the maximum number of visits to this website.
+    public ArrayList<String> iPsMostVisits (HashMap<String, Integer> countVisitsPerIP) {
+        ArrayList<String> iPsMostVisits = new ArrayList<String>();
+        for (String ip: countVisitsPerIP.keySet()) {
+            if (countVisitsPerIP.get(ip).equals(mostNumberVisitsByIP(countVisitsPerIP))) {
+                iPsMostVisits.add(ip);
+            }
+        }
+        return iPsMostVisits;
+    }
 }
