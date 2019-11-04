@@ -136,4 +136,14 @@ public class Tester
         la.readFile("weblog3-short_log");
         System.out.println(la.iPsForDays());
     }
+    
+    // test for dayWithMostIPVisits
+    public void testDayWithMostIPVisits () {
+        // create a LogAnalyzer
+        LogAnalyzer la = new LogAnalyzer();
+        // read from the file short-test_log
+        la.readFile("weblog3-short_log");
+        HashMap<String, ArrayList<String>> iPsForDays = la.iPsForDays();
+        System.out.println(la.dayWithMostIPVisits(iPsForDays));
+    }
 }
