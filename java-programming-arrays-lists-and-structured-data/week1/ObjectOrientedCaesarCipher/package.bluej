@@ -1,15 +1,15 @@
 #BlueJ package file
-dependency1.from=TestCaesarCipher
-dependency1.to=CaesarCipher
+dependency1.from=TestCaesarCipherTwo
+dependency1.to=CaesarCipherTwo
 dependency1.type=UsesDependency
-dependency2.from=CaesarCipherTwo
+dependency2.from=TestCaesarCipher
 dependency2.to=CaesarCipher
 dependency2.type=UsesDependency
-dependency3.from=TestCaesarCipherTwo
-dependency3.to=CaesarCipherTwo
+dependency3.from=CaesarCipherTwo
+dependency3.to=CaesarCipher
 dependency3.type=UsesDependency
-editor.fx.0.height=722
-editor.fx.0.width=800
+editor.fx.0.height=0
+editor.fx.0.width=0
 editor.fx.0.x=0
 editor.fx.0.y=0
 objectbench.height=101
