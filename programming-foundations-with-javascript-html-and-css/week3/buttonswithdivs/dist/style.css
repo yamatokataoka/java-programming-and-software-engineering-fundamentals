@@ -1,0 +1,22 @@
+/* Use CSS to style headers and divs in general */
+body {
+  font-family: 'YuGothic', 'Yu Gothic', sans-serif;
+}
+
+header {
+  color: dimgray; 
+}
+
+div {
+  width: 200px;
+  font-size: 3em;
+  padding: 10px 10px;
+}
+
+#cabbage {
+  background-color: yellow; 
+}
+
+#carrot {
+  background-color: #ff7f50;  
+}
