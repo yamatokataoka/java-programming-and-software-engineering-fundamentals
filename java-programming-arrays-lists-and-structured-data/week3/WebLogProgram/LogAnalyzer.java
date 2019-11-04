@@ -109,4 +109,18 @@ public class LogAnalyzer
         }
         return countVisitsPerIP;
     }
+    
+    // write the method mostNumberVisitsByIP, which has one parameter,
+    // a HashMap<String, Integer>
+    // This method returns the maximum number of visits to this website
+    // by a single IP address
+    public int mostNumberVisitsByIP (HashMap<String, Integer> countVisitsPerIP) {
+        int mostNumberVisitsByIP = 0;
+        for (int num: countVisitsPerIP.values()) {
+            if (num > mostNumberVisitsByIP) {
+                mostNumberVisitsByIP = num;
+            }
+        }
+        return mostNumberVisitsByIP;
+    }
 }
