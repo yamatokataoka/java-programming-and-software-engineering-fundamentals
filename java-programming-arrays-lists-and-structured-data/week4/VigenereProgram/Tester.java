@@ -52,4 +52,14 @@ public class Tester {
         String decryption = vc.decrypt(encryption);
         System.out.println(decryption);
     }
+    
+    public void testSliceString () {
+        VigenereBreaker vb = new VigenereBreaker();
+        String sliceString = vb.sliceString("abcdefghijklm", 0, 3);
+        System.out.println(sliceString);
+        sliceString = vb.sliceString("abcdefghijklm", 1, 3);
+        System.out.println(sliceString);
+        sliceString = vb.sliceString("abcdefghijklm", 3, 5);
+        System.out.println(sliceString);
+    }
 }
