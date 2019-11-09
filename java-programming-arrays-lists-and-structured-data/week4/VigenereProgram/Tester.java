@@ -38,4 +38,18 @@ public class Tester {
         decryption = cc.decrypt(input);
         System.out.println(decryption);
     }
+    
+    public void testVigenereCipher () {
+        FileResource fr = new FileResource("VigenereTestData/titus-small.txt");
+        String input = fr.asString();
+        // creating a VigenereCipher object with the key “rome”
+        int[] rome = {17, 14, 12, 4};
+        VigenereCipher vc = new VigenereCipher(rome);
+        // encrypting
+        String encryption = vc.encrypt(input);
+        System.out.println(encryption);
+        // decrypting
+        String decryption = vc.decrypt(encryption);
+        System.out.println(decryption);
+    }
 }
