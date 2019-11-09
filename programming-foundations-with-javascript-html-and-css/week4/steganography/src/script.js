@@ -24,3 +24,19 @@ function clearCanvas() {
   contextA.clearRect(0, 0, canvasA.width, canvasA.height);
   contextB.clearRect(0, 0, canvasB.width, canvasB.height);
 }
+
+function test () {
+  startImage = crop(startImage, 200, 300);
+  startImage.drawTo(canvasAElement);
+}
+
+function crop(image, width, height) {
+  var output = new SimpleImage(width, height);
+  for (var pixel of output.values()) {
+    var x = pixel.getX();
+    var y = pixel.getY();
+    var originalPixel = image.getPixel(x,y);
+    output.setPixel(x,y,originalPixel);
+  }
+  return output;
+}
