@@ -43,17 +43,33 @@ public class VigenereBreaker {
         
         // Programming Exercise: Unknown Key Length
         // Create a new FileResource using its default constructor
-        FileResource frEncrypted = new FileResource();
+        // FileResource frEncrypted = new FileResource();
         // Use that FileResource’s asString method to read the entire
         // contents of the file into a String
-        String encrypted = frEncrypted.asString();
+        // String encrypted = frEncrypted.asString();
         // new FileResource to read from the English dictionary file
-        FileResource frDictionary = new FileResource("dictionaries/English");
+        // FileResource frDictionary = new FileResource("dictionaries/English");
         // readDictionary method to read the contents of that file into a HashSet of Strings.
-        HashSet<String> dictionary = readDictionary(frDictionary);
+        // HashSet<String> dictionary = readDictionary(frDictionary);
         // use the breakForLanguage method
-        String decrypted = breakForLanguage(encrypted, dictionary);
-        System.out.println(decrypted);
+        // String decrypted = breakForLanguage(encrypted, dictionary);
+        // System.out.println(decrypted);
+        
+        // Programming Exercise: Unknown Language, Unknown Key Length
+        // Reading all the dictionaries
+        FileResource frEncrypted = new FileResource();
+        String encrypted = frEncrypted.asString();
+        String[] languages = {"Danish", "Dutch", "English", "French", "German"
+            , "Italian", "Portuguese", "Spanish"};
+        HashMap<String, HashSet<String>> dictionaries = new HashMap<String, HashSet<String>>();;
+        VigenereBreaker vb = new VigenereBreaker();
+        for (String language: languages) {
+            FileResource fr = new FileResource("dictionaries/" + language);
+            HashSet<String> dictionary = vb.readDictionary(fr);
+            dictionaries.put(language, dictionary);
+            System.out.println("Read " + language);
+        }
+        vb.breakForAllLangs(encrypted, dictionaries);
     }
     
     // write the public method readDictionary,
@@ -101,9 +117,9 @@ public class VigenereBreaker {
                 answer = decrypted;
                 largestCount = numOfValidWords;
                 // Unknown Key Length Q1: What is the key length used to encrypt the file secretmessage2.txt?
-                System.out.println(key.length);
+                System.out.println("current key length : " + key.length);
                 // Unknown Key Length Q2: How many valid words are in the decrypted String?
-                System.out.println(numOfValidWords);
+                System.out.println("current valid words: " + numOfValidWords);
             }
         }
         // return that String decryption.
@@ -156,6 +172,7 @@ public class VigenereBreaker {
         String bestLaunguage = "";
         for (String language: languages.keySet()) {
             HashSet<String> dictionary = languages.get(language);
+            System.out.println("\n" + "Checking on " + language + "...");
             String decrypted = breakForLanguage(encrypted, dictionary);
             int numOfValidWords = countWords(decrypted, dictionary);
             if (numOfValidWords > largestCount) {
@@ -164,6 +181,7 @@ public class VigenereBreaker {
                 bestLaunguage = language;
             }
         }
-        System.out.println(bestLaunguage + "\n\n" + bestDecrypted);
+        System.out.println("\nThe best Launguage: " + bestLaunguage
+            + "\n\n" + bestDecrypted);
     }
 }
