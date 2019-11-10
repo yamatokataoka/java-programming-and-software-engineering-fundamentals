@@ -99,4 +99,12 @@ public class Tester {
         HashSet<String> dictionary = vb.readDictionary(frDictionary);
         System.out.println(vb.breakForLanguage(encrypted, dictionary));
     }
+    
+    public void testMostCommonCharIn () {
+        VigenereBreaker vb = new VigenereBreaker();
+        FileResource frDictionary = new FileResource("dictionaries/English");
+        HashSet<String> dictionary = vb.readDictionary(frDictionary);
+        char mostCommonChar = vb.mostCommonCharIn(dictionary);
+        System.out.println(mostCommonChar);
+    }
 }

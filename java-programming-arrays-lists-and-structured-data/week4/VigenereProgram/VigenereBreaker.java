@@ -99,9 +99,49 @@ public class VigenereBreaker {
             if (numOfValidWords > largestCount) {
                 answer = decrypted;
                 largestCount = numOfValidWords;
+                // Unknown Key Length Q1: What is the key length used to encrypt the file secretmessage2.txt?
+                System.out.println(key.length);
+                // Unknown Key Length Q2: How many valid words are in the decrypted String?
+                System.out.println(numOfValidWords);
             }
         }
         // return that String decryption.
         return answer;
+    }
+    
+    // write the public method mostCommonCharIn, which has one parameter—
+    // a HashSet of Strings dictionary.
+    public char mostCommonCharIn (HashSet<String> dictionary) {
+        // find out which character, of the letters in the English alphabet,
+        // appears most often in the words in dictionary.
+        HashMap<Character, Integer> map = countWords(dictionary);
+        int leargetNum = 0;
+        char mostCommonChar = '\0';
+        for (char ch: map.keySet()) {
+            int num = map.get(ch);
+            if (num > leargetNum) {
+                leargetNum = num;
+                mostCommonChar = ch;
+            }
+        }
+        return mostCommonChar;
+    }
+    
+    // helper method for mostCommonCharIn
+    private HashMap<Character, Integer> countWords(HashSet<String> dictionary) {
+        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+        for (String word: dictionary) {
+            char[] wordArray = word.toLowerCase().toCharArray();
+            for (char ch: wordArray) {
+                if (map.containsKey(ch)) {
+                    int num = map.get(ch);
+                    map.put(ch, num+1);
+                }
+                else {
+                    map.put(ch, 1);
+                }
+            }
+        }
+        return map;
     }
 }
