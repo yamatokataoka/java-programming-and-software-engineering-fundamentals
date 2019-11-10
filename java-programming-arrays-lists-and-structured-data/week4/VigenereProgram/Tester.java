@@ -107,4 +107,19 @@ public class Tester {
         char mostCommonChar = vb.mostCommonCharIn(dictionary);
         System.out.println(mostCommonChar);
     }
+    
+    public void testBreakForAllLangs () {
+        FileResource frEncrypted = new FileResource("VigenereTestData/athens_keyflute.txt");
+        String encrypted = frEncrypted.asString();
+        String[] languages = {"Danish", "Dutch", "English", "French", "German"
+            , "Italian", "Portuguese", "Spanish"};
+        HashMap<String, HashSet<String>> dictionaries = new HashMap<String, HashSet<String>>();;
+        VigenereBreaker vb = new VigenereBreaker();
+        for (String language: languages) {
+            FileResource fr = new FileResource("dictionaries/" + language);
+            HashSet<String> dictionary = vb.readDictionary(fr);
+            dictionaries.put(language, dictionary);
+        }
+        vb.breakForAllLangs(encrypted, dictionaries);
+    }
 }

@@ -144,4 +144,25 @@ public class VigenereBreaker {
         }
         return map;
     }
+    
+    // write the public method breakForAllLangs, which has two parameters—
+    // a String encrypted, and a HashMap, called languages
+    public void breakForAllLangs (String encrypted,
+        HashMap<String, HashSet<String>> languages) {
+        // Try breaking the encryption for each language
+        int largestCount = 0;
+        String bestDecrypted = "";
+        String bestLaunguage = "";
+        for (String language: languages.keySet()) {
+            HashSet<String> dictionary = languages.get(language);
+            String decrypted = breakForLanguage(encrypted, dictionary);
+            int numOfValidWords = countWords(decrypted, dictionary);
+            if (numOfValidWords > largestCount) {
+                bestDecrypted = decrypted;
+                largestCount = numOfValidWords;
+                bestLaunguage = language;
+            }
+        }
+        System.out.println(bestLaunguage + "\n\n" + bestDecrypted);
+    }
 }
