@@ -24,10 +24,10 @@ public class VigenereBreaker {
 
     public void breakVigenere () {
         // Create a new FileResource using its default constructor
-        FileResource fr = new FileResource();
+        // FileResource fr = new FileResource();
         // Use the asString method to read the entire contents of the file
         // into a String.
-        String input = fr.asString();
+        // String input = fr.asString();
         // Use the tryKeyLength method to find the key for the message
         // you read in
         // int[] key = tryKeyLength(input, 5, 'e');
@@ -35,10 +35,25 @@ public class VigenereBreaker {
         // VigenereCipher vc = new VigenereCipher(key);
         // use the VigenereCipher’s decrypt method to decrypt the encrypted message.
         // System.out.println(vc.decrypt(input));
+        
         // Q2: What is the first line of the file secretmessage1.txt?
-        int[] key = tryKeyLength(input, 4, 'e');
-        VigenereCipher vc = new VigenereCipher(key);
-        System.out.println(vc.decrypt(input));
+        // int[] key = tryKeyLength(input, 4, 'e');
+        // VigenereCipher vc = new VigenereCipher(key);
+        // System.out.println(vc.decrypt(input));
+        
+        // Programming Exercise: Unknown Key Length
+        // Create a new FileResource using its default constructor
+        FileResource frEncrypted = new FileResource();
+        // Use that FileResource’s asString method to read the entire
+        // contents of the file into a String
+        String encrypted = frEncrypted.asString();
+        // new FileResource to read from the English dictionary file
+        FileResource frDictionary = new FileResource("dictionaries/English");
+        // readDictionary method to read the contents of that file into a HashSet of Strings.
+        HashSet<String> dictionary = readDictionary(frDictionary);
+        // use the breakForLanguage method
+        String decrypted = breakForLanguage(encrypted, dictionary);
+        System.out.println(decrypted);
     }
     
     // write the public method readDictionary,
