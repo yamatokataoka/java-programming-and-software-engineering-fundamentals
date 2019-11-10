@@ -23,7 +23,18 @@ public class VigenereBreaker {
     }
 
     public void breakVigenere () {
-        //WRITE YOUR CODE HERE
+        // Create a new FileResource using its default constructor
+        FileResource fr = new FileResource();
+        // Use the asString method to read the entire contents of the file
+        // into a String.
+        String input = fr.asString();
+        // Use the tryKeyLength method to find the key for the message
+        // you read in
+        int[] key = tryKeyLength(input, 5, 'e');
+        // create a new VigenereCipher, passing in the key that tryKeyLength found
+        VigenereCipher vc = new VigenereCipher(key);
+        // use the VigenereCipher’s decrypt method to decrypt the encrypted message.
+        System.out.println(vc.decrypt(input));
     }
     
 }
