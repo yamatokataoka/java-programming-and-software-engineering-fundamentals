@@ -90,7 +90,8 @@ public class VigenereBreaker {
         String answer = "";
         //  try all key lengths from 1 to 100 to obtain the best decryption
         for (int k=1; k<=100; k++) {
-            int[] key = tryKeyLength(encrypted, k, 'e');
+            char mostCommonChar = mostCommonCharIn(dictionary);
+            int[] key = tryKeyLength(encrypted, k, mostCommonChar);
             // decrypt the message
             VigenereCipher vc = new VigenereCipher(key);
             String decrypted = vc.decrypt(encrypted);
