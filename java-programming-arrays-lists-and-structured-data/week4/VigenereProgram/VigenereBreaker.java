@@ -54,4 +54,17 @@ public class VigenereBreaker {
         // return the HashSet representing the words in a dictionary.
         return set;
     }
+    
+    // write the public method countWords, which has two parameters—a
+    // String message, and a HashSet of Strings dictionary.
+    public int countWords (String message, HashSet<String> dictionary) {
+        int numOfValidWords = 0;
+        for (String word: message.split("\\W")) {
+            if (dictionary.contains(word.toLowerCase())) {
+                numOfValidWords++;
+            }
+        }
+        // return the integer count of how many valid words it found.
+        return numOfValidWords;
+    }
 }

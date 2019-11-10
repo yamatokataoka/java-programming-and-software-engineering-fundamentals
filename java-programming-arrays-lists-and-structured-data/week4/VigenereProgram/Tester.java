@@ -82,4 +82,12 @@ public class Tester {
         HashSet<String> set = vb.readDictionary(fr);
         System.out.println(set.size());
     }
+    
+    public void testCountWords () {
+        String message = "word excellent HAPPY pspsps";
+        FileResource fr = new FileResource("dictionaries/English");
+        VigenereBreaker vb = new VigenereBreaker();
+        HashSet<String> set = vb.readDictionary(fr);
+        System.out.println(vb.countWords(message, set));
+    }
 }
