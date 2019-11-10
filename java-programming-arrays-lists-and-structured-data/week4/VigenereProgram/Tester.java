@@ -90,4 +90,13 @@ public class Tester {
         HashSet<String> set = vb.readDictionary(fr);
         System.out.println(vb.countWords(message, set));
     }
+    
+    public void testBreakForLanguage () {
+        FileResource frDictionary = new FileResource("dictionaries/English");
+        FileResource frEncrypted = new FileResource("VigenereTestData/athens_keyflute.txt");
+        String encrypted = frEncrypted.asString();
+        VigenereBreaker vb = new VigenereBreaker();
+        HashSet<String> dictionary = vb.readDictionary(frDictionary);
+        System.out.println(vb.breakForLanguage(encrypted, dictionary));
+    }
 }

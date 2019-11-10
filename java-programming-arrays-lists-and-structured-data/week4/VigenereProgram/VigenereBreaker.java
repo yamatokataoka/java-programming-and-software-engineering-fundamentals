@@ -67,4 +67,26 @@ public class VigenereBreaker {
         // return the integer count of how many valid words it found.
         return numOfValidWords;
     }
+    
+    // write the public method breakForLanguage, which has two parameters—
+    // a String encrypted, and a HashSet of Strings dictionary.
+    public String breakForLanguage (String encrypted, HashSet<String> dictionary) {
+        int largestCount = 0;
+        String answer = "";
+        //  try all key lengths from 1 to 100 to obtain the best decryption
+        for (int k=1; k<=100; k++) {
+            int[] key = tryKeyLength(encrypted, k, 'e');
+            // decrypt the message
+            VigenereCipher vc = new VigenereCipher(key);
+            String decrypted = vc.decrypt(encrypted);
+            int numOfValidWords = countWords(decrypted, dictionary);
+            // figure out which decryption gives the largest count of real words
+            if (numOfValidWords > largestCount) {
+                answer = decrypted;
+                largestCount = numOfValidWords;
+            }
+        }
+        // return that String decryption.
+        return answer;
+    }
 }
