@@ -12,8 +12,8 @@ function loadStartImage () {
 }
 
 function loadSecretImage () {
-  secertImage = new SimpleImage(secretImageElement);
-  secertImage.drawTo(canvasBElement);
+  secretImage = new SimpleImage(secretImageElement);
+  secretImage.drawTo(canvasBElement);
 }
 
 function clearCanvas() {
@@ -26,7 +26,8 @@ function clearCanvas() {
 }
 
 function test () {
-  startImage = shift(startImage);
+  startImage = crop(startImage, secretImage.getWidth(), secretImage.getHeight());
+  startImage = combine(startImage, secretImage);
   startImage.drawTo(canvasAElement);
 }
 
@@ -64,4 +65,19 @@ function shift (image) {
      console.log(pixel.getRed() + " " + pixel.getGreen() + " " + pixel.getBlue());
   }
   return image;
+}
+
+function combine (startImage, secretImage) {
+  var output = new SimpleImage(startImage.getWidth(), startImage.getHeight());
+  for (var pixel of startImage.values()) {
+    var x = pixel.getX();
+    var y = pixel.getY();
+    var outputPixel = output.getPixel(x, y);
+    var secretPixel = secretImage.getPixel(x, y);
+    outputPixel.setRed(pixel.getRed() + secretPixel.getRed());
+    outputPixel.setGreen(pixel.getGreen() + secretPixel.getGreen());
+    outputPixel.setBlue(pixel.getBlue() + secretPixel.getBlue());
+    console.log(outputPixel.getRed() + " " + outputPixel.getGreen() + " " + outputPixel.getBlue());
+  }
+  return output;
 }
