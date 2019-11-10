@@ -25,9 +25,19 @@ function clearCanvas() {
   contextB.clearRect(0, 0, canvasB.width, canvasB.height);
 }
 
-function test () {
-  startImage = crop(startImage, secretImage.getWidth(), secretImage.getHeight());
+function stego () {
+  var cropWidth = startImage.getWidth();
+  if (secretImage.getWidth() < cropWidth) {
+    cropWidth = secretImage.getWidth();
+  }
+  var cropHeight = startImage.getHeight();
+  if (secretImage.getHeight() < cropHeight) {
+    cropHeight = secretImage.getHeight();
+  }
+  startImage = crop(startImage, cropWidth, cropHeight);
+  secretImage = crop(secretImage, cropWidth, cropHeight);
   startImage = combine(startImage, secretImage);
+  clearCanvas();
   startImage.drawTo(canvasAElement);
 }
 
