@@ -36,8 +36,10 @@ function crop (image, width, height) {
   for (var pixel of output.values()) {
     var x = pixel.getX();
     var y = pixel.getY();
-    var originalPixel = image.getPixel(x,y);
-    output.setPixel(x,y,originalPixel);
+    if (x < width && y < height){
+      var originalPixel = image.getPixel(x,y);
+      output.setPixel(x,y,originalPixel);
+    }
   }
   return output;
 }
