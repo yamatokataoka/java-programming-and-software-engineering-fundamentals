@@ -1,0 +1,16 @@
+body {
+  font-family: arial;
+}
+
+.body {
+  padding: 2em 5em; 
+}
+
+h1 {
+   color: dimgray;
+}
+
+canvas {
+  border: 1px solid lightgray;
+  width: 300px;
+}

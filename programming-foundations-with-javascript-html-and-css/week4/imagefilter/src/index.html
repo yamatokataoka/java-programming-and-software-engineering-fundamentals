@@ -1,0 +1,24 @@
+<script src="https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+<div class="body">
+  <h1>Filter Fun</h1>
+  <p>Upload and Filter your image</p>
+  <div class="canvas">
+    <canvas id="canvas"></canvas>
+  </div>
+  <div class="bar">
+    <input type="button" value="Back to Original" id="backtoOriginal" onclick="backtoOriginal()">
+  </div>
+  <div class="image">
+     <p>Load Image:
+      <input type="file" multiple="false" accept="image/*" id="image" onchange="loadImage()">
+    </p>
+  </div>
+  <div class="filter">
+     <p>Choose Filter:
+      <input type="button" value="Grayscale" id="grayscale" onclick="doGrayscale()">
+       <input type="button" value="Red" id="red" onclick="doRed()">
+       <input type="button" value="France" id="france" onclick="doFrance()">
+       <input type="button" value="Blur" id="blur" onclick="doBlur()">
+    </p>
+  </div>
+</div>
