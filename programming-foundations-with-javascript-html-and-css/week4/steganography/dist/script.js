@@ -26,11 +26,11 @@ function clearCanvas() {
 }
 
 function test () {
-  startImage = crop(startImage, 200, 300);
+  startImage = chop2Hide(startImage);
   startImage.drawTo(canvasAElement);
 }
 
-function crop(image, width, height) {
+function crop (image, width, height) {
   var output = new SimpleImage(width, height);
   for (var pixel of output.values()) {
     var x = pixel.getX();
@@ -39,4 +39,19 @@ function crop(image, width, height) {
     output.setPixel(x,y,originalPixel);
   }
   return output;
+}
+
+function clearbits (colorval) {
+  var x = Math.floor(colorval/16) * 16;
+  return x;
+}
+
+function chop2Hide (image) {
+   for (var pixel of image.values()) {
+     pixel.setRed(clearbits(pixel.getRed()));
+     pixel.setGreen(clearbits(pixel.getGreen()));
+     pixel.setBlue(clearbits(pixel.getBlue()));
+     console.log(pixel.getRed() + " " + pixel.getGreen() + " " + pixel.getBlue());
+  }
+  return image;
 }
