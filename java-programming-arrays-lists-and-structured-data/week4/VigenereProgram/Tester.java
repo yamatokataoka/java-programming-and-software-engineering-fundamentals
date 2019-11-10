@@ -7,7 +7,7 @@
  */
 
 import edu.duke.*;
-import java.util.Arrays;
+import java.util.*;
 
 public class Tester {
     public void testCaesarCipher () {
@@ -65,9 +65,21 @@ public class Tester {
     }
     
     public void testTryKeyLength () {
-        FileResource fr = new FileResource("VigenereTestData/athens_keyflute.txt");
+        // FileResource fr = new FileResource("VigenereTestData/athens_keyflute.txt");
+        // String input = fr.asString();
+        // VigenereBreaker vb = new VigenereBreaker();
+        // System.out.println(Arrays.toString(vb.tryKeyLength(input, 5, 'e')));
+        // Q1: What is the key used to encrypt the file secretmessage1.txt?
+        FileResource fr = new FileResource("messages/secretmessage1.txt");
         String input = fr.asString();
         VigenereBreaker vb = new VigenereBreaker();
-        System.out.println(Arrays.toString(vb.tryKeyLength(input, 5, 'e')));
+        System.out.println(Arrays.toString(vb.tryKeyLength(input, 4, 'e')));
+    }
+    
+    public void testReadDictionary () {
+        FileResource fr = new FileResource();
+        VigenereBreaker vb = new VigenereBreaker();
+        HashSet<String> set = vb.readDictionary(fr);
+        System.out.println(set.size());
     }
 }
