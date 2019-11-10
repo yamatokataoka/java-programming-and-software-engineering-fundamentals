@@ -26,7 +26,7 @@ function clearCanvas() {
 }
 
 function test () {
-  startImage = chop2Hide(startImage);
+  startImage = shift(startImage);
   startImage.drawTo(canvasAElement);
 }
 
@@ -51,6 +51,16 @@ function chop2Hide (image) {
      pixel.setRed(clearbits(pixel.getRed()));
      pixel.setGreen(clearbits(pixel.getGreen()));
      pixel.setBlue(clearbits(pixel.getBlue()));
+     console.log(pixel.getRed() + " " + pixel.getGreen() + " " + pixel.getBlue());
+  }
+  return image;
+}
+
+function shift (image) {
+   for (var pixel of image.values()) {
+     pixel.setRed(pixel.getRed() / 16);
+     pixel.setGreen(pixel.getGreen() / 16);
+     pixel.setBlue(pixel.getBlue() / 16);
      console.log(pixel.getRed() + " " + pixel.getGreen() + " " + pixel.getBlue());
   }
   return image;
