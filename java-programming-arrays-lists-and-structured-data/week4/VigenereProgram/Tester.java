@@ -7,6 +7,7 @@
  */
 
 import edu.duke.*;
+import java.util.Arrays;
 
 public class Tester {
     public void testCaesarCipher () {
@@ -61,5 +62,12 @@ public class Tester {
         System.out.println(sliceString);
         sliceString = vb.sliceString("abcdefghijklm", 3, 5);
         System.out.println(sliceString);
+    }
+    
+    public void testTryKeyLength () {
+        FileResource fr = new FileResource("VigenereTestData/athens_keyflute.txt");
+        String input = fr.asString();
+        VigenereBreaker vb = new VigenereBreaker();
+        System.out.println(Arrays.toString(vb.tryKeyLength(input, 5, 'e')));
     }
 }
