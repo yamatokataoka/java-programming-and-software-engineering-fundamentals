@@ -1,3 +1,4 @@
+__*You can check my certificate [here](https://www.coursera.org/account/accomplishments/verify/MY37PEB2UGU9)*__
 # Programming Foundations with JavaScript, HTML and CSS
 [This course](https://www.coursera.org/learn/duke-programming-web?specialization=java-programming) is offered by Duke University on [Coursera](https://www.coursera.org) and is part of the [Java Programming and Software Engineering Fundamentals](https://www.coursera.org/specializations/java-programming).
 
