@@ -21,8 +21,11 @@ public class EarthQuakeClient {
     double distMax,
     Location from) {
         ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
-        // TODO
-
+        for (QuakeEntry qe : quakeData) {
+            if (qe.getLocation().distanceTo(from) < distMax) {
+                answer.add(qe);
+            }
+        }
         return answer;
     }
 
