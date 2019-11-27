@@ -41,10 +41,15 @@ public class EarthQuakeClient {
     public void bigQuakes() {
         EarthQuakeParser parser = new EarthQuakeParser();
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/nov20quakedata.atom";
+        String source = "data/nov20quakedatasmall.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);
         System.out.println("read data for "+list.size()+" quakes");
-
+        ArrayList<QuakeEntry> answer = filterByMagnitude(list, 5.0);
+        for (QuakeEntry qe : answer) {
+            System.out.println(qe);
+        }
+        System.out.println("Found " + answer.size()
+            + " quakes that match that criteria");
     }
 
     public void closeToMe(){
