@@ -123,6 +123,20 @@ public class EarthQuakeClient {
         System.out.println("Found " + answer.size()
             + " quakes that match that criteria");
     }
+    
+     public void quakesByPhrase() {
+        EarthQuakeParser parser = new EarthQuakeParser();
+        //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
+        String source = "data/nov20quakedatasmall.atom";
+        ArrayList<QuakeEntry> list  = parser.read(source);
+        System.out.println("read data for "+list.size()+" quakes");
+        ArrayList<QuakeEntry> answer = filterByPhrase(list, "end", "California");
+        for (QuakeEntry qe : answer) {
+            System.out.println(qe);
+        }
+        System.out.println("Found " + answer.size()
+            + " quakes that match that criteria");
+    }
 
     public void createCSV(){
         EarthQuakeParser parser = new EarthQuakeParser();
