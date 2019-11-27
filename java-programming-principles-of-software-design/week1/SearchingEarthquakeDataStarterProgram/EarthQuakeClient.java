@@ -41,6 +41,23 @@ public class EarthQuakeClient {
         }
         return answer;
     }
+    
+    public ArrayList<QuakeEntry> filterByPhrase(ArrayList<QuakeEntry> quakeData,
+        String where,
+        String phrase) {
+    
+        ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
+        for (QuakeEntry qe : quakeData) {
+            String title = qe.getInfo();
+            int index = title.indexOf(phrase);
+            if (where.equals("start") && index == 0
+                || where.equals("end") && index == title.length()-1
+                || where.equals("any") && index != -1) {
+                answer.add(qe);
+            }
+        }
+        return answer;
+    }
 
     public void dumpCSV(ArrayList<QuakeEntry> list){
         System.out.println("Latitude,Longitude,Magnitude,Info");
