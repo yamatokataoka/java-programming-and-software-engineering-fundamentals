@@ -57,7 +57,8 @@ public class EarthQuakeClient {
 
     public void closeToMe(){
         EarthQuakeParser parser = new EarthQuakeParser();
-        String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
+        // String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
+        String source = "data/nov20quakedatasmall.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);
         System.out.println("read data for "+list.size()+" quakes");
 
@@ -67,7 +68,16 @@ public class EarthQuakeClient {
         // This location is Bridgeport, CA
         // Location city =  new Location(38.17, -118.82);
 
-        // TODO
+        // specified by meters
+        int distMax = 1000000;
+        ArrayList<QuakeEntry> answer = filterByDistanceFrom(list, distMax, city);
+        for (QuakeEntry qe : answer) {
+            double distanceInMeters = qe.getLocation().distanceTo(city);
+            System.out.println(distanceInMeters/1000 + " "
+                + qe.getInfo());
+        }
+        System.out.println("Found " + answer.size()
+            + " quakes that match that criteria");
     }
 
     public void createCSV(){
