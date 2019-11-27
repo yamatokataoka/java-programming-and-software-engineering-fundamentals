@@ -43,16 +43,16 @@ public class EarthQuakeClient {
     }
     
     public ArrayList<QuakeEntry> filterByPhrase(ArrayList<QuakeEntry> quakeData,
-        String where,
-        String phrase) {
+                                                String where,
+                                                String phrase) {
     
         ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
         for (QuakeEntry qe : quakeData) {
             String title = qe.getInfo();
             int index = title.indexOf(phrase);
-            if (where.equals("start") && index == 0
-                || where.equals("end") && index == title.length()-1
-                || where.equals("any") && index != -1) {
+            if ((where.equals("start") && index == 0)
+                || (where.equals("end") && index == title.length()-phrase.length())
+                || (where.equals("any") && index != -1)) {
                 answer.add(qe);
             }
         }
