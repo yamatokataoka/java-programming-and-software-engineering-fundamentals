@@ -12,6 +12,9 @@ public class ClosestQuakes {
     public ArrayList<QuakeEntry> getClosest(ArrayList<QuakeEntry> quakeData, Location current, int howMany) {
         ArrayList<QuakeEntry> copy = new ArrayList<QuakeEntry>(quakeData);
         ArrayList<QuakeEntry> ret = new ArrayList<QuakeEntry>();
+        if (quakeData.size() < howMany) {
+            howMany = quakeData.size();
+        }
         for (int j=0; j<howMany; j++) {
             int minIndex = 0;
             for (int k=0; k<copy.size(); k++) {
