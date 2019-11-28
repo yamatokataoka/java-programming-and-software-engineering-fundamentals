@@ -27,7 +27,7 @@ public class LargestQuakes {
         int maxIndex = 0;
         for (int k=0; k<data.size(); k++) {
             QuakeEntry qe = data.get(k);
-            if (qe.getMagnitude() < data.get(maxIndex).getMagnitude()) {
+            if (qe.getMagnitude() > data.get(maxIndex).getMagnitude()) {
                 maxIndex = k;
             }
         }
