@@ -9,6 +9,20 @@
 import java.util.*;
 
 public class LargestQuakes {
+    public ArrayList<QuakeEntry> getLargest(ArrayList<QuakeEntry> quakeData, int howMany) {
+        ArrayList<QuakeEntry> copy = new ArrayList<QuakeEntry>(quakeData);
+        ArrayList<QuakeEntry> ret = new ArrayList<QuakeEntry>();
+        if (quakeData.size() < howMany) {
+            howMany = quakeData.size();
+        }
+        for (int j=0; j<howMany; j++) {
+            int maxIndex = indexOfLargest(copy);
+            ret.add(copy.get(maxIndex));
+            copy.remove(maxIndex);
+        }
+        return ret;
+    }
+
     public int indexOfLargest(ArrayList<QuakeEntry> data) {
         int maxIndex = 0;
         for (int k=0; k<data.size(); k++) {
