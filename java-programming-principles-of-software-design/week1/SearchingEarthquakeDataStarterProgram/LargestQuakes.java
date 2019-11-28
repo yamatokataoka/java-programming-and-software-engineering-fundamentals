@@ -44,6 +44,10 @@ public class LargestQuakes {
         // for(int k=0; k < list.size(); k++){
         //     System.out.println(list.get(k));
         // }
+        ArrayList<QuakeEntry> largest = getLargest(list,5);
+        for (QuakeEntry qe : largest) {
+            System.out.println(qe);
+        }
         System.out.println("number found: "+list.size());
     }
 }
