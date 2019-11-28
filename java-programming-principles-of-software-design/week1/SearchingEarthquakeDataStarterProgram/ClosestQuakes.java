@@ -14,15 +14,15 @@ public class ClosestQuakes {
         ArrayList<QuakeEntry> ret = new ArrayList<QuakeEntry>();
         for (int j=0; j<howMany; j++) {
             int minIndex = 0;
-            for (int k=0; k<howMany; k++) {
-                QuakeEntry qe = quakeData.get(k);
+            for (int k=0; k<copy.size(); k++) {
+                QuakeEntry qe = copy.get(k);
                 if (qe.getLocation().distanceTo(current)
-                    < quakeData.get(minIndex).getLocation().distanceTo(current)) {
-                
+                    < copy.get(minIndex).getLocation().distanceTo(current)) {
+
                     minIndex = k;
                 }
             }
-            ret.add(quakeData.get(minIndex));
+            ret.add(copy.get(minIndex));
             copy.remove(minIndex);
         }
 
