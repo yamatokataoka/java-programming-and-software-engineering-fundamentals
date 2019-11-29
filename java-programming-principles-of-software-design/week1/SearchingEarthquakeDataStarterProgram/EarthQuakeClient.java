@@ -51,7 +51,7 @@ public class EarthQuakeClient {
             String title = qe.getInfo();
             int index = title.indexOf(phrase);
             if ((where.equals("start") && index == 0)
-                || (where.equals("end") && index == title.length()-phrase.length())
+                || (where.equals("end") && title.endsWith(phrase))
                 || (where.equals("any") && index != -1)) {
                 answer.add(qe);
             }
@@ -135,8 +135,8 @@ public class EarthQuakeClient {
         System.out.println("read data for "+list.size()+" quakes");
         //ArrayList<QuakeEntry> answer = filterByPhrase(list, "end", "California");
         //ArrayList<QuakeEntry> answer = filterByPhrase(list, "start", "Explosion"); // practice quiz: 2
-        //ArrayList<QuakeEntry> answer = filterByPhrase(list, "end", "California"); // practice quiz: 3
-        ArrayList<QuakeEntry> answer = filterByPhrase(list, "any", "Creek"); // practice quiz: 4
+        ArrayList<QuakeEntry> answer = filterByPhrase(list, "end", "California"); // practice quiz: 3
+        //ArrayList<QuakeEntry> answer = filterByPhrase(list, "any", "Creek"); // practice quiz: 4
         for (QuakeEntry qe : answer) {
             System.out.println(qe);
         }
