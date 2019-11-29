@@ -38,7 +38,8 @@ public class LargestQuakes {
         EarthQuakeParser parser = new EarthQuakeParser();
         //String source = "data/nov20quakedata.atom";
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/nov20quakedatasmall.atom";
+        //String source = "data/nov20quakedatasmall.atom";
+        String source = "data/nov20quakedata.atom"; // practice quiz: 5, 6
         ArrayList<QuakeEntry> list  = parser.read(source);
         System.out.println("read data for "+list.size());
         // for(int k=0; k < list.size(); k++){
