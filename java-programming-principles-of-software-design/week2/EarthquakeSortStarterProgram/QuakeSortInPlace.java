@@ -78,6 +78,16 @@ public class QuakeSortInPlace {
             onePassBubbleSort(in, i);
         }
     }
+    
+    public boolean checkInSortedOrder(ArrayList<QuakeEntry> quakes) {
+        for (int i=1; i<quakes.size(); i++) {
+            if (quakes.get(i).getMagnitude()
+                < quakes.get(i-1).getMagnitude()) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     public void testSort() {
         EarthQuakeParser parser = new EarthQuakeParser(); 
