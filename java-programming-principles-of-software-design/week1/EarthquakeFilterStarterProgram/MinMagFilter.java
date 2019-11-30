@@ -17,4 +17,7 @@ public class MinMagFilter implements Filter
         return qe.getMagnitude() >= magMin; 
     } 
 
+    public String getName() {
+        return "MinMag";
+    }
 }

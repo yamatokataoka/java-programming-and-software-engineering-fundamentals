@@ -17,4 +17,8 @@ public class DistanceFilter implements Filter{
     public boolean satisfies(QuakeEntry qe) { 
         return qe.getLocation().distanceTo(location) < maximumDistance; 
     }
+    
+    public String getName() {
+        return "Distance";
+    }
 }

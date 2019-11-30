@@ -21,4 +21,8 @@ public class PhraseFilter implements Filter{
                 || (where.equals("end") && title.endsWith(phrase))
                 || (where.equals("any") && index != -1); 
     }
+    
+    public String getName() {
+        return "Phrase";
+    }
 }
