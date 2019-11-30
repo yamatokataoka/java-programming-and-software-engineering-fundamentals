@@ -71,6 +71,10 @@ public class QuakeSortInPlace {
     
     public void sortByMagnitudeWithBubbleSort(ArrayList<QuakeEntry> in) {
         for (int i=0; i<in.size()-1; i++) {
+            for (QuakeEntry qe: in) { 
+                System.out.println(qe);
+            }
+            System.out.println("Printing Quakes after pass " + i);
             onePassBubbleSort(in, i);
         }
     }
@@ -78,8 +82,9 @@ public class QuakeSortInPlace {
     public void testSort() {
         EarthQuakeParser parser = new EarthQuakeParser(); 
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/nov20quakedatasmall.atom";
+        //String source = "data/nov20quakedatasmall.atom";
         //String source = "data/nov20quakedata.atom";
+        String source = "data/earthquakeDataSampleSix2.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);  
        
         System.out.println("read data for "+list.size()+" quakes");    
