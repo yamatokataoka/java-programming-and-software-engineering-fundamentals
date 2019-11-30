@@ -24,6 +24,17 @@ public class QuakeSortInPlace {
         return minIdx;
     }
     
+    public int getLargestDepth(ArrayList<QuakeEntry> quakeData, int from) {
+        int maxIdx = from;
+        for (int i=from+1; i < quakeData.size(); i++) {
+            if (quakeData.get(i).getDepth()
+                > quakeData.get(maxIdx).getDepth()) {
+                maxIdx = i;
+            }
+        }
+        return maxIdx;
+    }
+    
     public void sortByMagnitude(ArrayList<QuakeEntry> in) {
        
        for (int i=0; i< in.size(); i++) {
