@@ -55,6 +55,7 @@ public class EarthQuakeClient2 {
         for (QuakeEntry qe: mafList) { 
             System.out.println(qe);
         }
+        System.out.println(maf.getName());
     }
     
     public void testMatchAllFilter2() {
