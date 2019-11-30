@@ -35,6 +35,18 @@ public class QuakeSortInPlace {
         return maxIdx;
     }
     
+    public void onePassBubbleSort(ArrayList<QuakeEntry> quakeData, int numSorted) {
+        for (int i=1; i<quakeData.size()-numSorted-1; i++) {
+            if (quakeData.get(i).getMagnitude()
+                < quakeData.get(i-1).getMagnitude()) {
+                QuakeEntry qi = quakeData.get(i);
+                QuakeEntry preq = quakeData.get(i-1);
+                quakeData.set(i,preq);
+                quakeData.set(i-1,qi);
+            }
+        }
+    }
+    
     public void sortByMagnitude(ArrayList<QuakeEntry> in) {
        
        for (int i=0; i< in.size(); i++) {
