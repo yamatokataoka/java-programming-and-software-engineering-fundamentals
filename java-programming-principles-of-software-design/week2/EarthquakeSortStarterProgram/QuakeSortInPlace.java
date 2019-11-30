@@ -91,7 +91,7 @@ public class QuakeSortInPlace {
     
     public void sortByMagnitudeWithBubbleSortWithCheck(ArrayList<QuakeEntry> in) {
         for (int i=0; i<in.size()-1; i++) {
-            System.out.println(in.size()-1-i + " were needed to sort the elements.");
+            System.out.println(in.size()-1-i + " times were needed to sort the elements.");
             onePassBubbleSort(in, i);
             if (checkInSortedOrder(in)) {
                 return;
