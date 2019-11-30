@@ -114,11 +114,13 @@ public class EarthQuakeClient {
         EarthQuakeParser parser = new EarthQuakeParser();
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
         //String source = "data/nov20quakedatasmall.atom";
-        String source = "data/nov20quakedata.atom"; // practice quiz: 1
+        String source = "data/nov20quakedata.atom"; // practice quiz: 1 & review quiz: 1, 2
         ArrayList<QuakeEntry> list  = parser.read(source);
         System.out.println("read data for "+list.size()+" quakes");
         //ArrayList<QuakeEntry> answer = filterByDepth(list, -10000.0, -5000.0);
-        ArrayList<QuakeEntry> answer = filterByDepth(list, -8000.0, -5000.0); // practice quiz: 1
+        //ArrayList<QuakeEntry> answer = filterByDepth(list, -8000.0, -5000.0); // practice quiz: 1
+        //ArrayList<QuakeEntry> answer = filterByDepth(list, -12000.0, -10000.0); // review quiz: 1
+        ArrayList<QuakeEntry> answer = filterByDepth(list, -4000.0, -2000.0); // review quiz: 2
         for (QuakeEntry qe : answer) {
             System.out.println(qe);
         }
@@ -130,13 +132,16 @@ public class EarthQuakeClient {
         EarthQuakeParser parser = new EarthQuakeParser();
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
         //String source = "data/nov20quakedatasmall.atom";
-        String source = "data/nov20quakedata.atom"; // practice quiz: 2, 3, 4
+        String source = "data/nov20quakedata.atom"; // practice quiz: 2, 3, 4 & review quiz: 3, 4, 5
         ArrayList<QuakeEntry> list  = parser.read(source);
         System.out.println("read data for "+list.size()+" quakes");
         //ArrayList<QuakeEntry> answer = filterByPhrase(list, "end", "California");
         //ArrayList<QuakeEntry> answer = filterByPhrase(list, "start", "Explosion"); // practice quiz: 2
-        ArrayList<QuakeEntry> answer = filterByPhrase(list, "end", "California"); // practice quiz: 3
+        //ArrayList<QuakeEntry> answer = filterByPhrase(list, "end", "California"); // practice quiz: 3
         //ArrayList<QuakeEntry> answer = filterByPhrase(list, "any", "Creek"); // practice quiz: 4
+        //ArrayList<QuakeEntry> answer = filterByPhrase(list, "start", "Quarry Blast"); // review quiz: 3
+        //ArrayList<QuakeEntry> answer = filterByPhrase(list, "end", "Alaska"); // review quiz: 4
+        ArrayList<QuakeEntry> answer = filterByPhrase(list, "any", "Can"); // review quiz: 5
         for (QuakeEntry qe : answer) {
             System.out.println(qe);
         }

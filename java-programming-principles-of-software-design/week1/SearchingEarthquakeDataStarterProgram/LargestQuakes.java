@@ -39,13 +39,15 @@ public class LargestQuakes {
         //String source = "data/nov20quakedata.atom";
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
         //String source = "data/nov20quakedatasmall.atom";
-        String source = "data/nov20quakedata.atom"; // practice quiz: 5, 6
+        String source = "data/nov20quakedata.atom"; // practice quiz: 5, 6 & review quiz: 6, 7
         ArrayList<QuakeEntry> list  = parser.read(source);
         System.out.println("read data for "+list.size());
         // for(int k=0; k < list.size(); k++){
         //     System.out.println(list.get(k));
         // }
-        ArrayList<QuakeEntry> largest = getLargest(list,5);
+        //ArrayList<QuakeEntry> largest = getLargest(list,5);
+        //ArrayList<QuakeEntry> largest = getLargest(list,20); // review quiz: 6
+        ArrayList<QuakeEntry> largest = getLargest(list,50); // review quiz: 7
         for (QuakeEntry qe : largest) {
             System.out.println(qe);
         }
