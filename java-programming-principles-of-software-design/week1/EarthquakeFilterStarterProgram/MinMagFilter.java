@@ -2,8 +2,8 @@
 /**
  * Write a description of class MinMaxFilter here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author yamatokataoka
+ * @version November 30th, 2019
  */
 public class MinMagFilter implements Filter
 {
