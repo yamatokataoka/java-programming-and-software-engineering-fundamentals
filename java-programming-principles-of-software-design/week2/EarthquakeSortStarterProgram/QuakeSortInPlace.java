@@ -98,6 +98,20 @@ public class QuakeSortInPlace {
             }
         }
     }
+    
+    public void sortByMagnitudeWithCheck(ArrayList<QuakeEntry> in) {
+        for (int i=0; i< in.size(); i++) {
+            int minIdx = getSmallestMagnitude(in,i);
+            QuakeEntry qi = in.get(i);
+            QuakeEntry qmin = in.get(minIdx);
+            in.set(i,qmin);
+            in.set(minIdx,qi);
+            System.out.println(i+1 + " times has finished");
+            if (checkInSortedOrder(in)) {
+                return;
+            }
+        }
+    }
 
     public void testSort() {
         EarthQuakeParser parser = new EarthQuakeParser(); 
