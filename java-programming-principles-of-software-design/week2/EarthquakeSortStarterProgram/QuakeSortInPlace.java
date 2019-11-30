@@ -68,6 +68,12 @@ public class QuakeSortInPlace {
             in.set(maxIdx,qi);
         }
     }
+    
+    public void sortByMagnitudeWithBubbleSort(ArrayList<QuakeEntry> in) {
+        for (int i=0; i<in.size()-1; i++) {
+            onePassBubbleSort(in, i);
+        }
+    }
 
     public void testSort() {
         EarthQuakeParser parser = new EarthQuakeParser(); 
