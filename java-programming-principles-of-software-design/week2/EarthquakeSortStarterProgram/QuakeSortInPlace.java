@@ -65,7 +65,8 @@ public class QuakeSortInPlace {
         ArrayList<QuakeEntry> list  = parser.read(source);  
        
         System.out.println("read data for "+list.size()+" quakes");    
-        sortByMagnitude(list);
+        //sortByMagnitude(list);
+        sortByLargestDepth(list);
         for (QuakeEntry qe: list) { 
             System.out.println(qe);
         } 
