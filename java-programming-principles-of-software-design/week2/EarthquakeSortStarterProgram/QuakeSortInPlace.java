@@ -126,7 +126,8 @@ public class QuakeSortInPlace {
         //sortByMagnitude(list);
         //sortByLargestDepth(list);
         //sortByMagnitudeWithBubbleSort(list);
-        sortByMagnitudeWithBubbleSortWithCheck(list);
+        //sortByMagnitudeWithBubbleSortWithCheck(list);
+        sortByMagnitudeWithCheck(list);
         for (QuakeEntry qe: list) { 
             System.out.println(qe);
         } 
