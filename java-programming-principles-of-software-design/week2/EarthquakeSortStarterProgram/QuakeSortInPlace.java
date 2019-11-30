@@ -110,7 +110,8 @@ public class QuakeSortInPlace {
         System.out.println("read data for "+list.size()+" quakes");    
         //sortByMagnitude(list);
         //sortByLargestDepth(list);
-        sortByMagnitudeWithBubbleSort(list);
+        //sortByMagnitudeWithBubbleSort(list);
+        sortByMagnitudeWithBubbleSortWithCheck(list);
         for (QuakeEntry qe: list) { 
             System.out.println(qe);
         } 
