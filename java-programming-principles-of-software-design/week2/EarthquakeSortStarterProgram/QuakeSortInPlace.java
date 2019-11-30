@@ -46,6 +46,16 @@ public class QuakeSortInPlace {
         }
         
     }
+    
+    public void sortByLargestDepth(ArrayList<QuakeEntry> in) {
+        for (int i=0; i<in.size(); i++) {
+            int maxIdx = getLargestDepth(in,i);
+            QuakeEntry qi = in.get(i);
+            QuakeEntry qmax = in.get(maxIdx);
+            in.set(i,qmax);
+            in.set(maxIdx,qi);
+        }
+    }
 
     public void testSort() {
         EarthQuakeParser parser = new EarthQuakeParser(); 
