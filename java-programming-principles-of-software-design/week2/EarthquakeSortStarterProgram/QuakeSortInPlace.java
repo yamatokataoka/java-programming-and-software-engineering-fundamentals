@@ -105,6 +105,7 @@ public class QuakeSortInPlace {
         //String source = "data/nov20quakedatasmall.atom";
         //String source = "data/nov20quakedata.atom";
         String source = "data/earthquakeDataSampleSix2.atom";
+        //String source = "data/earthquakeDataSampleSix1.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);  
        
         System.out.println("read data for "+list.size()+" quakes");    
