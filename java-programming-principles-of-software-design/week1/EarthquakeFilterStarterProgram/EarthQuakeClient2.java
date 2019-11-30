@@ -20,38 +20,40 @@ public class EarthQuakeClient2 {
     public void quakesWithFilter() { 
         EarthQuakeParser parser = new EarthQuakeParser(); 
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/nov20quakedatasmall.atom";
+        //String source = "data/nov20quakedatasmall.atom";
+        String source = "data/nov20quakedata.atom"; // practice quiz: 1, 2
         ArrayList<QuakeEntry> list  = parser.read(source);         
         System.out.println("read data for "+list.size()+" quakes");
 
-        //Filter mf = new MagnitudeFilter(4.0, 5.0);
-        //ArrayList<QuakeEntry> mList = filter(list, mf);
-        //Filter df = new DepthFilter(-35000.0, -12000.0);
-        //ArrayList<QuakeEntry> dmList = filter(mList, df);
-        Filter df = new DistanceFilter(new Location(35.42,139.43), 10000000);
-        ArrayList<QuakeEntry> dList = filter(list, df);
-        Filter pf = new PhraseFilter("end", "Japan");
-        ArrayList<QuakeEntry> dpList = filter(dList, pf);
-        for (QuakeEntry qe: dpList) { 
+        Filter mf = new MagnitudeFilter(4.0, 5.0); // practice quiz: 2
+        ArrayList<QuakeEntry> mList = filter(list, mf);
+        Filter df = new DepthFilter(-35000.0, -12000.0); // practice quiz: 2
+        ArrayList<QuakeEntry> dmList = filter(mList, df);
+        //Filter df = new DistanceFilter(new Location(35.42,139.43), 10000000); // practice quiz: 1
+        //ArrayList<QuakeEntry> dList = filter(list, df);
+        //Filter pf = new PhraseFilter("end", "Japan"); // practice quiz: 1
+        //ArrayList<QuakeEntry> dpList = filter(dList, pf);
+        for (QuakeEntry qe: dmList) { 
             System.out.println(qe);
         } 
-        System.out.println("Found " + dpList.size()
+        System.out.println("Found " + dmList.size()
             + " quakes that match that criteria");
     }
     
     public void testMatchAllFilter() {
         EarthQuakeParser parser = new EarthQuakeParser(); 
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/nov20quakedatasmall.atom";
+        //String source = "data/nov20quakedatasmall.atom";
+        String source = "data/nov20quakedata.atom"; // practice quiz: 3
         ArrayList<QuakeEntry> list  = parser.read(source);         
         System.out.println("read data for "+list.size()+" quakes");
 
         MatchAllFilter maf = new MatchAllFilter();
-        Filter mf = new MagnitudeFilter(0.0, 2.0);
+        Filter mf = new MagnitudeFilter(0.0, 2.0); // practice quiz: 3
         maf.addFilter(mf);
-        Filter df = new DepthFilter(-100000.0, -10000.0);
+        Filter df = new DepthFilter(-100000.0, -10000.0); // practice quiz: 3
         maf.addFilter(df);
-        Filter pf = new PhraseFilter("any", "a");
+        Filter pf = new PhraseFilter("any", "a"); // practice quiz: 3
         maf.addFilter(pf);
         ArrayList<QuakeEntry> mafList = filter(list, maf);
         for (QuakeEntry qe: mafList) { 
@@ -65,16 +67,17 @@ public class EarthQuakeClient2 {
     public void testMatchAllFilter2() {
         EarthQuakeParser parser = new EarthQuakeParser(); 
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/nov20quakedatasmall.atom";
+        //String source = "data/nov20quakedatasmall.atom";
+        String source = "data/nov20quakedata.atom"; // practice quiz: 4
         ArrayList<QuakeEntry> list  = parser.read(source);         
         System.out.println("read data for "+list.size()+" quakes");
 
         MatchAllFilter maf = new MatchAllFilter();
-        Filter mf = new MagnitudeFilter(0.0, 3.0);
+        Filter mf = new MagnitudeFilter(0.0, 3.0); // practice quiz: 4
         maf.addFilter(mf);
-        Filter df = new DistanceFilter(new Location(36.1314,-95.9372), 10000000);
+        Filter df = new DistanceFilter(new Location(36.1314,-95.9372), 10000000); // practice quiz: 4
         maf.addFilter(df);
-        Filter pf = new PhraseFilter("any", "Ca");
+        Filter pf = new PhraseFilter("any", "Ca"); // practice quiz: 4
         maf.addFilter(pf);
         ArrayList<QuakeEntry> mafList = filter(list, maf);
         for (QuakeEntry qe: mafList) { 
