@@ -35,6 +35,8 @@ public class EarthQuakeClient2 {
         for (QuakeEntry qe: dpList) { 
             System.out.println(qe);
         } 
+        System.out.println("Found " + dpList.size()
+            + " quakes that match that criteria");
     }
     
     public void testMatchAllFilter() {
@@ -55,6 +57,8 @@ public class EarthQuakeClient2 {
         for (QuakeEntry qe: mafList) { 
             System.out.println(qe);
         }
+        System.out.println("Found " + mafList.size()
+            + " quakes that match that criteria");
         System.out.println(maf.getName());
     }
     
@@ -76,6 +80,8 @@ public class EarthQuakeClient2 {
         for (QuakeEntry qe: mafList) { 
             System.out.println(qe);
         }
+        System.out.println("Found " + mafList.size()
+            + " quakes that match that criteria");
     }
 
     public void createCSV() {
