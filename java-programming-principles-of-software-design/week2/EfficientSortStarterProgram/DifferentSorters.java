@@ -19,6 +19,9 @@ public class DifferentSorters {
             System.out.println(qe);
         }
 
+        int quakeNumber = 10;
+        System.out.println("Print quake entry in position " + quakeNumber);
+        System.out.println(list.get(quakeNumber));
     }    
 
     public void sortByMagnitude() {
