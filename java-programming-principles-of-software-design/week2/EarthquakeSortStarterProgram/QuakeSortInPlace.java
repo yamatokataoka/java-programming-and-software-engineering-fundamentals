@@ -67,7 +67,9 @@ public class QuakeSortInPlace {
             in.set(i,qmax);
             in.set(maxIdx,qi);
             // practice quiz: 1
-            if (i == 50) {
+            //if (i == 50) {
+            // review quiz: 1
+            if (i == 70) {
                 return;
             }
         }
@@ -124,7 +126,9 @@ public class QuakeSortInPlace {
         //String source = "data/nov20quakedata.atom";
         //String source = "data/earthquakeDataSampleSix2.atom";
         //String source = "data/earthquakeDataSampleSix1.atom";
-        String source = "data/earthQuakeDataDec6sample1.atom"; // practice quiz: 1, 2, 3
+        //String source = "data/earthQuakeDataDec6sample1.atom"; // practice quiz: 1, 2, 3
+        //String source = "data/earthQuakeDataDec6sample2.atom"; // review quiz: 1
+        String source = "data/earthQuakeDataWeekDec6sample2.atom"; // review quiz: 2, 3
         ArrayList<QuakeEntry> list  = parser.read(source);  
        
         System.out.println("read data for "+list.size()+" quakes");    

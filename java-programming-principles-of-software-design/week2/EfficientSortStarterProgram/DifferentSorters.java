@@ -13,7 +13,8 @@ public class DifferentSorters {
         EarthQuakeParser parser = new EarthQuakeParser();
         //String source = "data/nov20quakedata.atom";
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/earthQuakeDataDec6sample2.atom"; // practice quiz: 1
+        //String source = "data/earthQuakeDataDec6sample2.atom"; // practice quiz: 1
+        String source = "data/earthQuakeDataWeekDec6sample2.atom"; // review quiz: 6
         ArrayList<QuakeEntry> list  = parser.read(source);
         Collections.sort(list);
         for(QuakeEntry qe: list) {
@@ -21,7 +22,8 @@ public class DifferentSorters {
         }
 
         //int quakeNumber = 10;
-        int quakeNumber = 50; // practice quiz: 1
+        //int quakeNumber = 50; // practice quiz: 1
+        int quakeNumber = 600; // review quiz: 6
         System.out.println("Print quake entry in position " + quakeNumber);
         System.out.println(list.get(quakeNumber));
     }    
@@ -56,7 +58,8 @@ public class DifferentSorters {
         EarthQuakeParser parser = new EarthQuakeParser();
         //String source = "data/nov20quakedata.atom";
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/earthQuakeDataDec6sample1.atom"; // practice quiz: 2
+        //String source = "data/earthQuakeDataDec6sample1.atom"; // practice quiz: 2
+        String source = "data/earthQuakeDataWeekDec6sample2.atom"; // review quiz: 7
         ArrayList<QuakeEntry> list  = parser.read(source);
         Collections.sort(list, new TitleAndDepthComparator());
         for(QuakeEntry qe: list) {
@@ -64,7 +67,8 @@ public class DifferentSorters {
         }
 
         //int quakeNumber = 10;
-        int quakeNumber = 50; // practice quiz: 2
+        //int quakeNumber = 50; // practice quiz: 2
+        int quakeNumber = 500; // practice quiz: 7
         System.out.println("Print quake entry in position " + quakeNumber);
         System.out.println(list.get(quakeNumber));
     }
@@ -73,7 +77,8 @@ public class DifferentSorters {
         EarthQuakeParser parser = new EarthQuakeParser();
         //String source = "data/nov20quakedata.atom";
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/earthQuakeDataDec6sample2.atom"; // practice quiz: 3
+        //String source = "data/earthQuakeDataDec6sample2.atom"; // practice quiz: 3
+        String source = "data/earthQuakeDataWeekDec6sample1.atom"; // review quiz: 8
         ArrayList<QuakeEntry> list  = parser.read(source);
         Collections.sort(list, new TitleLastAndMagnitudeComparator());
         for(QuakeEntry qe: list) {
@@ -81,7 +86,8 @@ public class DifferentSorters {
         }
 
         //int quakeNumber = 10;
-        int quakeNumber = 50; // practice quiz: 3
+        //int quakeNumber = 50; // practice quiz: 3
+        int quakeNumber = 500; // practice quiz: 8
         System.out.println("Print quake entry in position " + quakeNumber);
         System.out.println(list.get(quakeNumber));
     }
