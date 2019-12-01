@@ -64,4 +64,19 @@ public class DifferentSorters {
         System.out.println("Print quake entry in position " + quakeNumber);
         System.out.println(list.get(quakeNumber));
     }
+
+    public void sortByLastWordInTitleThenByMagnitude() {
+        EarthQuakeParser parser = new EarthQuakeParser();
+        String source = "data/nov20quakedata.atom";
+        //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
+        ArrayList<QuakeEntry> list  = parser.read(source);
+        Collections.sort(list, new TitleLastAndMagnitudeComparator());
+        for(QuakeEntry qe: list) {
+            System.out.println(qe);
+        }
+
+        int quakeNumber = 10;
+        System.out.println("Print quake entry in position " + quakeNumber);
+        System.out.println(list.get(quakeNumber));
+    }
 }
