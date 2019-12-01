@@ -2,8 +2,8 @@
 /**
  * Write a description of class MagnitudeComparator here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author yamatokataoka
+ * @version December 1st, 2019
  */
 
 import java.util.*;
