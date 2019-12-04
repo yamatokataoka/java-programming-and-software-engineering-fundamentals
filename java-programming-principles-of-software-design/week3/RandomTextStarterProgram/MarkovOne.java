@@ -6,7 +6,7 @@
  * @version December 4th, 2019
  */
 
-import java.util.Random;
+import java.util.*;
 
 public class MarkovOne {
     private String myText;
@@ -35,5 +35,19 @@ public class MarkovOne {
         }
 
         return sb.toString();
+    }
+    
+    public ArrayList<String> getFollows(String key) {
+        ArrayList<String> list = new ArrayList<String>();
+        int i = 0;
+        while (i<myText.length()-1) {
+            int index = myText.indexOf(key, i);
+            if (index != -1) {
+                String follow = myText.substring(index, index+1);
+                list.add(follow);
+                i = index+1;
+            }
+        }
+        return list;
     }
 }
