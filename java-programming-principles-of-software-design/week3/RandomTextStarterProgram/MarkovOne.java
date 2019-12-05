@@ -43,7 +43,7 @@ public class MarkovOne {
         while (i<myText.length()-1) {
             int index = myText.indexOf(key, i);
             if (index != -1) {
-                String follow = myText.substring(index, index+1);
+                String follow = myText.substring(index+1, index+2);
                 list.add(follow);
                 i = index+1;
             }
