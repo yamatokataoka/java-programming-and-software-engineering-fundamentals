@@ -47,6 +47,19 @@ public class MarkovRunner {
             printOut(text);
         }
     }
+    
+    public void runMarkovModel() {
+        FileResource fr = new FileResource();
+        String st = fr.asString();
+        st = st.replace('\n', ' ');
+        MarkovModel markov = new MarkovModel(6);
+        markov.setRandom(38);
+        markov.setTraining(st);
+        for(int k=0; k < 3; k++){
+            String text = markov.getRandomText(500);
+            printOut(text);
+        }
+    }
 
     private void printOut(String s){
         String[] words = s.split("\\s+");
