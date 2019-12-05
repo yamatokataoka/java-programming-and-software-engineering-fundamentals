@@ -7,6 +7,7 @@
  */
 
 import java.util.*;
+import edu.duke.*;
 
 public class Tester {
     public void testGetFollows() {
@@ -33,6 +34,18 @@ public class Tester {
         // test5
         key = "t.";
         follows = markov.getFollows(key);
+        System.out.println(follows.size() + " " + follows);
+    }
+
+    public void testGetFollowsWithFile() {
+        FileResource fr = new FileResource("data/confucius.txt");
+        String trainingText = fr.asString();
+        trainingText = trainingText.replace('\n', ' ');
+        MarkovOne markov = new MarkovOne();
+        markov.setTraining(trainingText);
+        // test
+        String key = "t";
+        ArrayList<String> follows = markov.getFollows(key);
         System.out.println(follows.size() + " " + follows);
     }
 }
