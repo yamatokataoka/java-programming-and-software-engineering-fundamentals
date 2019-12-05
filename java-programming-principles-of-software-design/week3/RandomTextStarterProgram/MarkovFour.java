@@ -33,7 +33,7 @@ public class MarkovFour {
         String key = myText.substring(index, index+4);
         sb.append(key);
 
-        for(int k=0; k < numChars-1; k++){
+        for(int k=0; k < numChars-key.length(); k++){
             ArrayList<String> follows = getFollows(key);
             if (follows.size() == 0) {
                 break;
@@ -41,7 +41,7 @@ public class MarkovFour {
             index = myRandom.nextInt(follows.size());
             String next = follows.get(index);
             sb.append(next);
-            key = next;
+            key = key.substring(1) + next;
         }
 
         return sb.toString();
@@ -50,7 +50,7 @@ public class MarkovFour {
     public ArrayList<String> getFollows(String key) {
         ArrayList<String> follows = new ArrayList<String>();
         int pos = 0;
-        while (pos < myText.length()-key.length()) {
+        while (pos < myText.length()-1) {
             int index = myText.indexOf(key, pos);
             if (index == -1 || index+key.length() >= myText.length()) {
                 break;
