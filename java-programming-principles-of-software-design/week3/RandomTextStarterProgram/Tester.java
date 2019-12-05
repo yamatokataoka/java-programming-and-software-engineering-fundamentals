@@ -14,7 +14,6 @@ public class Tester {
         MarkovOne markov = new MarkovOne();
         String trainingText = "this is a test yes this is a test.";
         markov.setTraining(trainingText);
-        System.out.println(trainingText.length());
         // test1
         String key = "t";
         ArrayList<String> follows = markov.getFollows(key);
