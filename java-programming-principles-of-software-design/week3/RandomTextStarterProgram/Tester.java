@@ -37,13 +37,18 @@ public class Tester {
     }
 
     public void testGetFollowsWithFile() {
-        FileResource fr = new FileResource("data/confucius.txt");
+        FileResource fr = new FileResource("data/melville.txt"); // practice quiz: 3, 4
         String trainingText = fr.asString();
         trainingText = trainingText.replace('\n', ' ');
         MarkovOne markov = new MarkovOne();
         markov.setTraining(trainingText);
         // test
-        String key = "t";
+        //String key = "t";
+        //ArrayList<String> follows = markov.getFollows(key);
+        //System.out.println(follows.size() + " " + follows);
+        // practice quiz: 3
+        //String key = "o";
+        String key = "th"; // practice quiz: 4
         ArrayList<String> follows = markov.getFollows(key);
         System.out.println(follows.size() + " " + follows);
     }
