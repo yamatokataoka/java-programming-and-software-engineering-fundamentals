@@ -29,9 +29,14 @@ public class MarkovOne {
             return "";
         }
         StringBuilder sb = new StringBuilder();
+        int index = myRandom.nextInt(myText.length());
+        String key = myText.substring(index, index+1);
         for(int k=0; k < numChars; k++){
-            int index = myRandom.nextInt(myText.length());
-            sb.append(myText.charAt(index));
+            ArrayList<String> follows = getFollows(key);
+            index = myRandom.nextInt(follows.size());
+            String next = follows.get(index);
+            sb.append(next);
+            key = next;
         }
 
         return sb.toString();
