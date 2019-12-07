@@ -9,9 +9,6 @@
 import java.util.Random;
 
 public class MarkovZero implements IMarkovModel {
-    private String myText;
-    private Random myRandom;
-
     public MarkovZero() {
         myRandom = new Random();
     }
