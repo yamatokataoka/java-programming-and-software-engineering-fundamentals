@@ -37,6 +37,7 @@ public class EfficientMarkovModel extends AbstractMarkovModel {
 
         for(int k=0; k < numChars-key.length(); k++){
             buildMap(key);
+            printHashMapInfo();
             ArrayList<String> follows = getFollows(key);
             if (follows.size() == 0) {
                 break;
@@ -77,5 +78,21 @@ public class EfficientMarkovModel extends AbstractMarkovModel {
     @Override
     protected ArrayList<String> getFollows(String key) {
         return followHash.get(key);
+    }
+
+    public void printHashMapInfo() {
+        String largestKey = null;
+        System.out.println(followHash);
+        System.out.println("keys" + followHash.size());
+        for (String s : followHash.keySet()) {
+            if (largestKey == null) {
+                largestKey = s;
+            }
+            if (followHash.get(largestKey).size() < followHash.get(s).size()) {
+                largestKey = s;
+            }
+        }
+        System.out.println("largestSize" + followHash.get(largestKey).size());
+        System.out.println("largestKey" + largestKey);
     }
 }
