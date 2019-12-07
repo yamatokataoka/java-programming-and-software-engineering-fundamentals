@@ -20,24 +20,26 @@ public class MarkovRunnerWithInterface {
     }
 
     public void runMarkov() {
-        FileResource fr = new FileResource();
+        FileResource fr = new FileResource(); // practice quiz: 3, 4 (romeo.txt)
         String st = fr.asString();
         st = st.replace('\n', ' ');
         int size = 200;
-        int seed = 10;
+        int seed = 615; // practice quiz: 3, 4
         
-        MarkovZero mz = new MarkovZero();
-        runModel(mz, st, size, seed);
+        // MarkovZero mz = new MarkovZero();
+        // runModel(mz, st, size, seed);
     
-        MarkovOne mOne = new MarkovOne();
-        runModel(mOne, st, size, seed);
+        // MarkovOne mOne = new MarkovOne();
+        // runModel(mOne, st, size, seed);
         
-        MarkovModel mThree = new MarkovModel(3);
-        runModel(mThree, st, size, seed);
+        // MarkovModel mThree = new MarkovModel(3);
+        // runModel(mThree, st, size, seed);
         
-        MarkovFour mFour = new MarkovFour();
-        runModel(mFour, st, size, seed);
+        // MarkovFour mFour = new MarkovFour();
+        // runModel(mFour, st, size, seed);
 
+        EfficientMarkovModel emm = new EfficientMarkovModel(5);
+        runModel(emm, st, size, seed);
     }
 
     public void testHashMap() {
