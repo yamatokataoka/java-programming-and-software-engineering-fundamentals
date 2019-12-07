@@ -3,7 +3,7 @@
  * Write a description of MarkovOne here.
  * 
  * @author yamatokataoka
- * @version December 4th, 2019
+ * @version December 7th, 2019
  */
 
 import java.util.*;

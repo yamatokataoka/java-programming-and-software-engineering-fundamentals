@@ -3,7 +3,7 @@
  * Write a description of MarkovFour here.
  * 
  * @author yamatokataoka
- * @version December 6th, 2019
+ * @version December 7th, 2019
  */
 
 import java.util.*;
