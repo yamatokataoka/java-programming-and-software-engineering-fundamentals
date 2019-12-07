@@ -25,7 +25,7 @@ public class EfficientMarkovModel extends AbstractMarkovModel {
     public void setTraining(String s){
         myText = s.trim();
         buildMap();
-        printHashMapInfo();
+        //printHashMapInfo();
     }
 
     public String getRandomText(int numChars){

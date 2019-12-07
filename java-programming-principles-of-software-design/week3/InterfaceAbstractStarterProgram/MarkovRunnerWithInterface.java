@@ -49,6 +49,24 @@ public class MarkovRunnerWithInterface {
         runModel(emm, st, size, seed);
     }
 
+    public void compareMethods() {
+        FileResource fr = new FileResource();
+        String st = fr.asString();
+        st = st.replace('\n', ' ');
+        int size = 1000;
+        int seed = 42;
+
+        long nano_startTime = System.nanoTime();
+        MarkovModel mm = new MarkovModel(2);
+        runModel(mm, st, size, seed);
+        System.out.println((double)(System.nanoTime()-nano_startTime)/1000000000);
+
+        nano_startTime = System.nanoTime();
+        EfficientMarkovModel emm = new EfficientMarkovModel(2);
+        runModel(emm, st, size, seed);
+        System.out.println((double)(System.nanoTime()-nano_startTime)/1000000000);
+    }
+
     private void printOut(String s){
         String[] words = s.split("\\s+");
         int psize = 0;
