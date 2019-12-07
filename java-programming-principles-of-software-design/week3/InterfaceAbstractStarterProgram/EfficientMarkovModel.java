@@ -82,6 +82,8 @@ public class EfficientMarkovModel extends AbstractMarkovModel {
 
     public void printHashMapInfo() {
         String largestKey = null;
+        ArrayList<String> largestKeys = new ArrayList<String>();
+
         System.out.println(followHash);
         System.out.println("keys " + followHash.size());
         for (String s : followHash.keySet()) {
@@ -93,6 +95,11 @@ public class EfficientMarkovModel extends AbstractMarkovModel {
             }
         }
         System.out.println("largestSize " + followHash.get(largestKey).size());
-        System.out.println("largestKey " + largestKey);
+        for (String s : followHash.keySet()) {
+            if (followHash.get(largestKey).size() == followHash.get(s).size()) {
+                largestKeys.add(s);
+            }
+        }
+        System.out.println("largestKeys " + largestKeys);
     }
 }
