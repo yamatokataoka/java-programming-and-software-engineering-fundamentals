@@ -40,6 +40,15 @@ public class MarkovRunnerWithInterface {
 
     }
 
+    public void testHashMap() {
+        String st = "yes-this-is-a-thin-pretty-pink-thistle";
+        int size = 50;
+        int seed = 42;
+
+        EfficientMarkovModel emm = new EfficientMarkovModel(2);
+        runModel(emm, st, size, seed);
+    }
+
     private void printOut(String s){
         String[] words = s.split("\\s+");
         int psize = 0;
