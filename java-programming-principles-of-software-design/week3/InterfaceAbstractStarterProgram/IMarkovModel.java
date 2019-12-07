@@ -11,4 +11,5 @@ public interface IMarkovModel {
     
     public String getRandomText(int numChars);
     
+    public void setRandom(int seed);
 }
