@@ -73,4 +73,9 @@ public class EfficientMarkovModel extends AbstractMarkovModel {
 
         followHash.put(key, follows);
     }
+
+    @Override
+    protected ArrayList<String> getFollows(String key) {
+        return followHash.get(key);
+    }
 }
