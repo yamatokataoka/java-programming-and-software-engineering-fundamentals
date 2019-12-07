@@ -92,7 +92,7 @@ public class EfficientMarkovModel extends AbstractMarkovModel {
                 largestKey = s;
             }
         }
-        System.out.println("largestSize" + followHash.get(largestKey).size());
-        System.out.println("largestKey" + largestKey);
+        System.out.println("largestSize " + followHash.get(largestKey).size());
+        System.out.println("largestKey " + largestKey);
     }
 }
