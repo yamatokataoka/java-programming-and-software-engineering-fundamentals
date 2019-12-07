@@ -24,6 +24,8 @@ public class EfficientMarkovModel extends AbstractMarkovModel {
 
     public void setTraining(String s){
         myText = s.trim();
+        buildMap();
+        printHashMapInfo();
     }
 
     public String getRandomText(int numChars){
@@ -36,8 +38,6 @@ public class EfficientMarkovModel extends AbstractMarkovModel {
         sb.append(key);
 
         for(int k=0; k < numChars-key.length(); k++){
-            buildMap(key);
-            printHashMapInfo();
             ArrayList<String> follows = getFollows(key);
             if (follows.size() == 0) {
                 break;
@@ -55,24 +55,25 @@ public class EfficientMarkovModel extends AbstractMarkovModel {
         return "MarkovModel of order " + n;
     }
 
-    public void buildMap(String key) {
-        if (followHash.containsKey(key)) {
-            return;
-        }
+    public void buildMap() {
+        for (int i=0; i<myText.length()-1; i++) {
+            ArrayList<String> follows = new ArrayList<String>();
+            String key = myText.substring(i, i+n);
+            if (!followHash.containsKey(key)) {
+                int pos = 0;
+                while (pos < myText.length()-1) {
+                    int index = myText.indexOf(key, pos);
+                    if (index == -1 || index+key.length() >= myText.length()) {
+                        break;
+                    }
+                    String follow = myText.substring(index+key.length(), index+key.length()+1);
+                    follows.add(follow);
+                    pos = index+key.length();
+                }
 
-        ArrayList<String> follows = new ArrayList<String>();
-        int pos = 0;
-        while (pos < myText.length()-1) {
-            int index = myText.indexOf(key, pos);
-            if (index == -1 || index+key.length() >= myText.length()) {
-                break;
+                followHash.put(key, follows);
             }
-            String follow = myText.substring(index+key.length(), index+key.length()+1);
-            follows.add(follow);
-            pos = index+key.length();
         }
-
-        followHash.put(key, follows);
     }
 
     @Override
