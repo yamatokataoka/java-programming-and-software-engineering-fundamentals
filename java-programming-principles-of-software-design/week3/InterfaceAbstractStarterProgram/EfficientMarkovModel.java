@@ -25,7 +25,7 @@ public class EfficientMarkovModel extends AbstractMarkovModel {
     public void setTraining(String s){
         myText = s.trim();
         buildMap();
-        //printHashMapInfo();
+        printHashMapInfo();
     }
 
     public String getRandomText(int numChars){
@@ -56,9 +56,9 @@ public class EfficientMarkovModel extends AbstractMarkovModel {
     }
 
     public void buildMap() {
-        for (int i=0; i<myText.length()-1; i++) {
+        for (int i=n; i<=myText.length(); i++) {
             ArrayList<String> follows = new ArrayList<String>();
-            String key = myText.substring(i, i+n);
+            String key = myText.substring(i-n, i);
             if (!followHash.containsKey(key)) {
                 int pos = 0;
                 while (pos < myText.length()-1) {
@@ -68,7 +68,7 @@ public class EfficientMarkovModel extends AbstractMarkovModel {
                     }
                     String follow = myText.substring(index+key.length(), index+key.length()+1);
                     follows.add(follow);
-                    pos = index+key.length();
+                    pos = index+1;
                 }
 
                 followHash.put(key, follows);
@@ -85,7 +85,7 @@ public class EfficientMarkovModel extends AbstractMarkovModel {
         String largestKey = null;
         ArrayList<String> largestKeys = new ArrayList<String>();
 
-        System.out.println(followHash);
+        // System.out.println(followHash);
         System.out.println("keys " + followHash.size());
         for (String s : followHash.keySet()) {
             if (largestKey == null) {
