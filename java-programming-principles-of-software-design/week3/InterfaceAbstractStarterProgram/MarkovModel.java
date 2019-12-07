@@ -46,4 +46,8 @@ public class MarkovModel extends AbstractMarkovModel {
 
         return sb.toString();
     }
+
+    public String toString() {
+        return "MarkovModel of order " + n;
+    }
 }

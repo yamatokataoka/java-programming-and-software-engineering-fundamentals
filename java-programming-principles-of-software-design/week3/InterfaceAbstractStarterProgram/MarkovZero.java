@@ -33,4 +33,8 @@ public class MarkovZero extends AbstractMarkovModel {
 
         return sb.toString();
     }
+
+    public String toString() {
+        return "MarkovModel of order 0";
+    }
 }
