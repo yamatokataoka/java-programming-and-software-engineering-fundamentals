@@ -8,7 +8,7 @@
 
 import java.util.Random;
 
-public class MarkovZero implements IMarkovModel {
+public class MarkovZero extends AbstractMarkovModel {
     public MarkovZero() {
         myRandom = new Random();
     }

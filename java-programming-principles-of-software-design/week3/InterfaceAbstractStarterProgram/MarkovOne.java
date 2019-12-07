@@ -8,7 +8,7 @@
 
 import java.util.*;
 
-public class MarkovOne implements IMarkovModel {
+public class MarkovOne extends AbstractMarkovModel {
     public MarkovOne() {
         myRandom = new Random();
     }

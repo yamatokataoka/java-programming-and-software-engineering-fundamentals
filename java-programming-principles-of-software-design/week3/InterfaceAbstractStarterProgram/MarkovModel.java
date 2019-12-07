@@ -8,7 +8,7 @@
 
 import java.util.*;
 
-public class MarkovModel implements IMarkovModel {
+public class MarkovModel extends AbstractMarkovModel {
     private int n;
 
     public MarkovModel(int num) {
