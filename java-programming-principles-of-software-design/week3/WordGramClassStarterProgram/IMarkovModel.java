@@ -2,8 +2,8 @@
 /**
  * Write a description of interface IMarkovModel here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author yamatokataoka
+ * @version December 9th, 2019
  */
 
 public interface IMarkovModel {
