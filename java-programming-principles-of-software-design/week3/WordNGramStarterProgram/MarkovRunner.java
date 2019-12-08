@@ -32,9 +32,15 @@ public class MarkovRunner {
         FileResource fr = new FileResource(); 
         String st = fr.asString(); 
         st = st.replace('\n', ' '); 
-        MarkovWordOne markovWord = new MarkovWordOne(); 
+        MarkovWordOne markovWord = new MarkovWordOne();
         runModel(markovWord, st, 200); 
-    } 
+    }
+
+    public void testGetFollows() {
+        String st = "this is just a test yes this is a simple test";
+        MarkovWordOne markovWord = new MarkovWordOne();
+        runModel(markovWord, st, 50); 
+    }
 
     private void printOut(String s){
         String[] words = s.split("\\s+");
