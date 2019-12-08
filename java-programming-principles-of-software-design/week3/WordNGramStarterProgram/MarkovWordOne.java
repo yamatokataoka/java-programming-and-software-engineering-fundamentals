@@ -50,9 +50,9 @@ public class MarkovWordOne implements IMarkovModel {
         ArrayList<String> follows = new ArrayList<String>();
         int pos = 0;
         while (pos<myText.length-1) {
-            int index = indexOf(myText, key, pos);
-            if (index == -1 || index > myText.length-1) {
-                return follows;
+            pos = indexOf(myText, key, pos);
+            if (pos == -1 || pos >= myText.length-1) {
+                break;
             }
             follows.add(myText[pos+1]);
             pos++;
