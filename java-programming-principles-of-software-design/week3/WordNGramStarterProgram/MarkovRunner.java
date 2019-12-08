@@ -23,8 +23,8 @@ public class MarkovRunner {
         markov.setRandom(seed);
         System.out.println("running with " + markov); 
         for(int k=0; k < 3; k++){ 
-            String st = markov.getRandomText(size); 
-            printOut(st); 
+            String st = markov.getRandomText(size);
+            printOut(st);
         } 
     } 
 
@@ -34,6 +34,14 @@ public class MarkovRunner {
         st = st.replace('\n', ' '); 
         MarkovWordOne markovWord = new MarkovWordOne();
         runModel(markovWord, st, 120, 175); 
+    }
+
+    public void runMarkovTwo() {
+        FileResource fr = new FileResource();
+        String st = fr.asString();
+        st = st.replace('\n', ' ');
+        MarkovWordTwo markovWordTwo = new MarkovWordTwo();
+        runModel(markovWordTwo, st, 120, 549);
     }
 
     public void testGetFollows() {
