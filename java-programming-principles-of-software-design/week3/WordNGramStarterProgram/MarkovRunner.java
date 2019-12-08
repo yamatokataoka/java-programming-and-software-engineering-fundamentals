@@ -42,6 +42,12 @@ public class MarkovRunner {
         runModel(markovWord, st, 50); 
     }
 
+    public void testGetFollowsForTwo() {
+        String st = "this is just a test yes this is a simple test";
+        MarkovWordTwo markovWordTwo = new MarkovWordTwo();
+        runModel(markovWordTwo, st, 50);
+    }
+
     private void printOut(String s){
         String[] words = s.split("\\s+");
         int psize = 0;
