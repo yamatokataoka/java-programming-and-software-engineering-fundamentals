@@ -16,8 +16,7 @@ public class WordGram {
     }
 
     public int length(){
-        // TODO: Complete this method
-        return 0;
+        return myWords.length;
     }
 
     public String toString(){
