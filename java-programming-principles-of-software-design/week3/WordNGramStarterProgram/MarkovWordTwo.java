@@ -26,14 +26,14 @@ public class MarkovWordTwo implements IMarkovModel {
 
     public String getRandomText(int numWords){
         StringBuilder sb = new StringBuilder();
-        int index = myRandom.nextInt(myText.length-1);  // random word to start with
+        int index = myRandom.nextInt(myText.length-2);  // random word to start with
         String key1 = myText[index];
         String key2 = myText[index+1];
         sb.append(key1);
         sb.append(" ");
         sb.append(key2);
         sb.append(" ");
-        for(int k=0; k < numWords-1; k++){
+        for(int k=0; k < numWords-2; k++){
             ArrayList<String> follows = getFollows(key1, key2);
             // System.out.println(key1 + " " + key2 + " " + follows);
             if (follows.size() == 0) {
