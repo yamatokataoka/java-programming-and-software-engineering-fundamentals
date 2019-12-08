@@ -55,8 +55,8 @@ public class MarkovWordOne implements IMarkovModel {
             if (words[k].equals(target)) {
                 return k;
             }
-
-            return -1;
         }
+
+        return -1;
     }
 }
