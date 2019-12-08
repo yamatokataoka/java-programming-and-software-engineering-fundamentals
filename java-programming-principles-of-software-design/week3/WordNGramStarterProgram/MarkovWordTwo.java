@@ -31,7 +31,7 @@ public class MarkovWordTwo {
         sb.append(key);
         sb.append(" ");
         for(int k=0; k < numWords-1; k++){
-            ArrayList<String> follows = getFollows(key);
+            ArrayList<String> follows = getFollows(key, key);
             // System.out.println(key + " " + follows);
             if (follows.size() == 0) {
                 break;
@@ -46,11 +46,11 @@ public class MarkovWordTwo {
         return sb.toString().trim();
     }
 
-    private ArrayList<String> getFollows(String key) {
+    private ArrayList<String> getFollows(String key1, String key2) {
         ArrayList<String> follows = new ArrayList<String>();
         int pos = 0;
         while (pos<myText.length-1) {
-            pos = indexOf(myText, key, pos);
+            pos = indexOf(myText, key1, key2, pos);
             if (pos == -1 || pos >= myText.length-1) {
                 break;
             }
@@ -60,9 +60,11 @@ public class MarkovWordTwo {
         return follows;
     }
 
-    private int indexOf(String[] words, String target, int start) {
+    private int indexOf(String[] words, String target1,
+        String target2, int start) {
+
         for (int k=start; k<words.length; k++) {
-            if (words[k].equals(target)) {
+            if (words[k].equals(target1) && words[k+1].equals(target2)) {
                 return k;
             }
         }
@@ -73,11 +75,9 @@ public class MarkovWordTwo {
     public void testIndexOf() {
         String text = "this is just a test yes this is a simple test";
         myText = text.split("\\s+");
-        System.out.println(indexOf(myText, "this", 0));
-        System.out.println(indexOf(myText, "this", 3));
-        System.out.println(indexOf(myText, "frog", 0));
-        System.out.println(indexOf(myText, "frog", 5));
-        System.out.println(indexOf(myText, "simple", 2));
-        System.out.println(indexOf(myText, "test", 5));
+        System.out.println(indexOf(myText, "this", "is", 0));
+        System.out.println(indexOf(myText, "this", "is", 3));
+        System.out.println(indexOf(myText, "just", "a", 1));
+        System.out.println(indexOf(myText, "simple", "test", 0));
     }
 }
