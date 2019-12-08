@@ -29,19 +29,21 @@ public class MarkovRunner {
     } 
 
     public void runMarkov() { 
-        FileResource fr = new FileResource(); 
+        FileResource fr = new FileResource(); // practice quiz: 1 (confucius.txt)
         String st = fr.asString(); 
         st = st.replace('\n', ' '); 
         MarkovWordOne markovWord = new MarkovWordOne();
-        runModel(markovWord, st, 120, 175); 
+        // runModel(markovWord, st, 120, 175);
+        runModel(markovWord, st, 30, 139); // practice quiz: 1
     }
 
     public void runMarkovTwo() {
-        FileResource fr = new FileResource();
+        FileResource fr = new FileResource(); // practice quiz: 3 (confucius.txt)
         String st = fr.asString();
         st = st.replace('\n', ' ');
         MarkovWordTwo markovWordTwo = new MarkovWordTwo();
-        runModel(markovWordTwo, st, 120, 549);
+        // runModel(markovWordTwo, st, 120, 549);
+        runModel(markovWordTwo, st, 120, 832); // practice quiz: 3
     }
 
     public void testGetFollows() {
