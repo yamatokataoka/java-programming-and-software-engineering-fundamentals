@@ -49,12 +49,15 @@ public class MarkovWordTwo {
     private ArrayList<String> getFollows(String key1, String key2) {
         ArrayList<String> follows = new ArrayList<String>();
         int pos = 0;
-        while (pos<myText.length-1) {
+        // pos < myText.lenght - the number of keys
+        while (pos<myText.length-2) {
             pos = indexOf(myText, key1, key2, pos);
-            if (pos == -1 || pos >= myText.length-1) {
+            // pos < myText.lenght - the number of keys
+            if (pos == -1 || pos >= myText.length-2) {
                 break;
             }
-            follows.add(myText[pos+1]);
+            // pos + the number of keys
+            follows.add(myText[pos+2]);
             pos++;
         }
         return follows;
