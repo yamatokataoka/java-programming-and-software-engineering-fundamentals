@@ -59,4 +59,15 @@ public class MarkovWordOne implements IMarkovModel {
 
         return -1;
     }
+
+    public void testIndexOf() {
+        String text = "this is just a test yes this is a simple test";
+        myText = text.split("\\s+");
+        System.out.println(indexOf(myText, "this", 0));
+        System.out.println(indexOf(myText, "this", 3));
+        System.out.println(indexOf(myText, "frog", 0));
+        System.out.println(indexOf(myText, "frog", 5));
+        System.out.println(indexOf(myText, "simple", 2));
+        System.out.println(indexOf(myText, "test", 5));
+    }
 }
