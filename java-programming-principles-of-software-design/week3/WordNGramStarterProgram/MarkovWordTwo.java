@@ -70,7 +70,7 @@ public class MarkovWordTwo implements IMarkovModel {
     private int indexOf(String[] words, String target1,
         String target2, int start) {
 
-        for (int k=start; k<words.length; k++) {
+        for (int k=start; k<words.length-1; k++) {
             if (words[k].equals(target1) && words[k+1].equals(target2)) {
                 return k;
             }
