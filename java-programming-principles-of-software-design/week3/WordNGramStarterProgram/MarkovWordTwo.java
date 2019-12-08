@@ -8,7 +8,7 @@
 
 import java.util.*;
 
-public class MarkovWordTwo {
+public class MarkovWordTwo implements IMarkovModel {
     private String[] myText;
     private Random myRandom;
 
