@@ -21,7 +21,9 @@ public class WordGram {
 
     public String toString(){
         String ret = "";
-        // TODO: Complete this method
+        for (String s : myWords) {
+            ret += s + " ";
+        }
 
         return ret.trim();
     }
