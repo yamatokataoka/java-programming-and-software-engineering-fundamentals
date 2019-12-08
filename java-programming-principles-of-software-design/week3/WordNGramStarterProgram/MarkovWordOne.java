@@ -32,7 +32,7 @@ public class MarkovWordOne implements IMarkovModel {
         sb.append(" ");
         for(int k=0; k < numWords-1; k++){
             ArrayList<String> follows = getFollows(key);
-            System.out.println(key + " " + follows);
+            // System.out.println(key + " " + follows);
             if (follows.size() == 0) {
                 break;
             }
