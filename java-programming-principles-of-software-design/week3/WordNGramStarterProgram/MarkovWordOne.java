@@ -50,4 +50,13 @@ public class MarkovWordOne implements IMarkovModel {
         return follows;
     }
 
+    private int indexOf(String[] words, String target, int start) {
+        for (int k=start; k<words.length; k++) {
+            if (words[k].equals(target)) {
+                return k;
+            }
+
+            return -1;
+        }
+    }
 }
