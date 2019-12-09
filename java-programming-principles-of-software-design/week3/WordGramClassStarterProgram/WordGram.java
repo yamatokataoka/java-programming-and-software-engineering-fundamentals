@@ -47,7 +47,7 @@ public class WordGram {
             return new WordGram(out, 0, out.length);
         }
         for (int k=0; k<out.length-1; k++) {
-            out[k] = out[k+1];
+            out[k] = myWords[k+1];
         }
         out[out.length-1] = word;
         return new WordGram(out, 0, out.length);
