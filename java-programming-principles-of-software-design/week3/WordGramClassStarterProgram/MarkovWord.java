@@ -48,15 +48,15 @@ public class MarkovWord implements IMarkovModel{
         return sb.toString().trim();
     }
 
-    private ArrayList<String> getFollows(String key) {
+    private ArrayList<String> getFollows(WordGram kGram) {
         ArrayList<String> follows = new ArrayList<String>();
         int pos = 0;
-        while (pos<myText.length-1) {
-            pos = indexOf(myText, key, pos);
-            if (pos == -1 || pos >= myText.length-1) {
+        while (pos<myText.length-kGram.length()) {
+            pos = indexOf(myText, kGram, pos);
+            if (pos == -1 || pos >= myText.length-kGram.length()) {
                 break;
             }
-            follows.add(myText[pos+1]);
+            follows.add(myText[pos+kGram.length()]);
             pos++;
         }
         return follows;
