@@ -13,8 +13,9 @@ public class MarkovWord implements IMarkovModel{
     Random myRandom;
     int myOrder;
 
-    public MarkovWord() {
+    public MarkovWord(int order) {
         myRandom = new Random();
+        myOrder = order;
     }
 
     public void setRandom(int seed) {
