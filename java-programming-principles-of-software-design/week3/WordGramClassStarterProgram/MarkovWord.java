@@ -28,11 +28,11 @@ public class MarkovWord implements IMarkovModel{
 
     public String getRandomText(int numWords){
         StringBuilder sb = new StringBuilder();
-        int index = myRandom.nextInt(myText.length-1);  // random word to start with
-        String key = myText[index];
-        sb.append(key);
+        int index = myRandom.nextInt(myText.length-myOrder);  // random word to start with
+        WordGram key = new WordGram(myText, index, myOrder);
+        sb.append(key.toString());
         sb.append(" ");
-        for(int k=0; k < numWords-1; k++){
+        for(int k=0; k < numWords-myOrder; k++){
             ArrayList<String> follows = getFollows(key);
             // System.out.println(key + " " + follows);
             if (follows.size() == 0) {
@@ -42,7 +42,7 @@ public class MarkovWord implements IMarkovModel{
             String next = follows.get(index);
             sb.append(next);
             sb.append(" ");
-            key = next;
+            key = key.shiftAdd(next);
         }
 
         return sb.toString().trim();
