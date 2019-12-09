@@ -17,6 +17,7 @@ public class EfficientMarkovWord implements IMarkovModel{
     public EfficientMarkovWord(int order) {
         myRandom = new Random();
         myOrder = order;
+        followHash = new HashMap<WordGram, ArrayList<String>>();
     }
 
     public void setRandom(int seed) {
