@@ -39,7 +39,8 @@ public class MarkovRunner {
     } 
 
     public void testHashMap() {
-        String st = "this is a test yes this is really a test";
+        // String st = "this is a test yes this is really a test";
+        String st = "this is a test yes this is really a test yes a test this is wow";
         EfficientMarkovWord markovWord = new EfficientMarkovWord(2); 
         runModel(markovWord, st, 50, 42);
     }
