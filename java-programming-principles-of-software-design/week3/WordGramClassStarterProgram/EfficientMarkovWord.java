@@ -86,5 +86,28 @@ public class EfficientMarkovWord implements IMarkovModel{
 
         return -1;
     }
+
+    public void printHashMapInfo() {
+        WordGram largestKey = null;
+        ArrayList<WordGram> largestKeys = new ArrayList<WordGram>();
+
+        // System.out.println(followHash);
+        System.out.println("keys " + followHash.size());
+        for (WordGram wg : followHash.keySet()) {
+            if (largestKey == null) {
+                largestKey = wg;
+            }
+            if (followHash.get(largestKey).size() < followHash.get(wg).size()) {
+                largestKey = wg;
+            }
+        }
+        System.out.println("largestSize " + followHash.get(largestKey).size());
+        for (WordGram wg : followHash.keySet()) {
+            if (followHash.get(largestKey).size() == followHash.get(wg).size()) {
+                largestKeys.add(wg);
+            }
+        }
+        System.out.println("largestKeys " + largestKeys);
+    }
 }
 
