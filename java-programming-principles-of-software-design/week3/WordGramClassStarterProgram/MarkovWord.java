@@ -75,12 +75,24 @@ public class MarkovWord implements IMarkovModel{
 
     public void testIndexOf() {
         String text = "this is just a test yes this is a simple test";
+        String test1S = "this is";
+        String test2S = "frong";
+        String test3S = "simple test";
+        String[] test1A = test1S.split("\\s+");
+        String[] test2A = test2S.split("\\s+");
+        String[] test3A = test3S.split("\\s+");
+        WordGram test1WG = new WordGram(test1A, 0, test1A.length);
+        WordGram test11WG = new WordGram(test1A, 1, test1A.length-1);
+        WordGram test2WG = new WordGram(test2A, 0, test2A.length);
+        WordGram test3WG = new WordGram(test3A, 0, test3A.length);
+        WordGram test31WG = new WordGram(test3A, 1, test3A.length-1);
+        String[] test2 = new String [2];
         myText = text.split("\\s+");
-        System.out.println(indexOf(myText, "this", 0));
-        System.out.println(indexOf(myText, "this", 3));
-        System.out.println(indexOf(myText, "frog", 0));
-        System.out.println(indexOf(myText, "frog", 5));
-        System.out.println(indexOf(myText, "simple", 2));
-        System.out.println(indexOf(myText, "test", 5));
+        System.out.println(indexOf(myText, test1WG, 0));
+        System.out.println(indexOf(myText, test11WG, 3));
+        System.out.println(indexOf(myText, test2WG, 0));
+        System.out.println(indexOf(myText, test2WG, 5));
+        System.out.println(indexOf(myText, test3WG, 2));
+        System.out.println(indexOf(myText, test31WG, 5));
     }
 }
