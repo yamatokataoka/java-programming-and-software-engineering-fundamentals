@@ -12,6 +12,7 @@ public class EfficientMarkovWord implements IMarkovModel{
     String[] myText;
     Random myRandom;
     int myOrder;
+    HashMap<WordGram, ArrayList<String>> followHash;
 
     public EfficientMarkovWord(int order) {
         myRandom = new Random();
@@ -24,6 +25,16 @@ public class EfficientMarkovWord implements IMarkovModel{
 
     public void setTraining(String text){
         myText = text.split("\\s+");
+    }
+
+    public void buildMap() {
+        for (int k=0; k<=myText.length-myOrder; k++) {
+            WordGram key = new WordGram(myText, k, myOrder);
+            if (!followHash.containsKey(key)) {
+                ArrayList<String> follows = getFollows(key);
+                followHash.put(key, follows);
+            }
+        }
     }
 
     public String getRandomText(int numWords){
