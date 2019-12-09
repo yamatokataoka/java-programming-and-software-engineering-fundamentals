@@ -38,6 +38,12 @@ public class MarkovRunner {
         runModel(markovWord, st, 50, 643); 
     } 
 
+    public void testHashMap() {
+        String st = "this is a test yes this is really a test";
+        EfficientMarkovWord markovWord = new EfficientMarkovWord(2); 
+        runModel(markovWord, st, 50, 42);
+    }
+
     private void printOut(String s){
         String[] words = s.split("\\s+");
         int psize = 0;
