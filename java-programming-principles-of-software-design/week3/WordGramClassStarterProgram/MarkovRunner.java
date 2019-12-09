@@ -29,11 +29,13 @@ public class MarkovRunner {
     } 
 
     public void runMarkov() { 
-        FileResource fr = new FileResource(); 
+        FileResource fr = new FileResource();
         String st = fr.asString(); 
         st = st.replace('\n', ' '); 
         //MarkovWordOne markovWord = new MarkovWordOne(); 
         //runModel(markovWord, st, 200); 
+        MarkovWord markovWord = new MarkovWord(3); 
+        runModel(markovWord, st, 50, 643); 
     } 
 
     private void printOut(String s){
