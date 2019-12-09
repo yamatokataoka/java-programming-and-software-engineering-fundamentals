@@ -29,4 +29,18 @@ public class WordGramTester {
             }
         }
     }
+
+    public void testShiftAdd() {
+        String addWords = "this is a test this is a test of words";
+        String[] addWordsArray = addWords.split("\\s+");
+        String source = "this is a test";
+        String[] sourceArray = source.split("\\s+");
+        WordGram wg = new WordGram(sourceArray,0,sourceArray.length);
+        System.out.println(0+"\t"+wg.length()+"\t"+wg);
+
+        for (int k=0; k<addWordsArray.length; k++) {
+            WordGram shiftWG = wg.shiftAdd(addWordsArray[k]);
+            System.out.println(k+1+"\t"+wg.length()+"\t"+shiftWG);
+        }
+    }
 }
