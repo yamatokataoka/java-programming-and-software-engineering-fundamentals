@@ -30,9 +30,15 @@ public class WordGram {
 
     public boolean equals(Object o) {
         WordGram other = (WordGram) o;
-        // TODO: Complete this method
+        if (this.length() != other.length()) {
+            return false;
+        }
+        for (int k=0; k<this.length(); k++) {
+            if (!other.wordAt(k).equals(this.wordAt(k))) {
+                return false;
+            }
+        }
         return true;
-
     }
 
     public WordGram shiftAdd(String word) {	
