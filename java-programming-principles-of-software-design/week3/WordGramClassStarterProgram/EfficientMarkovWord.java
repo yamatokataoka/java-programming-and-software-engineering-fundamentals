@@ -25,6 +25,8 @@ public class EfficientMarkovWord implements IMarkovModel{
 
     public void setTraining(String text){
         myText = text.split("\\s+");
+        buildMap();
+        printHashMapInfo();
     }
 
     public void buildMap() {
