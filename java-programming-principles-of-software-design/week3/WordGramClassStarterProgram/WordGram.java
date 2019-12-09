@@ -41,8 +41,11 @@ public class WordGram {
         return true;
     }
 
-    public WordGram shiftAdd(String word) {	
+    public WordGram shiftAdd(String word) {
         String[] out = new String[myWords.length];
+        if (myWords.length == 0) {
+            return new WordGram(out, 0, out.length);
+        }
         for (int k=0; k<out.length-1; k++) {
             out[k] = out[k+1];
         }
