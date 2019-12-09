@@ -41,6 +41,7 @@ public class WordGramTester {
         for (int k=0; k<addWordsArray.length; k++) {
             WordGram shiftWG = wg.shiftAdd(addWordsArray[k]);
             System.out.println(k+1+"\t"+wg.length()+"\t"+shiftWG);
+            wg = shiftWG;
         }
     }
 }
