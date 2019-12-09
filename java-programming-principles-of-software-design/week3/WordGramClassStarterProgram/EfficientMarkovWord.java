@@ -70,14 +70,8 @@ public class EfficientMarkovWord implements IMarkovModel{
 
     private ArrayList<String> getFollows(WordGram kGram) {
         ArrayList<String> follows = new ArrayList<String>();
-        int pos = 0;
-        while (pos<myText.length-kGram.length()) {
-            pos = indexOf(myText, kGram, pos);
-            if (pos == -1 || pos >= myText.length-kGram.length()) {
-                break;
-            }
-            follows.add(myText[pos+kGram.length()]);
-            pos++;
+        if (followHash.containsKey(kGram)) {
+            follows = followHash.get(kGram);
         }
         return follows;
     }
