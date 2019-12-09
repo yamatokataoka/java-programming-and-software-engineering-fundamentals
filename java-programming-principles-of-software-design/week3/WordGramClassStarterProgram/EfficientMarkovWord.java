@@ -27,7 +27,7 @@ public class EfficientMarkovWord implements IMarkovModel{
     public void setTraining(String text){
         myText = text.split("\\s+");
         buildMap();
-        printHashMapInfo();
+        // printHashMapInfo();
     }
 
     public void buildMap() {
@@ -57,7 +57,7 @@ public class EfficientMarkovWord implements IMarkovModel{
         sb.append(" ");
         for(int k=0; k < numWords-myOrder; k++){
             ArrayList<String> follows = getFollows(key);
-            System.out.println(key + " " + follows);
+            // System.out.println(key + " " + follows);
             if (follows.size() == 0) {
                 break;
             }
