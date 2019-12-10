@@ -31,19 +31,17 @@ public class EfficientMarkovWord implements IMarkovModel{
     }
 
     public void buildMap() {
-        for (int k=0; k<=myText.length-myOrder; k++) {
+        int index = 0;
+        for (int k=0; k<myText.length-myOrder; k++) {
             WordGram key = new WordGram(myText, k, myOrder);
+
             if (!followHash.containsKey(key)) {
                 ArrayList<String> follows = new ArrayList<String>();
-                int pos = 0;
-                while (pos<myText.length-key.length()) {
-                    pos = indexOf(myText, key, pos);
-                    if (pos == -1 || pos >= myText.length-key.length()) {
-                        break;
-                    }
-                    follows.add(myText[pos+key.length()]);
-                    pos++;
-                }
+                follows.add(myText[k+myOrder]);
+                followHash.put(key, follows);
+            } else {
+                ArrayList<String> follows = followHash.get(key);
+                follows.add(myText[k+myOrder]);
                 followHash.put(key, follows);
             }
         }
