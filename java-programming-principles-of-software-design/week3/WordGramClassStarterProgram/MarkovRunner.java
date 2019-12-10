@@ -45,6 +45,22 @@ public class MarkovRunner {
         runModel(markovWord, st, 50, 42);
     }
 
+    public void compareMethods() {
+        FileResource fr = new FileResource();
+        String st = fr.asString();
+        st = st.replace('\n', ' ');
+
+        long nano_startTime = System.nanoTime();
+        MarkovWord markovWord = new MarkovWord(2);
+        runModel(markovWord, st, 100, 42);
+        System.out.println((double)(System.nanoTime()-nano_startTime)/1000000000);
+
+        nano_startTime = System.nanoTime();
+        EfficientMarkovWord efficientMarkovWord = new EfficientMarkovWord(2); 
+        runModel(efficientMarkovWord, st, 100, 42);
+        System.out.println((double)(System.nanoTime()-nano_startTime)/1000000000);
+    }
+
     private void printOut(String s){
         String[] words = s.split("\\s+");
         int psize = 0;
