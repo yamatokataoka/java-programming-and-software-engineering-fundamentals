@@ -1,3 +1,4 @@
+__*You can check my certificate [here](https://www.coursera.org/account/accomplishments/verify/UH89GKZVA5J3)*__
 # Java Programming: Principles of Software Design
 This course is the fourth course on [Java Programming and Software Engineering Fundamentals](https://www.coursera.org/specializations/java-programming) offered by Duke University on [Coursera](https://www.coursera.org).
 
