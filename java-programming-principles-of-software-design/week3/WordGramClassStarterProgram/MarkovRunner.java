@@ -29,13 +29,26 @@ public class MarkovRunner {
     } 
 
     public void runMarkov() { 
-        FileResource fr = new FileResource();
+        FileResource fr = new FileResource(); // practice quiz: 1, 2, 3, 4 (confucius.txt)
         String st = fr.asString(); 
         st = st.replace('\n', ' '); 
-        //MarkovWordOne markovWord = new MarkovWordOne(); 
-        //runModel(markovWord, st, 200); 
-        MarkovWord markovWord = new MarkovWord(3); 
-        runModel(markovWord, st, 50, 643); 
+        // MarkovWordOne markovWord = new MarkovWordOne(); 
+        // runModel(markovWord, st, 200); 
+        // MarkovWord markovWord = new MarkovWord(3); 
+        // runModel(markovWord, st, 50, 643); 
+        // runModel(markovWord, st, 50, 621); // practice quiz: 1
+
+        // practice quiz: 2
+        // MarkovWord markovWord = new MarkovWord(5);
+        // runModel(markovWord, st, 50, 844);
+
+        // practice quiz: 3
+        // EfficientMarkovWord markovWord = new EfficientMarkovWord(3); 
+        // runModel(markovWord, st, 50, 371);
+
+        // practice quiz: 4
+        EfficientMarkovWord markovWord = new EfficientMarkovWord(2); 
+        runModel(markovWord, st, 50, 65);
     } 
 
     public void testHashMap() {
