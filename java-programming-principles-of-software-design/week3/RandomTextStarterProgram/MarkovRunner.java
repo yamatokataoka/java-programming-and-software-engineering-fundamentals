@@ -24,12 +24,15 @@ public class MarkovRunner {
     }
 
     public void runMarkovOne() {
-        FileResource fr = new FileResource(); // practice quiz: 5 (confucius.txt)
+        // practice quiz: 5 (confucius.txt)
+        // graded quiz: 5 (romeo.txt)
+        FileResource fr = new FileResource();
         String st = fr.asString();
         st = st.replace('\n', ' ');
         MarkovOne markov = new MarkovOne();
         //markov.setRandom(42);
-        markov.setRandom(273); // practice quiz: 5
+        // markov.setRandom(273); // practice quiz: 5
+        markov.setRandom(365); // graded quiz: 5
         markov.setTraining(st);
         for(int k=0; k < 3; k++){
             String text = markov.getRandomText(500);
@@ -38,12 +41,15 @@ public class MarkovRunner {
     }
 
     public void runMarkovFour() {
-        FileResource fr = new FileResource(); // practice quiz: 6 (confucius.txt)
+        // practice quiz: 6 (confucius.txt)
+        // graded quiz: 6 (romeo.txt)
+        FileResource fr = new FileResource();
         String st = fr.asString();
         st = st.replace('\n', ' ');
         MarkovFour markov = new MarkovFour();
         //markov.setRandom(25);
-        markov.setRandom(371); // practice quiz: 6
+        // markov.setRandom(371); // practice quiz: 6
+        markov.setRandom(715); // graded quiz: 6
         markov.setTraining(st);
         for(int k=0; k < 3; k++){
             String text = markov.getRandomText(500);
@@ -52,13 +58,17 @@ public class MarkovRunner {
     }
     
     public void runMarkovModel() {
-        FileResource fr = new FileResource(); // practice quiz: 7 (confucius.txt)
+        // practice quiz: 7 (confucius.txt)
+        // graded quiz: 7 (romeo.txt)
+        FileResource fr = new FileResource();
         String st = fr.asString();
         st = st.replace('\n', ' ');
         //MarkovModel markov = new MarkovModel(6);
-        MarkovModel markov = new MarkovModel(8); // practice quiz: 7
+        // MarkovModel markov = new MarkovModel(8); // practice quiz: 7
+        MarkovModel markov = new MarkovModel(7); // graded quiz: 7
         //markov.setRandom(38);
-        markov.setRandom(365); // practice quiz: 7
+        // markov.setRandom(365); // practice quiz: 7
+        markov.setRandom(953); // graded quiz: 7
         markov.setTraining(st);
         for(int k=0; k < 3; k++){
             String text = markov.getRandomText(500);

@@ -37,7 +37,8 @@ public class Tester {
     }
 
     public void testGetFollowsWithFile() {
-        FileResource fr = new FileResource("data/melville.txt"); // practice quiz: 3, 4
+        // FileResource fr = new FileResource("data/melville.txt"); // practice quiz: 3, 4
+        FileResource fr = new FileResource("data/confucius.txt"); // graded quiz: 3, 4
         String trainingText = fr.asString();
         trainingText = trainingText.replace('\n', ' ');
         MarkovOne markov = new MarkovOne();
@@ -48,7 +49,17 @@ public class Tester {
         //System.out.println(follows.size() + " " + follows);
         // practice quiz: 3
         //String key = "o";
-        String key = "th"; // practice quiz: 4
+        // String key = "th"; // practice quiz: 4
+        // ArrayList<String> follows = markov.getFollows(key);
+        // System.out.println(follows.size() + " " + follows);
+
+        // graded quiz: 3
+        // String key = "o";
+        // ArrayList<String> follows = markov.getFollows(key);
+        // System.out.println(follows.size() + " " + follows);
+
+        // graded quiz: 4
+        String key = "he";
         ArrayList<String> follows = markov.getFollows(key);
         System.out.println(follows.size() + " " + follows);
     }
