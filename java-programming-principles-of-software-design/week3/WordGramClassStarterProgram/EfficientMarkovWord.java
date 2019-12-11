@@ -27,23 +27,21 @@ public class EfficientMarkovWord implements IMarkovModel{
     public void setTraining(String text){
         myText = text.split("\\s+");
         buildMap();
-        // printHashMapInfo();
+        printHashMapInfo();
     }
 
     public void buildMap() {
-        int index = 0;
-        for (int k=0; k<myText.length-myOrder; k++) {
+        for (int k=0; k<=myText.length-myOrder; k++) {
             WordGram key = new WordGram(myText, k, myOrder);
+            ArrayList<String> follows = new ArrayList<String>();
 
-            if (!followHash.containsKey(key)) {
-                ArrayList<String> follows = new ArrayList<String>();
-                follows.add(myText[k+myOrder]);
-                followHash.put(key, follows);
-            } else {
-                ArrayList<String> follows = followHash.get(key);
-                follows.add(myText[k+myOrder]);
-                followHash.put(key, follows);
+            if (followHash.containsKey(key)) {
+                follows = followHash.get(key);
             }
+            if (! (k>=myText.length-myOrder)) {
+                follows.add(myText[k+myOrder]);
+            }
+            followHash.put(key, follows);
         }
     }
 
